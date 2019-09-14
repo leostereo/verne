@@ -1,10 +1,14 @@
 import Vue from 'vue';
-import Vuetify from 'vuetify/lib';
+import Vuetify, { VCard, VToolbar } from 'vuetify/lib';
 import es from 'vuetify/es5/locale/es';
 
 Vue.use(Vuetify);
 
 export default new Vuetify({
+  components: {
+    VCard,
+    VToolbar,
+  },
   theme: {
     themes: {
       light: {
