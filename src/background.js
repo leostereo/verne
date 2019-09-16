@@ -23,6 +23,7 @@ function createWindow() {
     alwaysOnTop: true,
     kiosk: true,
     webPreferences: {
+      devTools: isDevelopment,
       nodeIntegration: true,
     },
   });
