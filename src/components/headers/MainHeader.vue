@@ -1,10 +1,7 @@
 <template>
   <div>
     <v-toolbar>
-      <v-btn icon>
-        <v-icon>mdi-wifi</v-icon>
-      </v-btn>
-      <span>{{ time }} hs</span>
+      <hour />
       <div class="flex-grow-1"></div>
       <template>
         <div class="my-2">
@@ -25,22 +22,11 @@
 </template>
 
 <script>
+import Hour from '../common/Hour.vue';
+
 export default {
-  data: () => ({
-    time: null,
-    interval: null,
-  }),
-  beforeMount() {
-    this.updateTime();
-    this.interval = setInterval(() => this.updateTime(), 60000);
-  },
-  beforeDestroy() {
-    clearInterval(this.interval);
-  },
-  methods: {
-    updateTime() {
-      this.time = this.$moment().format('ddd HH:mm');
-    },
+  components: {
+    Hour,
   },
 };
 </script>

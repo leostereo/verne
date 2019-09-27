@@ -18,31 +18,11 @@
 </template>
 
 <script>
+import TRAINING_MODES_CARDS from '../../constants/TrainingModesCards';
+
 export default {
   data: () => ({
-    cards: [
-      {
-        id: 1,
-        title: 'Inicio rápido',
-        src: './img/dashboard/inicio_rapido.jpg',
-        route: '/training',
-        showCounter: true,
-      },
-      {
-        id: 2,
-        title: 'Programas de entrenamiento',
-        src: './img/dashboard/programas_entrenamiento.jpg',
-        route: '/training-programs',
-        showCounter: false,
-      },
-      {
-        id: 3,
-        title: 'Aplicaciones web',
-        src: './img/dashboard/apps_web.jpg',
-        route: '/apps',
-        showCounter: false,
-      },
-    ],
+    cards: TRAINING_MODES_CARDS,
   }),
   methods: {
     redirect(path, showCounter) {
