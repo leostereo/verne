@@ -46,6 +46,7 @@
 import { mapState } from 'vuex';
 import Indicator from '../common/Indicator.vue';
 import StopTrainingModal from '../modals/StopTrainingModal.vue';
+import ControlService from '../../services/ControlService';
 import { ROUTES } from '../../router';
 
 const ICONS = {
@@ -67,42 +68,46 @@ export default {
       showConfirmModal: false,
     };
   },
-  computed: mapState(['speed', 'inclination', 'start']),
+  computed: mapState({
+    speed: state => state.treadmill.status.speed,
+    inclination: state => state.treadmill.status.inclination,
+    state: state => state.treadmill.status.state,
+  }),
   methods: {
     setIcon(value) {
       this.icon = value ? ICONS.PAUSE : ICONS.PLAY;
     },
     handleOnClickStart() {
-      this.$store.commit('setStart', true);
+      const value = !this.start;
+      if (value) {
+        ControlService.pause();
+      } else {
+        ControlService.play();
+      }
     },
     handleOnClickStop() {
       this.showConfirmModal = true;
     },
     handleOnClickInclination(isIncrease) {
       if (isIncrease) {
-        this.$store.commit('increaseInclination');
+        ControlService.increaseInclination();
       } else {
-        this.$store.commit('decreaseInclination');
+        ControlService.decreaseInclination();
       }
     },
     handleOnClickSpeed(isIncrease) {
       if (isIncrease) {
-        this.$store.commit('increaseSpeed');
+        ControlService.increaseSpeed();
       } else {
-        this.$store.commit('decreaseSpeed');
+        ControlService.decreaseSpeed();
       }
     },
     handleOnCloseModal(response) {
       this.showConfirmModal = false;
       if (response) {
-        this.$store.commit('setStart', false);
+        ControlService.stop();
         this.$router.push({ path: ROUTES.TRAINING_RESULTS });
       }
-    },
-  },
-  watch: {
-    start(value) {
-      this.setIcon(value);
     },
   },
 };

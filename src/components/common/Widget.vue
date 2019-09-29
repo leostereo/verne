@@ -18,6 +18,7 @@ export default {
     },
     value: {
       type: String,
+      default: '0',
       required: true,
     },
   },

@@ -37,8 +37,8 @@ export default {
       required: false,
     },
     value: {
-      type: Number,
-      default: 0.0,
+      type: String,
+      default: '0',
       required: true,
     },
   },
