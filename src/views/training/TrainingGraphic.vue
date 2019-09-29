@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import { Chart } from 'highcharts-vue';
 import GraphService from '../../services/GraphService';
 import TrainingGraphOptions from '../../constants/TrainingGraphOptions';
@@ -18,6 +19,15 @@ export default {
     return {
       chartOptions: GraphService.createGraph(TrainingGraphOptions, this.getData),
     };
+  },
+  computed: mapState({
+    isConnected: state => state.socket.isConnected,
+    infoView: state => state.treadmill.info_view,
+  }),
+  mounted() {
+    if (this.isConnected) {
+      GraphService.subscribeInProgresChart();
+    }
   },
   methods: {
     getData() {
@@ -32,6 +42,16 @@ export default {
         inclinacion.shift();
         inclinacion.push([x, z]);
       }, 1000);
+    },
+  },
+  watch: {
+    isConnected(value) {
+      if (value) {
+        GraphService.subscribeInProgresChart();
+      }
+    },
+    infoView(value) {
+      console.log(value);
     },
   },
 };

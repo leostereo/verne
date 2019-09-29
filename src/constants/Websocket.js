@@ -38,6 +38,7 @@ const MESSAGE_ACTIONS = {
   STOP_STATUS_POLLING: 'stop_status_polling',
   INCLINE_SET_POINT: 'incline_set_point',
   SPEED_SET_POINT: 'speed_set_point',
+  GET_INPROGRESS_CHART: 'get_inprogress_chart',
 };
 
 export { SOCKET, MESSAGE_CODES, MESSAGE_ACTIONS };

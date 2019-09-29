@@ -8,11 +8,12 @@ export default new Vuex.Store({
     socket: {
       isConnected: false,
       reconnectError: false,
+      response: null,
     },
     treadmill: {
       status: {},
       control: {},
-      view: {},
+      info_view: {},
       other: {},
     },
   },
@@ -33,6 +34,11 @@ export default new Vuex.Store({
     },
   },
   actions: {
-
+    get_inprogress_chart_response(_, message) {
+      this.state.socket.response = message;
+    },
+    ack(_, message) {
+      this.state.socket.response = message;
+    },
   },
 });
