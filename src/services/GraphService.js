@@ -1,3 +1,4 @@
+import moment from 'moment';
 import WebsocketService from './WebsocketService';
 import { MESSAGE_CODES, MESSAGE_ACTIONS } from '../constants/Websocket';
 
@@ -8,23 +9,27 @@ class GraphService extends WebsocketService {
   }
 
   createGraph(options, load) {
-    const graph = options;
-    graph.series[0].data = this.createSerie(20, 0);
-    graph.series[1].data = this.createSerie(20, 0);
-    graph.chart.events.load = load;
-    return graph;
+    this.graph = options;
+    this.graph.chart.events.load = load;
+    return this.graph;
   }
 
   createSerie(size, value) {
     this.data = [];
-    const time = (new Date()).getTime();
-    for (let i = -size; i <= 0; i += 1) {
-      this.data.push({ x: time + i * 1000, y: value });
+    const time = moment('00:00:00', 'HH:mm:ss');
+    for (let i = -size; i < 0; i += 1) {
+      const x = time.add(1, 'seconds').unix() * 1000;
+      this.data.push({ x, y: value });
     }
     return this.data;
   }
 
-  subscribeInProgresChart() {
+  getLastPoints(array, size) {
+    this.data = array;
+    return this.data.slice(-size);
+  }
+
+  subscribeInProgresChartData() {
     const message = this.createMessage(this.code, MESSAGE_ACTIONS.GET_INPROGRESS_CHART);
     this.sendMessage(message);
   }

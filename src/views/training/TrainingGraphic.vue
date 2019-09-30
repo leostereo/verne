@@ -17,7 +17,9 @@ export default {
   },
   data() {
     return {
-      chartOptions: GraphService.createGraph(TrainingGraphOptions, this.getData),
+      chartOptions: GraphService.createGraph(TrainingGraphOptions, this.loadChartData),
+      interval: null,
+      maxPoints: 20,
     };
   },
   computed: mapState({
@@ -26,32 +28,44 @@ export default {
   }),
   mounted() {
     if (this.isConnected) {
-      GraphService.subscribeInProgresChart();
+      this.subscribeInProgresChartData();
     }
   },
+  beforeDestroy() {
+    clearInterval(this.interval);
+  },
   methods: {
-    getData() {
-      const velocidad = this.chartOptions.series[0].data;
-      const inclinacion = this.chartOptions.series[1].data;
-      setInterval(() => {
-        const x = (new Date()).getTime();
-        const y = parseInt((Math.random() * 10).toFixed(0), 10);
-        const z = parseInt((Math.random() * 10).toFixed(0), 10);
-        velocidad.shift();
-        velocidad.push([x, y]);
-        inclinacion.shift();
-        inclinacion.push([x, z]);
-      }, 1000);
+    loadChartData(data) {
+      if (!data.charts) return;
+      const speed = this.chartOptions.series[0].data;
+      const speedPoints = data.charts[0].info;
+      this.addPoint(speed, speedPoints);
+
+      const inclination = this.chartOptions.series[1].data;
+      const inclinationPoints = data.charts[1].info;
+      this.addPoint(inclination, inclinationPoints);
+    },
+    addPoint(array, data) {
+      const points = GraphService.getLastPoints(data, this.maxPoints);
+      points.forEach(({ x, y }) => {
+        if (array.length > this.maxPoints) array.shift();
+        const time = this.$moment(x, 'mm:ss').unix() * 1000;
+        const point = { x: time, y: Number(y) };
+        array.push(point);
+      });
+    },
+    subscribeInProgresChartData() {
+      GraphService.subscribeInProgresChartData();
     },
   },
   watch: {
     isConnected(value) {
       if (value) {
-        GraphService.subscribeInProgresChart();
+        this.subscribeInProgresChartData();
       }
     },
     infoView(value) {
-      console.log(value);
+      this.loadChartData(value);
     },
   },
 };

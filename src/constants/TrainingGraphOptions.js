@@ -29,6 +29,16 @@ const TrainingGraphOptions = {
         fontFamily: 'Verdana, sans-serif',
       },
     },
+    dateTimeLabelFormats: {
+      millisecond: '%H:%M:%S',
+      second: '%H:%M:%S',
+      minute: '%H:%M:%S',
+      hour: '%H:%M:%S',
+      day: '%H:%M:%S',
+      week: '%H:%M:%S',
+      month: '%H:%M:%S',
+      year: '%H:%M:%S',
+    },
   },
   plotOptions: {
     pie: {

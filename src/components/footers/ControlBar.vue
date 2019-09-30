@@ -54,9 +54,16 @@ const ICONS = {
   PLAY: 'mdi-play',
 };
 
+const TREADMILL_STATE = {
+  RUNNING: 'running',
+  STOPPED: 'stopped',
+  ERROR: 'error',
+  EMERGENCY: 'emergency',
+};
+
 export default {
   beforeMount() {
-    this.setIcon(this.start);
+    this.setIcon(this.state);
   },
   components: {
     Indicator,
@@ -64,7 +71,7 @@ export default {
   },
   data() {
     return {
-      icon: null,
+      icon: ICONS.PAUSE,
       showConfirmModal: false,
     };
   },
@@ -75,7 +82,7 @@ export default {
   }),
   methods: {
     setIcon(value) {
-      this.icon = value ? ICONS.PAUSE : ICONS.PLAY;
+      this.icon = value === TREADMILL_STATE.RUNNING ? ICONS.PAUSE : ICONS.PLAY;
     },
     handleOnClickStart() {
       const value = !this.start;
@@ -108,6 +115,11 @@ export default {
         ControlService.stop();
         this.$router.push({ path: ROUTES.TRAINING_RESULTS });
       }
+    },
+  },
+  watch: {
+    state(value) {
+      this.setIcon(value);
     },
   },
 };
