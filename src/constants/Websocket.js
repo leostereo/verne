@@ -1,6 +1,7 @@
 const SOCKET = {
-  URL: 'ws://127.0.0.1',
-  PORT: 8080,
+  URL1: 'ws://localhost',
+  URL: 'ws://10.1.1.50',
+  PORT: 8081,
   PATH: 'control',
   PROTOCOL: 'websocket',
   RECONNECTION_ATTEMPTS: 5,
@@ -35,10 +36,17 @@ const MESSAGE_ACTIONS = {
   INCLINE_UP: 'incline_up',
   INCLINE_DOWN: 'incline_down',
   START_STATUS_POLLING: 'start_status_polling',
+  TRAIN_BY_DISTANCE: 'start_training_by_distance',
+  TRAIN_BY_TIME: 'start_training_by_time',
+  QUICK: 'start_quickstart_training',
+  PROGRAM: 'start_training_by_id',
   STOP_STATUS_POLLING: 'stop_status_polling',
   INCLINE_SET_POINT: 'incline_set_point',
   SPEED_SET_POINT: 'speed_set_point',
   GET_INPROGRESS_CHART: 'get_inprogress_chart',
+  GET_RESULT_SCREEN_INFO: 'get_result_screen_info',
+  GET_ALL_TRAININGS: 'get_all_trainings',
+  GET_TRAINING_DETAIL_BY_ID: 'get_training_detail_by_id',
 };
 
 export { SOCKET, MESSAGE_CODES, MESSAGE_ACTIONS };

@@ -8,13 +8,35 @@ class ControlService extends WebsocketService {
   }
 
   startPolling() {
+    this.play();
     const message = this.createMessage(this.code, MESSAGE_ACTIONS.START_STATUS_POLLING);
     this.sendMessage(message);
-    this.play();
   }
 
   stopPolling() {
     const message = this.createMessage(this.code, MESSAGE_ACTIONS.STOP_STATUS_POLLING);
+    this.sendMessage(message);
+  }
+
+  startTraining(extra) {
+    let action = MESSAGE_ACTIONS.QUICK;
+    if (extra.training_mode === 'time') {
+      action = MESSAGE_ACTIONS.TRAIN_BY_TIME;
+    }
+    if (extra.training_mode === 'distance') {
+      action = MESSAGE_ACTIONS.TRAIN_BY_DISTANCE;
+    }
+    if (extra.training_mode === 'program') {
+      action = MESSAGE_ACTIONS.PROGRAM;
+    }
+    const message = this.createMessage(MESSAGE_CODES.TRAINING_VIEW,
+      action, extra);
+    this.sendMessage(message);
+  }
+
+  startTrainingByTime(extra) {
+    const message = this.createMessage(MESSAGE_CODES.TRAINING_VIEW,
+      MESSAGE_ACTIONS.START_TRAINING_BY_TIME, extra);
     this.sendMessage(message);
   }
 
@@ -53,6 +75,19 @@ class ControlService extends WebsocketService {
     const message = this.createMessage(this.code, MESSAGE_ACTIONS.SPEED_DOWN);
     this.sendMessage(message);
   }
+
+  SetPoint(variable, value) {
+    let action;
+    if (variable === 'speed') {
+      action = MESSAGE_ACTIONS.SPEED_SET_POINT;
+    }
+    if (variable === 'inclination') {
+      action = MESSAGE_ACTIONS.INCLINE_SET_POINT;
+    }
+    const message = this.createSetPointMessage(this.code, action, value);
+    this.sendMessage(message);
+  }
+
 }
 
 export default new ControlService();

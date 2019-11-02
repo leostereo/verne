@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar>
+  <v-toolbar flat class="header">
     <v-row>
       <v-col cols="3">
         <hour />
@@ -27,3 +27,9 @@ export default {
   },
 };
 </script>
+<style scoped>
+.header{
+background:transparent;
+}
+
+</style>

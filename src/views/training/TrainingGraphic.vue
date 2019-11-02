@@ -26,15 +26,16 @@ export default {
     isConnected: state => state.socket.isConnected,
     infoView: state => state.treadmill.info_view,
   }),
-  mounted() {
-    if (this.isConnected) {
-      this.subscribeInProgresChartData();
-    }
-  },
+  mounted() {},
   beforeDestroy() {
     clearInterval(this.interval);
+    this.clearGraphSeries();
   },
   methods: {
+    clearGraphSeries() {
+      this.chartOptions.series[0].data = [];
+      this.chartOptions.series[1].data = [];
+    },
     loadChartData(data) {
       if (!data.charts) return;
       const speed = this.chartOptions.series[0].data;
@@ -73,6 +74,6 @@ export default {
 
 <style>
 .chart {
-  height: calc(100vh - 300px);
+  height: calc(100vh - 450px);
 }
 </style>

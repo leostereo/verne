@@ -33,6 +33,11 @@ class GraphService extends WebsocketService {
     const message = this.createMessage(this.code, MESSAGE_ACTIONS.GET_INPROGRESS_CHART);
     this.sendMessage(message);
   }
+
+  getStatsChartData() {
+    const message = this.createMessage(this.code, MESSAGE_ACTIONS.GET_RESULT_SCREEN_INFO);
+    this.sendMessage(message);
+  }
 }
 
 export default new GraphService();

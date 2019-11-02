@@ -27,6 +27,7 @@ export default {
 
 <style>
 .circle {
+  background-color: #3c3e55;
   border-radius: 45px;
   height: 90px;
   width: 90px;
@@ -36,6 +37,7 @@ export default {
   align-items: center;
 }
 .data {
+  background-color: #3c3e55;
   margin-top: 15px;
   margin-left: -15px;
   border-bottom-right-radius: 35px;
