@@ -1,9 +1,9 @@
 <template>
   <div>
     <v-btn icon>
-      <v-icon>mdi-wifi</v-icon>
+      <img style="height:40px" src="../../assets/png/wifi.svg" alt="">
     </v-btn>
-    <span>{{ time }} hs</span>
+    <span class="white--text">{{ time }} hs</span>
   </div>
 </template>
 

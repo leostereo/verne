@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-toolbar>
+    <v-toolbar class="">
       <hour />
       <div class="flex-grow-1"></div>
       <template>
@@ -30,3 +30,6 @@ export default {
   },
 };
 </script>
+<style lang="stylus" scoped>
+
+</style>

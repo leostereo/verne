@@ -77,7 +77,7 @@ const TrainingGraphOptions = {
   }],
   series: [{
     name: 'Velocidad',
-    type: 'spline',
+    type: 'column',
     yAxis: 0,
     zIndex: 1,
     showInLegend: false,
@@ -98,7 +98,7 @@ const TrainingGraphOptions = {
   },
   {
     name: 'Inclinación',
-    type: 'column',
+    type: 'spline',
     yAxis: 1,
     color: Highcharts.getOptions().colors[0],
     data: [],

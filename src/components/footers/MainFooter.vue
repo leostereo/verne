@@ -1,5 +1,5 @@
 <template>
-  <v-footer absolute class="font-weight-medium">
+  <v-footer absolute class="font-weight-medium footer">
     <v-col cols="12">
       <strong>{{ getId }}</strong>
     </v-col>
@@ -18,3 +18,8 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.footer{
+background:transparent;
+}

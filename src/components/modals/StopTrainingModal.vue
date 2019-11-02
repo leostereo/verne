@@ -1,16 +1,24 @@
 <template>
   <v-row justify="center">
     <v-dialog v-model="show" width="400">
-      <v-card>
-        <v-card-title class="headline">Confirmar</v-card-title>
-        <v-card-text>
+      <v-card class="verneback">
+          <div class="text-center pt-10">
+            <img style="height:100px" src="@/assets/png/finalizar.svg"/>
+          </div>
+        <v-card-title class="headline verne_text text-center">
           ¿Está seguro que desea finalizar con el entrenamiento?
-        </v-card-text>
-        <v-card-actions>
-          <div class="flex-grow-1"></div>
-          <v-btn color="indigo darken-1" text @click="toggleModal(false)">No</v-btn>
-          <v-btn color="indigo darken-1" text @click="toggleModal(true)">Si</v-btn>
-        </v-card-actions>
+        </v-card-title>
+          <div class="flex-grow-1 "></div>
+          <div class="button-frame">
+            <button class="verne_degrade verne_container_rounded"
+              @click="toggleModal(false)">
+                CANCELAR
+              </button>
+            <button class="verne_degrade verne_container_rounded"
+              @click="toggleModal(true)">
+                ACEPTAR
+              </button>
+          </div>
       </v-card>
     </v-dialog>
   </v-row>
@@ -32,3 +40,13 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.button-frame{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+</style>>
+
+</style>

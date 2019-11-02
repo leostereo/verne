@@ -10,16 +10,16 @@ const TRAINING_MODES_CARDS = [
   },
   {
     id: 2,
-    title: 'Programas de entrenamiento',
+    title: 'Entrenamiento por distancia',
     src: './img/dashboard/programas_entrenamiento.jpg',
-    route: ROUTES.TRAINING_PROGRAMS,
+    route: ROUTES.TRAINING_BY_DISTANCE_SETTINGS,
     showCounter: false,
   },
   {
     id: 3,
-    title: 'Aplicaciones web',
+    title: 'Entrenamiento por tiempo',
     src: './img/dashboard/apps_web.jpg',
-    route: ROUTES.APPS,
+    route: ROUTES.TRAINING_BY_TIME_SETTINGS,
     showCounter: false,
   },
 ];

@@ -1,15 +1,15 @@
 <template>
-  <v-row justify="center">
-    <v-btn icon>
-      <v-icon>mdi-skip-previous</v-icon>
+  <v-row justify="center" class="align-center">
+    <v-btn icon small class="mx-3">
+      <img style="height:30px" src="../../assets/png/atras.svg" alt="">
     </v-btn>
-    <v-btn icon>
-      <v-icon>mdi-play-circle</v-icon>
+    <v-btn icon small class="mx-3">
+      <img style="height:30px" src="../../assets/png/play.svg" alt="">
     </v-btn>
-    <v-btn icon>
-      <v-icon>mdi-skip-next</v-icon>
+    <v-btn icon small class="mx-3">
+      <img style="height:30px" src="../../assets/png/adelante.svg" alt="">
     </v-btn>
-    <v-chip class="ma-2" color="indigo" text-color="white" v-if="true">
+    <v-chip class="ma-2" color="#3c3e55" text-color="white" v-if="true">
       <span class="display text-center"></span>
     </v-chip>
   </v-row>

@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-content>
+    <v-content class="back">
       <router-view/>
     </v-content>
   </v-app>
@@ -15,3 +15,9 @@ export default {
   }),
 };
 </script>
+<style>
+.back {
+  background-image: url("assets/png/fondo2.png");
+  background-size: cover;
+}
+</style>
