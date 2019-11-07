@@ -36,11 +36,11 @@ export default {
   height: 150px;
   border: double 4px transparent;
   border-radius: 110px;
-  background-image: linear-gradient(#3c3e55, #3c3e55), radial-gradient(circle at top left,  #00d1fc,#8457ff);
+  background-image: linear-gradient(#3c3e55, #3c3e55),
+    radial-gradient(circle at top left,  #00d1fc,#8457ff);
   background-origin: border-box;
   background-clip: content-box, border-box;
 }
-
 .context {
   margin:0%;
   display: flex;
@@ -48,9 +48,7 @@ export default {
   justify-content: center;
   width: 180px;
   height: 180px;
-  -moz-border-radius: 50%;
-  -webkit-border-radius: 50%;
-  order-radius: 50%;
+  border-radius: 50%;
   background: #3c3e55;
 }
 </style>

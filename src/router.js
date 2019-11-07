@@ -37,7 +37,6 @@ export default new Router({
       props: true,
       name: '/training-programs',
       component: () => import('./views/programs/ProgramsMenu.vue'),
-
     },
     {
       path: ROUTES.TRAINING_PROGRAM_DETAIL,

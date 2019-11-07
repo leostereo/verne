@@ -1,10 +1,12 @@
 <template>
-        <div class="align-self-center">
-            <button class="round_button font-weight-bold display-1"
-            @click="redirect(routes.TRAINING, true)">
-                QUICK<br>START
-            </button>
-          </div>
+  <div class="align-self-center">
+    <button
+      class="round_button font-weight-bold display-1"
+      @click="redirect(routes.TRAINING, true)"
+    >
+      QUICK<br>START
+    </button>
+  </div>
 </template>
 
 <script>
@@ -16,7 +18,6 @@ export default {
   }),
   methods: {
     redirect(path, showCounter) {
-      alert('AAALLEER');
       this.$emit('show-counter', { path, showCounter });
     },
   },

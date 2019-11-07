@@ -1,8 +1,5 @@
 <template>
-  <highcharts v-if="render"
-    class="chart"
-    :options="chartOptions"
-  />
+  <highcharts v-if="render" class="chart" :options="chartOptions" />
 </template>
 
 <script>
@@ -44,11 +41,11 @@ export default {
       serieObj[1].info.forEach(this.pushInclination);
     },
     pushSpeed(item) {
-      this.chartOptions.xAxis.categories.push(item.x)
-      this.chartOptions.series[0].data.push(parseInt(item.y));
+      this.chartOptions.xAxis.categories.push(item.x);
+      this.chartOptions.series[0].data.push(Number(item.y));
     },
     pushInclination(item) {
-      this.chartOptions.series[1].data.push(parseInt(item.y));
+      this.chartOptions.series[1].data.push(Number(item.y));
     },
   },
   watch: {
@@ -60,7 +57,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .chart {
   height: calc(100vh - 300px);
 }

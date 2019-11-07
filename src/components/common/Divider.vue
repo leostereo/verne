@@ -1,5 +1,5 @@
 <template>
- <v-divider class="divider"></v-divider>
+  <v-divider class="divider"></v-divider>
 </template>
 
 <style scoped>

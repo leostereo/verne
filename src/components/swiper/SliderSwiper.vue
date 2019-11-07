@@ -1,8 +1,6 @@
 
 <script>
-
-import 'swiper/dist/css/swiper.css';
-import { swiper, } from 'vue-awesome-swiper';
+import { swiper } from 'vue-awesome-swiper';
 
 export default {
   components: {
@@ -41,4 +39,3 @@ export default {
   },
 };
 </script>
-

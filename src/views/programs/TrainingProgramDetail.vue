@@ -4,21 +4,23 @@
   <v-container fluid>
     <v-row>
       <back-home-button path="/training-programs"/>
-    </v-row>    
+    </v-row>
     <v-row v-if="render" justify="center" align="center" class="full-height">
       <v-col cols="4">
-               <train-program-detail :creator="card.creator"
-              :name="card.name" :time="card.total_time"
-              :description="card.description"
-              @show-counter="setCounter"
-            />
+        <train-program-detail
+          :creator="card.creator"
+          :name="card.name"
+          :time="card.total_time"
+          :description="card.description"
+          @show-counter="setCounter"
+        />
       </v-col>
       <v-col cols="3">
-          <training-program-graphic 
+          <training-program-graphic
           title="velocidad por tiempo" yaxys="kms/h" source="0"/>
       </v-col>
       <v-col cols="3">
-          <training-program-graphic 
+          <training-program-graphic
           title="inclinacion por tiempo" yaxys="grados" source="1"/>
       </v-col>
     </v-row>
@@ -32,7 +34,7 @@ import { mapState } from 'vuex';
 import ProgramService from '../../services/ProgramService';
 import TrainProgramDetail from './TrainProgramDetail.vue';
 import Counter from '../../components/common/Counter.vue';
-import TrainingProgramGraphic from './TrainingProgramGraphic.vue'
+import TrainingProgramGraphic from './TrainingProgramGraphic.vue';
 import BackHomeButton from '../../components/common/BackHomeButton.vue';
 
 export default {
@@ -50,7 +52,6 @@ export default {
       require: true,
       type: String,
     },
-
   },
   data() {
     return {
@@ -77,7 +78,6 @@ export default {
       this.showCounter = true;
     },
     redirect() {
-      
       this.showCounter = false;
       this.$router.push({
         name: '/training',

@@ -1,8 +1,5 @@
 <template>
-  <highcharts
-    class="chart"
-    :options="chartOptions"
-  />
+  <highcharts class="chart" :options="chartOptions"/>
 </template>
 
 <script>
@@ -19,7 +16,7 @@ export default {
     return {
       chartOptions: GraphService.createGraph(TrainingGraphOptions, this.loadChartData),
       interval: null,
-      maxPoints: 20,
+      maxPoints: 10,
     };
   },
   computed: mapState({
@@ -72,7 +69,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .chart {
   height: calc(100vh - 450px);
 }

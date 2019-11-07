@@ -47,6 +47,4 @@ export default {
   margin-bottom: 10px;
   text-align: center;
 }
-</style>>
-
 </style>

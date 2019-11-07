@@ -26,7 +26,7 @@ class GraphService extends WebsocketService {
 
   getLastPoints(array, size) {
     this.data = array;
-    return this.data.slice(-size);
+    return array.slice(Math.max(array.length - size, 1));
   }
 
   subscribeInProgresChartData() {

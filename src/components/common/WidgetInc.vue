@@ -37,13 +37,12 @@ export default {
     },
     decrement() {
       if (this.value > 0) {
-        this.value--;
+        this.value -= 1;
       }
     },
     watch: {
       age() {
-        alert('chann');
-        this.user_age = value;
+        this.user_age = this.value;
       },
     },
   },
