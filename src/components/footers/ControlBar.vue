@@ -12,8 +12,9 @@
         <div>
           <v-row justify="center" align="center" no-gutters>
             <v-col cols="12">
-              <input type="text" maxlength="2" v-model="speedSetPoint"
+              <input type="text" maxlength="4" v-model="speedSetPoint"
                 class="verne_container_rounded_deg"
+                v-bind:class="{'blink': speedOutOfRange}"
                 @focus="speedControl"
               />
             </v-col>
@@ -46,27 +47,20 @@
         </button>
       </v-col>
       <v-col cols="1">
-        <div class="text-center">
-          <v-menu offset-y
-          :close-on-content-click="false"
-          offset-x
-          min-width="200"
-          >
-            <template v-slot:activator="{ on }">
-              <input type="text" maxlength="2" v-model="inclinationSetPoint"
-              class="verne_container_rounded_deg" v-on="on"
-              @focus="inclinationControl"
-            />
-            </template>
-            <vue-touch-keyboard :options="options" :layout="myLayout"
-              :cancel="hide" :accept="inclinationAccpet"
-              :input="input"
-            />
-          </v-menu>
+        <div>
+          <v-row justify="center" align="center" no-gutters>
+            <v-col cols="12">
+              <input type="text" maxlength="4" v-model="inclinationSetPoint"
+                class="verne_container_rounded_deg"
+                v-bind:class="{'blink': inclinationOutOfRange}"
+                @focus="inclinationControl"
+              />
+            </v-col>
+          </v-row>
+          <v-row justify="center" align="center" no-gutters>
+            <v-col cols="12" class="verne_text text-center">inclinacion</v-col>
+          </v-row>
         </div>
-      <v-row justify="center" align="center" no-gutters>
-        <v-col cols="12" class="verne_text text-center">inclinacion</v-col>
-      </v-row>
     </v-col>
     <v-col cols="1">
       <button class="rounded_button stop
@@ -74,9 +68,14 @@
       </button>
     </v-col>
     </v-footer>
-    <div class="text-center overall verne_back" v-if="visible">
+    <div class="text-center overall verne_back" v-if="SpeedVisible">
       <vue-touch-keyboard :options="options" :layout="myLayout"
         :cancel="hide" :accept="speedAccept"
+        :input="input" />
+    </div>
+    <div class="text-center overall verne_back" v-if="InclinationVisible">
+      <vue-touch-keyboard :options="options" :layout="myLayout"
+        :cancel="hide" :accept="inclinationAccept"
         :input="input" />
     </div>
   </div>
@@ -88,6 +87,9 @@ import StopTrainingModal from '../modals/StopTrainingModal.vue';
 import ControlService from '../../services/ControlService';
 import { ROUTES } from '../../router';
 import numeric3 from '../../constants/NumericLayout';
+import { TRAININGDEF } from '../../constants/TrainingDefaults';
+import NumKey from '../keyboards/NumKey.vue';
+
 
 const ICONS = {
   PAUSE: 'mdi-pause',
@@ -110,16 +112,20 @@ export default {
   },
   components: {
     StopTrainingModal,
+    NumKey,
   },
   data() {
     return {
       shown: false,
       speedSetPoint: '',
       inclinationSetPoint: '',
+      speedOutOfRange: false,
+      inclinationOutOfRange: false,
+      SpeedVisible: false,
+      InclinationVisible: false,
       icon: ICONS.PAUSE,
       showConfirmModal: false,
       isruning: true,
-      visible: false,
       layout: 'numeric',
       input: null,
       options: {
@@ -136,24 +142,42 @@ export default {
   }),
   methods: {
     speedAccept() {
-      ControlService.SetPoint('speed', this.speedSetPoint);
-      this.visible = false;
+      if (this.speedSetPoint <= TRAININGDEF.MAX_SPEED) {
+        if (this.speedSetPoint > 0) {
+          ControlService.SetPoint('speed', this.speedSetPoint);
+        }
+      } else if (this.speedSetPoint > TRAININGDEF.MAX_SPEED) {
+        this.speedSetPoint = '';
+      }
+      this.SpeedVisible = false;
     },
-    inclinationAccpet() {
-      ControlService.SetPoint('inclination', this.inclinationSetPoint);
+    inclinationAccept() {
+      if (this.inclinationSetPoint <= TRAININGDEF.MAX_INC) {
+        if (this.inclinationSetPoint > 0) {
+          ControlService.SetPoint('inclination', this.inclinationSetPoint);
+        }
+      } else if (this.inclinationSetPoint > TRAININGDEF.MAX_INC) {
+        this.inclinationSetPoint = '';
+      }
+      this.InclinationVisible = false;
     },
     speedControl(e) {
+      this.InclinationVisible = false;
       this.speedSetPoint = '';
       this.input = e.target;
       this.layout = e.target.dataset.layout;
-      if (!this.visible) {
-        this.visible = true;
+      if (!this.SpeedVisible && !this.InclinationVisible) {
+        this.SpeedVisible = true;
       }
     },
     inclinationControl(e) {
+      this.SpeedVisible = false;
       this.inclinationSetPoint = '';
       this.input = e.target;
       this.layout = e.target.dataset.layout;
+      if (!this.InclinationVisible && !this.SpeedVisible) {
+        this.InclinationVisible = true;
+      }
     },
 
     hide() {
@@ -197,6 +221,12 @@ export default {
     },
   },
   watch: {
+    speedSetPoint(value) {
+      this.speedOutOfRange = (value > TRAININGDEF.MAX_SPEED);
+    },
+    inclinationSetPoint(value) {
+      this.inclinationOutOfRange = (value > TRAININGDEF.MAX_INC);
+    },
     state(value) {
       this.setIcon(value);
     },

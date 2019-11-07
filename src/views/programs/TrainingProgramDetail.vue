@@ -24,6 +24,10 @@
           title="inclinacion por tiempo" yaxys="grados" source="1"/>
       </v-col>
     </v-row>
+    <v-row justify="center">
+      <start-button value="COMENZAR"
+      @show-counter="setCounter" v-if="render"/>
+    </v-row>
   </v-container>
 </div>
 
@@ -36,6 +40,7 @@ import TrainProgramDetail from './TrainProgramDetail.vue';
 import Counter from '../../components/common/Counter.vue';
 import TrainingProgramGraphic from './TrainingProgramGraphic.vue';
 import BackHomeButton from '../../components/common/BackHomeButton.vue';
+import StartButton from '../../components/buttons/StartButton.vue';
 
 export default {
   beforeMount() {
@@ -46,6 +51,7 @@ export default {
     Counter,
     TrainingProgramGraphic,
     BackHomeButton,
+    StartButton,
   },
   props: {
     training_value: {

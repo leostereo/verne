@@ -5,8 +5,6 @@
 }
 .verne_text{
 font-family: 'Montserrat', sans-serif;
-//color: white;
-//color: red;
 color: #dbddf3;
 }
 .verne-number{
@@ -65,15 +63,20 @@ color: #dbddf3;
   background: -ms-linear-gradient(left, rgba(132,87,255,1) 0%, rgba(108,108,254,1) 27%, rgba(48,164,253,1) 71%, rgba(0,210,252,1) 100%);
   background: linear-gradient(to right, rgba(132,87,255,1) 0%, rgba(108,108,254,1) 27%, rgba(48,164,253,1) 71%, rgba(0,210,252,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8457ff', endColorstr='#00d2fc', GradientType=1 );
-  //padding-top: 7px;
-  
   width: 100px;
- 
   height: 50px;
-  padding-top:7px;
+  padding-top:1px;
   text-align: center;
   color: #dbddf3;
   font-family: Open Sans, sans-serif;
 }
 
+.blink {
+  animation: blinker 1.5s linear infinite;
+}
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
 

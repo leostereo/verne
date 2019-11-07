@@ -1,10 +1,14 @@
-const ProgramTrainGraphOptions = {
+
+const ProgramGraphicOptions = {
   title: {
     text: '',
+    style: {
+      color: 'white',
+    },
   },
   chart: {
     type: 'line',
-    backgroundColor: '#3c3e55',
+    backgroundColor: ' #3c3e55',
 
   },
   plotOptions: {
@@ -14,18 +18,25 @@ const ProgramTrainGraphOptions = {
   },
   xAxis: {
     categories: [],
+
   },
   yAxis: {
     title: {
       text: 'Velocidad',
+      style: {
+        color: 'white',
+      },
     },
   },
   series: [
     {
       name: 'tiempo(mins)',
+      style: {
+        color: 'white',
+      },
       data: [],
     },
   ],
 };
 
-export default ProgramTrainGraphOptions;
+export default ProgramGraphicOptions;

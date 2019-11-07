@@ -2,7 +2,7 @@
   <v-container fluid>
     <v-row align="center" class="full-height" justify="center">
       <v-col cols="3">
-        <v-card height="500px" class="card justify-center">
+        <v-card height="500px" class="verneback justify-center">
           <div class="separator_prog"></div>
           <div class="icon">
             <img style="height:100px" src="../../assets/png/entrenamiento.svg" />
@@ -62,10 +62,10 @@
               QUICK<br>START
             </button>
           </div>
-        </v-card>
+         </v-card>
       </v-col>
       <v-col cols="3">
-        <v-card height="500px" class="card justify-center">
+        <v-card height="500px" class="verneback card justify-center">
           <div class="separator_app"></div>
           <div class="icon">
             <img style="height:100px" src="../../assets/png/aplicaciones.png" />
@@ -81,12 +81,16 @@
 </template>
 
 <script>
+import TRAINING_MODES_MENU from '../../constants/TrainingModesMenu';
+import QUICK from '../../constants/QuickTrain';
 import { ROUTES } from '../../router';
 
 export default {
   components: {
   },
   data: () => ({
+    trainMenu: TRAINING_MODES_MENU,
+    quick: QUICK,
     routes: ROUTES,
   }),
 

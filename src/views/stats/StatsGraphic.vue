@@ -6,11 +6,13 @@
 import { Chart } from 'highcharts-vue';
 import { mapState } from 'vuex';
 import StatsGraphOptions from '../../constants/StatsGraphOptions';
+// import StatsGraphOptions2 from '../../constants/StatsGraphOptions2';
 import GraphService from '../../services/GraphService';
 
 export default {
   beforeMount() {
     this.getStatsChartData();
+    this.clearGraphSeries();
   },
   beforeDestroy() {
     this.clearGraphSeries();
@@ -59,6 +61,6 @@ export default {
 
 <style scoped>
 .chart {
-  height: calc(100vh - 300px);
+  height: calc(100vh - 200px);
 }
 </style>

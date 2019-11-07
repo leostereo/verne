@@ -1,14 +1,17 @@
 <template>
   <v-row justify="center">
     <v-dialog v-model="show" width="400">
-      <v-card class="verne_back verne_text">
+      <v-card class="verneback verne_text">
         <v-card-title class="headline verne_text">Felicitaciones!!</v-card-title>
-        <v-card-text>
+        <v-card-text class="headline white--text">
           Ha terminado el entrenamiento.
         </v-card-text>
         <v-card-actions>
           <div class="flex-grow-1"></div>
-          <v-btn color="indigo darken-1" text @click="toggleModal(true)">Ver estadisticas</v-btn>
+          <button class="verne_degrade verne_container_rounded"
+              @click="toggleModal(true)">
+              Ver estadísticas
+          </button>
         </v-card-actions>
       </v-card>
     </v-dialog>
