@@ -10,6 +10,7 @@ import swiper from './plugins/swiper';
 import 'roboto-fontface/css/roboto/roboto-fontface.css';
 import '@mdi/font/css/materialdesignicons.css';
 import './assets/styles/verne.css';
+import './assets/styles/vendor/swiper.min.css';
 
 Vue.config.productionTip = false;
 

@@ -1,4 +1,4 @@
-const globalSassFiles = [
+const sassFiles = [
   '~@/assets/styles/theme.scss',
 ];
 
@@ -6,7 +6,7 @@ module.exports = {
   css: {
     loaderOptions: {
       sass: {
-        data: globalSassFiles.map(src => `@import "${src}";`).join('\n'),
+        data: sassFiles.map(src => `@import "${src}";`).join('\n'),
       },
     },
   },
