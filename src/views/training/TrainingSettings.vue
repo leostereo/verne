@@ -47,13 +47,9 @@
         </widget-setter>
       </v-col>
      </v-row>
-    <v-row  justify="center">
-      <div class="mt-12 align-self-center verne_text">
-        <button class="start_button font-weight-bold headline" @click="setCounter()">
-          COMENZAR
-        </button>
-      </div>
-    </v-row>
+     <v-row justify="center">
+      <start-button value="COMENZAR" @show-counter="setCounter"/>
+     </v-row>
   </v-container>
 </template>
 
@@ -62,12 +58,14 @@ import Counter from '../../components/common/Counter.vue';
 import { TRAININGDEF } from '../../constants/TrainingDefaults';
 import WidgetSetter from '../../components/common/WidgetSetter.vue';
 import BackHomeButton from '../../components/common/BackHomeButton.vue';
+import StartButton from '../../components/buttons/StartButton.vue';
 
 export default {
   components: {
     Counter,
     WidgetSetter,
     BackHomeButton,
+    StartButton,
   },
   props: {
     mode: {
@@ -97,7 +95,7 @@ export default {
   methods: {
     handleAgeSet(isMore) {
       if (isMore) {
-        if (this.age < 100) {
+        if (this.age < TRAININGDEF.MAX_AGE) {
           this.age += 1;
         }
       } else if (this.age > 0) {
@@ -106,7 +104,7 @@ export default {
     },
     handleWeightSet(isMore) {
       if (isMore) {
-        if (this.weight < 100) {
+        if (this.weight < TRAININGDEF.MAX_WEIGHT) {
           this.weight += 1;
         }
       } else if (this.weight > 0) {
@@ -115,10 +113,10 @@ export default {
     },
     handleSpeedSet(isMore) {
       if (isMore) {
-        if (this.speed < 100) {
+        if (this.speed < TRAININGDEF.MAX_SPEED) {
           this.speed += 1;
         }
-      } else if (this.weight > 0) {
+      } else if (this.speed > 0) {
         this.speed -= 1;
       }
     },
@@ -136,11 +134,11 @@ export default {
       this.$router.push({
         name: '/training',
         params: {
-          training_mode: this.mode.toString(),
-          training_value: this.slider.toString(),
-          user_age: this.age.toString(),
-          user_weight: this.weight.toString(),
-          initial_speed: this.speed.toString(),
+          training_mode: this.mode,
+          training_value: this.slider,
+          user_age: this.age,
+          user_weight: this.weight,
+          initial_speed: this.speed,
         },
       });
     },

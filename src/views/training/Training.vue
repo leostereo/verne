@@ -4,11 +4,13 @@
     <multimedia-header />
     <v-container fluid>
       <v-row justify="center" no-gutters>
-        <v-col cols="2">
-          <widget-circ :value="speed" unit="KM/Hs"/>
+         <v-col cols="2">
+          <widget-circ2 :myvalue="speedPorc" :real="speed"
+          unit="KM/Hs"/>
         </v-col>
         <v-col cols="2">
-          <widget-circ :value="inclination" unit="inclination"/>
+          <widget-circ2 :myvalue="inclinationPorc" :real="inclination"
+          unit="inclination"/>
         </v-col>
         <v-col cols="2">
           <widget-circ
@@ -66,6 +68,7 @@ import ControlBar from '../../components/footers/ControlBar.vue';
 import MultimediaHeader from '../../components/headers/MultimediaHeader.vue';
 import TrainingGraphic from './TrainingGraphic.vue';
 import WidgetCirc from '../../components/common/WidgetCirc.vue';
+import WidgetCirc2 from '../../components/common/WidgetCirc2.vue';
 import ControlService from '../../services/ControlService';
 import WidgetImg from '../../components/common/WidgetImg.vue';
 import FinishTrainingModal from '../../components/modals/FinishTrainingModal.vue';
@@ -81,21 +84,22 @@ export default {
     TrainingGraphic,
     WidgetImg,
     WidgetCirc,
+    WidgetCirc2,
     FinishTrainingModal,
   },
   props: {
     training_mode: String,
     training_value: String,
     user_age: {
-      type: String,
+      type: Number,
       default: TRAININGDEF.AGE,
     },
     user_weight: {
-      type: String,
+      type: Number,
       default: TRAININGDEF.WEIGHT,
     },
     initial_speed: {
-      type: String,
+      type: Number,
       default: TRAININGDEF.INIT_SPEED,
     },
   },
@@ -115,29 +119,38 @@ export default {
       trainParams: {
         training_mode: this.training_mode,
         training_value: this.training_value,
-        user_age: this.user_age,
-        user_weight: this.user_weight,
-        initial_speed: this.initial_speed,
+        user_age: this.user_age.toString(),
+        user_weight: this.user_weight.toString(),
+        initial_speed: this.initial_speed.toString(),
       },
       showTrainingFinishModal: false,
       distanceCloseToFinish: false,
       timeCloseToFinish: false,
+      speedPorc: 0,
+      inclinationPorc: 0,
     };
   },
   methods: {
     handleTriningFinish(event) {
-      if (event === 'training_by_distance_close_to_finish') {
-        this.distanceCloseToFinish = true;
-      } else if (event === 'training_by_time_close_to_finish') {
-        this.timeCloseToFinish = true;
-      } else if (event === 'training_by_distance_finished') {
-        this.timeCloseToFinish = false;
-        this.distanceCloseToFinish = false;
-        this.showTrainingFinishModal = true;
-      } else if (event === 'training_by_time_finished') {
-        this.timeCloseToFinish = false;
-        this.distanceCloseToFinish = false;
-        this.showTrainingFinishModal = true;
+      switch (event) {
+        case 'training_by_distance_close_to_finish':
+          this.distanceCloseToFinish = true;
+          break;
+        case 'training_by_time_close_to_finish':
+          this.timeCloseToFinish = true;
+          break;
+        case 'training_by_distance_finished':
+          this.timeCloseToFinish = false;
+          this.distanceCloseToFinish = false;
+          this.showTrainingFinishModal = true;
+          break;
+        case 'training_by_time_finished':
+          this.timeCloseToFinish = false;
+          this.distanceCloseToFinish = false;
+          this.showTrainingFinishModal = true;
+          break;
+        default:
+          break;
       }
     },
     handleOnCloseModal(response) {
@@ -153,10 +166,17 @@ export default {
     },
   },
   mounted() {
+    this.$store.commit('reset_data');
     ControlService.startTraining(this.trainParams);
     this.subscribeInProgresChartData();
   },
   watch: {
+    speed(value) {
+      this.speedPorc = parseInt(value, 10) * 100 / TRAININGDEF.MAX_SPEED;
+    },
+    inclination(value) {
+      this.inclinationPorc = parseInt(value, 10) * 100 / TRAININGDEF.MAX_INC;
+    },
     isConnected(value) {
       if (value) {
         ControlService.startPolling();
@@ -172,12 +192,6 @@ export default {
 </script>
 
 <style>
-.frame {
-  background-color: red;
-}
-.my_row {
-  background-color: red;
-}
 .widget-container {
   display: flex;
   flex-direction: column;

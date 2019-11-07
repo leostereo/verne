@@ -1,5 +1,5 @@
 <template>
-<v-card class="verne_back ml-10">
+<v-card class="verneback ml-10">
   <v-card-title
     class="justify-center fill-height verne_text"
     @click="redirect('/training-program-detail',false,training_id)"

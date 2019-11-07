@@ -7,6 +7,7 @@
 <script>
 import { Chart } from 'highcharts-vue';
 import { mapState } from 'vuex';
+import ProgramTrainGraphOptions from '../../constants/ProgramTrainGraphOptions';
 
 export default {
   mounted() {
@@ -20,50 +21,38 @@ export default {
   components: {
     highcharts: Chart,
   },
-  data() {
-    return {
-      chartOptions: {
-        title: {
-          text: '',
-          style: {
-            color: 'white',
-          },
-        },
-        chart: {
-          type: 'line',
-          backgroundColor: ' #3c3e55',
-
-        },
-        plotOptions: {
-          series: {
-            borderRadius: 10,
-          },
-        },
-        xAxis: {
-          categories: [],
-
-        },
-        yAxis: {
-          title: {
-            text: 'Velocidad',
-            style: {
-              color: 'white',
-            },
-          },
-        },
-        series: [
-          {
-            name: 'tiempo(mins)',
-            style: {
-              color: 'white',
-            },
-            data: [],
-          },
-        ],
+  data: () => ({
+    chartOptions2: ProgramTrainGraphOptions,
+    chartOptions: {
+      title: {
+        text: '',
       },
-      render: false,
-    };
-  },
+      chart: {
+        type: 'line',
+        backgroundColor: '#3c3e55',
+      },
+      plotOptions: {
+        series: {
+          borderRadius: 10,
+        },
+      },
+      xAxis: {
+        categories: [],
+      },
+      yAxis: {
+        title: {
+          text: 'Velocidad',
+        },
+      },
+      series: [
+        {
+          name: 'tiempo(mins)',
+          data: [],
+        },
+      ],
+    },
+    render: false,
+  }),
   props: {
     title: {
       type: String,
@@ -74,7 +63,7 @@ export default {
       require: true,
     },
     source: {
-      type: String,
+      type: Number,
       require: true,
     },
   },
@@ -96,7 +85,7 @@ export default {
       this.chartOptions.xAxis.categories.push(item.x);
       this.chartOptions.series[0].data.push(Number(item.y));
     },
-    pushInclination(item) {
+    pushInclination2(item) {
       this.chartOptions.series[1].data.push(Number(item.y));
     },
   },

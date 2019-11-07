@@ -1,11 +1,12 @@
 const StatsGraphOptions = {
   chart: {
-    type: 'column',
+    zoomType: 'x',
     backgroundColor: 'rgba(255, 255, 255, 0.0)',
     events: {},
   },
   title: {
-    text: null,
+    text: 'Estadisticas',
+    align: 'center',
   },
   tooltip: {
     enabled: false,
@@ -14,9 +15,9 @@ const StatsGraphOptions = {
     useUTC: false,
   },
   xAxis: {
-    type: '',
+    type: 'linear',
     tickPixelInterval: 150,
-    autoRotationLimit: 40,
+    autoRtationLimit: '',
     title: {
       enabled: true,
       text: 'Tiempo',
@@ -38,8 +39,13 @@ const StatsGraphOptions = {
 
   },
   plotOptions: {
+    line: {
+      marker: {
+        enabled: false,
+      },
+    },
     pie: {
-      showInLegend: false,
+      showInLegend: true,
     },
   },
   yAxis: [{

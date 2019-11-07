@@ -30,7 +30,7 @@ import ProgramService from '../../services/ProgramService';
 import BackHomeButton from '../../components/common/BackHomeButton.vue';
 import ProgramItem from './ProgramItem.vue';
 import Counter from '../../components/common/Counter.vue';
-
+import SwiperOptions from '../../constants/SwiperOptions';
 
 export default {
   beforeMount() {
@@ -46,32 +46,7 @@ export default {
     showCounter: false,
     training_cards: '',
     render: false,
-    swiperOption: {
-      slidesPerView: 4,
-      spaceBetween: 1,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      breakpoints: {
-        1024: {
-          slidesPerView: 4,
-          spaceBetween: 40,
-        },
-        768: {
-          slidesPerView: 3,
-          spaceBetween: 30,
-        },
-        640: {
-          slidesPerView: 2,
-          spaceBetween: 20,
-        },
-        320: {
-          slidesPerView: 1,
-          spaceBetween: 10,
-        },
-      },
-    },
+    swiperoptions: SwiperOptions,
   }),
   computed: mapState({
     training_view: state => state.treadmill.training_view,
@@ -116,10 +91,5 @@ export default {
 .full-height {
   margin-top: -20px;
   height: calc(100vh - 10px);
-}
-.program-training-card {
-  width: 70%;
-  background-color: #3c3e55;
-  padding-bottom: 5px;
 }
 </style>
