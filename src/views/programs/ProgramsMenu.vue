@@ -6,28 +6,20 @@
     </v-row>
    <v-row justify="center" class="full-height" align="center">
      <v-col cols="11">
-        <swiper :options="swiperOption"
-        class="slider"
-        >
-         <!-- slides -->
-          <swiper-slide
-          v-for="card in training_cards"
-          :key="card.training_id" class="inner">
-
-                <program-item
-                :creator="card.creator"
-                :name="card.name" :time="card.total_time"
-                :level="card.level" :training_id="card.training_id"
-                @show-counter="setCounter"
-              />
-                
+        <swiper :options="swiperOption" class="slider">
+          <swiper-slide v-for="card in training_cards" :key="card.training_id" class="inner">
+            <program-item
+              :creator="card.creator"
+              :name="card.name" :time="card.total_time"
+              :level="card.level" :training_id="card.training_id"
+              @show-counter="setCounter"
+            />
           </swiper-slide>
-           <!-- Optional controls -->
           <div class="swiper-pagination" slot="pagination"></div>
           <div class="swiper-button-prev" slot="button-prev"></div>
           <div class="swiper-button-next" slot="button-next"></div>
         </swiper>
-        </v-col>
+      </v-col>
     </v-row>
   </v-container>
 </template>
@@ -35,20 +27,16 @@
 <script>
 import { mapState } from 'vuex';
 import ProgramService from '../../services/ProgramService';
-import Divider from '../../components/common/Divider.vue';
-import SliderSwiper from '../../components/swiper/SliderSwiper.vue';
 import BackHomeButton from '../../components/common/BackHomeButton.vue';
 import ProgramItem from './ProgramItem.vue';
 import Counter from '../../components/common/Counter.vue';
 
 
 export default {
-
   beforeMount() {
     this.getProgramsData();
   },
   components: {
-    Divider,
     BackHomeButton,
     ProgramItem,
     Counter,
@@ -61,7 +49,6 @@ export default {
     swiperOption: {
       slidesPerView: 4,
       spaceBetween: 1,
-      // init: false,
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
@@ -101,7 +88,6 @@ export default {
       this.training_id = id;
       this.showCounter = showCounter;
       if (!showCounter) {
-        
         this.redirect();
       }
     },
@@ -109,9 +95,10 @@ export default {
       this.showCounter = false;
       this.$router.push({
         name: this.path,
-        params: { training_mode: 'program',
-        training_value: this.training_id,
-        training_id: this.training_id,
+        params: {
+          training_mode: 'program',
+          training_value: this.training_id,
+          training_id: this.training_id,
         },
       });
     },
@@ -135,5 +122,4 @@ export default {
   background-color: #3c3e55;
   padding-bottom: 5px;
 }
-
 </style>

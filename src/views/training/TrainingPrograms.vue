@@ -3,66 +3,61 @@
     <v-row>
       <back-home-button/>
     </v-row>
-   <v-row justify="center" class="full-height" align="center">
-     <v-col cols="11">
-        <swiper :options="swiperOption"
-        class="slider"
-        >
-         <!-- slides -->
-          <swiper-slide
-          v-for="card in training_cards"
-          :key="card.training_id" class="inner">
-              <v-card class="program-training-card ml-10 white--text"
-              >
-                <v-card-title class="justify-center fill-height" 
+    <v-row justify="center" class="full-height" align="center">
+      <v-col cols="11">
+        <swiper :options="swiperOption" class="slider">
+          <swiper-slide v-for="card in training_cards" :key="card.training_id" class="inner">
+            <v-card class="program-training-card ml-10 white--text">
+              <v-card-title
+                class="justify-center fill-height"
                 v-text="card.name"
-                @click="redirect(card.training_id)">
-                </v-card-title>
-                <divider></divider>
-                  <v-list-item-group>
-                    <v-list-item>
-                      <v-list-item-icon>
-                        <img style="height:30px" src="../../assets/png/nivel.svg" />
-                      </v-list-item-icon>
-                      <v-list-item-content>
-                        <v-list-item-title class="white--text">
-                          nivel: {{ card.level }}
-                        </v-list-item-title>
-                      </v-list-item-content>
-                    </v-list-item>
-                    <v-list-item>
-                      <v-list-item-icon>
-                        <img style="height:30px" src="../../assets/png/tiempo.svg" />
-                      </v-list-item-icon>
-                      <v-list-item-content>
-                        <v-list-item-title class="white--text">
-                          tiempo: {{ card.total_time }}
-                        </v-list-item-title>
-                      </v-list-item-content>
-                    </v-list-item>
-                    <v-list-item>
-                      <v-list-item-icon>
-                        <img style="height:30px" src="../../assets/png/creador.svg" />
-                      </v-list-item-icon>
-                      <v-list-item-content>
-                        <v-list-item-title class="white--text">
-                          Creador: {{ card.creator }}
-                        </v-list-item-title>
-                      </v-list-item-content>
-                    </v-list-item>
-                  </v-list-item-group>
-                  <v-divider></v-divider>
-                  <div>
-                    <start-button-blue @redirect="gototrain"/>
-                  </div>
-                </v-card>
+                @click="redirect(card.training_id)"
+              >
+              </v-card-title>
+              <divider></divider>
+              <v-list-item-group>
+                <v-list-item>
+                  <v-list-item-icon>
+                    <img style="height:30px" src="../../assets/png/nivel.svg" />
+                  </v-list-item-icon>
+                  <v-list-item-content>
+                    <v-list-item-title class="white--text">
+                      nivel: {{ card.level }}
+                    </v-list-item-title>
+                  </v-list-item-content>
+                </v-list-item>
+                <v-list-item>
+                  <v-list-item-icon>
+                    <img style="height:30px" src="../../assets/png/tiempo.svg" />
+                  </v-list-item-icon>
+                  <v-list-item-content>
+                    <v-list-item-title class="white--text">
+                      tiempo: {{ card.total_time }}
+                    </v-list-item-title>
+                  </v-list-item-content>
+                </v-list-item>
+                <v-list-item>
+                  <v-list-item-icon>
+                    <img style="height:30px" src="../../assets/png/creador.svg" />
+                  </v-list-item-icon>
+                  <v-list-item-content>
+                    <v-list-item-title class="white--text">
+                      Creador: {{ card.creator }}
+                    </v-list-item-title>
+                  </v-list-item-content>
+                </v-list-item>
+              </v-list-item-group>
+              <v-divider></v-divider>
+              <div>
+                <start-button-blue />
+              </div>
+            </v-card>
           </swiper-slide>
-           <!-- Optional controls -->
           <div class="swiper-pagination" slot="pagination"></div>
           <div class="swiper-button-prev" slot="button-prev"></div>
           <div class="swiper-button-next" slot="button-next"></div>
         </swiper>
-        </v-col>
+      </v-col>
     </v-row>
   </v-container>
 </template>
@@ -71,13 +66,10 @@
 import { mapState } from 'vuex';
 import ProgramService from '../../services/ProgramService';
 import Divider from '../../components/common/Divider.vue';
-import SliderSwiper from '../../components/swiper/SliderSwiper.vue';
 import BackHomeButton from '../../components/common/BackHomeButton.vue';
 import StartButtonBlue from '../../components/common/StartButtonBlue.vue';
 
-
 export default {
-
   beforeMount() {
     this.getProgramsData();
   },
@@ -92,7 +84,6 @@ export default {
     swiperOption: {
       slidesPerView: 4,
       spaceBetween: 1,
-      // init: false,
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
@@ -127,11 +118,7 @@ export default {
     createProgramCards(cards) {
       this.training_cards = cards;
     },
-    gototrain(id) {
-        alert('trainn'+id);
-    },
     redirect(trainingId) {
-      alert('hola');
       this.$router.push({
         name: '/training-program-detail',
         params: {

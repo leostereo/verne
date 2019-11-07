@@ -13,7 +13,7 @@ class ProgramService extends WebsocketService {
   }
 
   getProgramDetail(extra) {
-    const message = this.createMessage(this.code, 
+    const message = this.createMessage(this.code,
       MESSAGE_ACTIONS.GET_TRAINING_DETAIL_BY_ID, extra);
     this.sendMessage(message);
   }

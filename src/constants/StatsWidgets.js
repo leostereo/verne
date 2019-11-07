@@ -31,5 +31,4 @@ const VERTICAL_WIDGETS = [
   },
 ];
 
-// eslint-disable-next-line import/prefer-default-export
-export { VERTICAL_WIDGETS };
+export default { VERTICAL_WIDGETS };

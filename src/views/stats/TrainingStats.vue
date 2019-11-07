@@ -3,23 +3,23 @@
     <multimedia-header />
     <v-container fluid>
       <v-row>
-          <back-home-button />
+        <back-home-button />
       </v-row>
       <v-row justify="center" class="mt-3">
         <v-col cols="3" class="widget-container">
-        <v-card height="500px" class="verneback pl-3 justify-center">
-          <div class="separator_prog"></div>
-            <v-list-item-group>
-              <v-list-item>
-                <v-list-item-icon>
-                  <img style="height:60px" src="../../assets/png/entrenamiento.svg" />
-                </v-list-item-icon>
-                <v-list-item-content class="verne_text">
-                  <v-list-item-title>Estadisticas</v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-            </v-list-item-group>
-          <v-divider class="mb-5 verne_divider"></v-divider>
+          <v-card height="500px" class="verneback pl-3 justify-center">
+            <div class="separator_prog"></div>
+              <v-list-item-group>
+                <v-list-item>
+                  <v-list-item-icon>
+                    <img style="height:60px" src="../../assets/png/entrenamiento.svg" />
+                  </v-list-item-icon>
+                  <v-list-item-content class="verne_text">
+                    <v-list-item-title>Estadisticas</v-list-item-title>
+                  </v-list-item-content>
+                </v-list-item>
+              </v-list-item-group>
+            <v-divider class="mb-5 verne_divider"></v-divider>
             <v-list-item-group>
               <v-list-item>
                 <v-list-item-icon class="my-0">
@@ -46,6 +46,7 @@
                 </v-list-item-content>
               </v-list-item>
             </v-list-item-group>
+            <v-list-item-group>
               <v-list-item>
                 <v-list-item-icon class="my-0">
                   <img style="height:26px" src="../../assets/png/velocidad_stats.svg" />
@@ -85,10 +86,9 @@
                 <v-list-item-content class="verne_text">
                   <v-list-item-title v-text="ritmo_prom"></v-list-item-title>
                 </v-list-item-content>
-              </v-list-item>              
+              </v-list-item>
             </v-list-item-group>
-        </v-card>
-      </v-col>
+          </v-card>
         </v-col>
         <v-col cols="5">
           <v-card height="100%" flat class="graph_card">
@@ -103,7 +103,7 @@
 <script>
 import { mapState } from 'vuex';
 import MultimediaHeader from '../../components/headers/MultimediaHeader.vue';
-import { VERTICAL_WIDGETS } from '../../constants/StatsWidgets';
+import VERTICAL_WIDGETS from '../../constants/StatsWidgets';
 import StatsGraphic from './StatsGraphic.vue';
 import BackHomeButton from '../../components/common/BackHomeButton.vue';
 
@@ -132,7 +132,7 @@ export default {
   }),
   watch: {
     stats(value) {
-      this.tiempo = `Tiempo total : ${ value.training_time}`;
+      this.tiempo = `Tiempo total : ${value.training_time}`;
       this.distancia = `Distancia recorrida : ${value.distance} kms`;
       this.vel_promedio = `Velocidad promedio: ${value.average_speed} km/h`;
       this.vel_maxima = `Velocidad maxima : ${value.max_speed}`;
@@ -159,6 +159,6 @@ export default {
 .item {
   padding :0;
   margin-top: 0;
-  margin-bottom: 0; 
+  margin-bottom: 0;
 }
 </style>

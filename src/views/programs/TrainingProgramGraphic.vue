@@ -1,17 +1,12 @@
 <template>
   <v-card class="card">
-    <highcharts v-if="render"
-    class="chart"
-    :options="chartOptions"
-  />  
-  </v-card>  
+    <highcharts v-if="render" class="chart" :options="chartOptions" />
+  </v-card>
 </template>
 
 <script>
 import { Chart } from 'highcharts-vue';
 import { mapState } from 'vuex';
-//import ProgramTrainGraphOptions from '../../constants/ProgramTrainGraphOptions';
-// import GraphService from '../../services/GraphService';
 
 export default {
   mounted() {
@@ -30,9 +25,9 @@ export default {
       chartOptions: {
         title: {
           text: '',
-            style: {
-              color: 'white',
-            },
+          style: {
+            color: 'white',
+          },
         },
         chart: {
           type: 'line',
@@ -90,7 +85,8 @@ export default {
     createGraph() {
       this.chartOptions.title.text = this.title;
       this.chartOptions.yAxis.title.text = this.yaxys;
-      this.training_view.training_element.training_secuence[this.source].info.forEach(this.pushData);
+      this.training_view.training_element
+        .training_secuence[this.source].info.forEach(this.pushData);
       this.render = true;
     },
     clearGraphSeries() {
@@ -98,10 +94,10 @@ export default {
     },
     pushData(item) {
       this.chartOptions.xAxis.categories.push(item.x);
-      this.chartOptions.series[0].data.push(parseInt(item.y));
+      this.chartOptions.series[0].data.push(Number(item.y));
     },
     pushInclination(item) {
-      this.chartOptions.series[1].data.push(parseInt(item.y));
+      this.chartOptions.series[1].data.push(Number(item.y));
     },
   },
 };

@@ -1,5 +1,5 @@
 <template>
-        <input type="text" class="chip" />
+  <input type="text" class="chip" />
 </template>
 
 <style>
@@ -24,9 +24,3 @@
   color: white;
 }
 </style>
-
-<script>
-export default {
-  props: {},
-};
-</script>

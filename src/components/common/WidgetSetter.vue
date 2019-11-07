@@ -1,23 +1,33 @@
 <template>
-        <div>
-          <div class="circle verne_back">
-            <slot></slot>
-          </div>
-          <div class="data verne_back">
-            <div style="width:25%"></div>
-            <p class="verne_number text display-1">{{value}}</p>
-            <div style="width:10%"></div>
-            <v-divider vertical class="mr-5"></v-divider>
-              <v-btn v-on:click.prevent="handleOnClickSetting(true)"
-              elevation="0" color="#3c3e55" fab x-small>
-                <img style="height:30px" src="../../assets/png/mas.svg" />
-                </v-btn>
-              <v-btn v-on:click.prevent="handleOnClickSetting(false)"
-              elevation="0" color="#3c3e55" fab x-small>
-                <img style="height:30px" src="../../assets/png/menos.svg" />
-              </v-btn>
-            </div>
-        </div>
+  <div>
+    <div class="circle verne_back">
+      <slot></slot>
+    </div>
+    <div class="data verne_back">
+      <div style="width:25%"></div>
+      <p class="verne_number text display-1">{{value}}</p>
+      <div style="width:10%"></div>
+      <v-divider vertical class="mr-5"></v-divider>
+        <v-btn
+          v-on:click.prevent="handleOnClickSetting(true)"
+          elevation="0"
+          color="#3c3e55"
+          fab
+          x-small
+        >
+          <img style="height:30px" src="../../assets/png/mas.svg" />
+        </v-btn>
+        <v-btn
+          v-on:click.prevent="handleOnClickSetting(false)"
+          elevation="0"
+          color="#3c3e55"
+          fab
+          x-small
+        >
+          <img style="height:30px" src="../../assets/png/menos.svg" />
+        </v-btn>
+      </div>
+  </div>
 </template>
 
 <script>

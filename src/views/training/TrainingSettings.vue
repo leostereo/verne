@@ -1,5 +1,5 @@
- <template>
-   <v-container fluid class="verne_text">
+<template>
+  <v-container fluid class="verne_text">
     <counter :show="showCounter" @on-finish="redirect" />
     <v-row>
       <back-home-button/>
@@ -7,9 +7,9 @@
     <v-row class="my-10 title" justify="center">
       {{ title }}
     </v-row>
-        <v-row class="my-10 indicator " justify="center">
-          <div class="indicator verne_back">{{slider}}&nbsp{{ units }} </div>
-        </v-row>
+    <v-row class="my-10 indicator " justify="center">
+      <div class="indicator verne_back">{{slider}}<br />{{ units }}</div>
+    </v-row>
     <v-row align="center" justify="center">
       <v-col cols="6">
         <v-slider
@@ -22,43 +22,37 @@
           max="100"
         >
           <template v-slot:prepend>
-            <button class="rounded_button dec"
-            @click="decrement">
-            </button>
+            <button class="rounded_button dec" @click="decrement"></button>
           </template>
           <template v-slot:append>
-            <button class="rounded_button inc"
-            @click="increment">
-            </button>
+            <button class="rounded_button inc" @click="increment"></button>
           </template>
-      </v-slider>
+        </v-slider>
       </v-col>
     </v-row>
     <v-row justify="center">
       <v-col cols="3">
         <widget-setter :value="age" @set-value="handleAgeSet">
-            <img style="height:75px" src="../../assets/png/años.svg" />
+          <img style="height:75px" src="../../assets/png/años.svg" />
         </widget-setter>
       </v-col>
       <v-col cols="3">
         <widget-setter :value="weight" @set-value="handleWeightSet">
-            <img style="height:75px" src="../../assets/png/peso.svg" />
+          <img style="height:75px" src="../../assets/png/peso.svg" />
         </widget-setter>
       </v-col>
       <v-col cols="3">
         <widget-setter :value="speed" @set-value="handleSpeedSet">
-            <img style="height:75px" src="../../assets/png/vel_incial.svg" />
+          <img style="height:75px" src="../../assets/png/vel_incial.svg" />
         </widget-setter>
       </v-col>
      </v-row>
     <v-row  justify="center">
-          <div class="mt-12 align-self-center verne_text">
-              <button class="start_button font-weight-bold 
-              headline" @click="setCounter()">
-                COMENZAR
-            </button>
-          </div>
-      </v-col>
+      <div class="mt-12 align-self-center verne_text">
+        <button class="start_button font-weight-bold headline" @click="setCounter()">
+          COMENZAR
+        </button>
+      </div>
     </v-row>
   </v-container>
 </template>
@@ -104,7 +98,7 @@ export default {
     handleAgeSet(isMore) {
       if (isMore) {
         if (this.age < 100) {
-          this.age++;
+          this.age += 1;
         }
       } else if (this.age > 0) {
         this.age -= 1;
@@ -113,7 +107,7 @@ export default {
     handleWeightSet(isMore) {
       if (isMore) {
         if (this.weight < 100) {
-          this.weight++;
+          this.weight += 1;
         }
       } else if (this.weight > 0) {
         this.weight -= 1;
@@ -122,7 +116,7 @@ export default {
     handleSpeedSet(isMore) {
       if (isMore) {
         if (this.speed < 100) {
-          this.speed++;
+          this.speed += 1;
         }
       } else if (this.weight > 0) {
         this.speed -= 1;
@@ -180,13 +174,11 @@ export default {
   outline:none;
   border: 0;
 }
-
 .start_button {
   background-image: url(../../assets/png/comenzar.svg);
   height: 200px;
   width: 200px;
 }
-
 .inc {
   background-image: url(../../assets/png/mas.svg);
   height: 40px;

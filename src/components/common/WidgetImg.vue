@@ -27,7 +27,6 @@ export default {
 </script>
 
 <style>
-
 .circle {
   background: #3c3e55;
   border-radius: 45px;

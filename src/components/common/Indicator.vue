@@ -21,18 +21,9 @@
   border-width: 7px;
   border-style: solid;
   border-color: #3c3e55;
-  background: rgba(132,87,255,1);
-  background: -moz-linear-gradient(left, rgba(132,87,255,1) 0%, rgba(108,108,254,1) 27%, rgba(48,164,253,1) 71%, rgba(0,210,252,1) 100%);
-  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(132,87,255,1)), color-stop(27%, rgba(108,108,254,1)), color-stop(71%, rgba(48,164,253,1)), color-stop(100%, rgba(0,210,252,1)));
-  background: -webkit-linear-gradient(left, rgba(132,87,255,1) 0%, rgba(108,108,254,1) 27%, rgba(48,164,253,1) 71%, rgba(0,210,252,1) 100%);
-  background: -o-linear-gradient(left, rgba(132,87,255,1) 0%, rgba(108,108,254,1) 27%, rgba(48,164,253,1) 71%, rgba(0,210,252,1) 100%);
-  background: -ms-linear-gradient(left, rgba(132,87,255,1) 0%, rgba(108,108,254,1) 27%, rgba(48,164,253,1) 71%, rgba(0,210,252,1) 100%);
-  background: linear-gradient(to right, rgba(132,87,255,1) 0%, rgba(108,108,254,1) 27%, rgba(48,164,253,1) 71%, rgba(0,210,252,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8457ff', endColorstr='#00d2fc', GradientType=1 );
-  //padding-top: 7px;
-  
+  background: linear-gradient(to right, rgba(132,87,255,1) 0%,
+    rgba(108,108,254,1) 27%, rgba(48,164,253,1) 71%, rgba(0,210,252,1) 100%);
   width: 100px;
- 
   height: 50px;
   padding-top:7px;
   text-align: center;

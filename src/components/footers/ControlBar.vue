@@ -2,6 +2,7 @@
   <div>
     <stop-training-modal :show="showConfirmModal" @on-close="handleOnCloseModal" />
     <v-footer absolute flat class="font-weight-medium control_bar justify-center">
+      <div class="background-bar"></div>
       <v-col cols="1">
         <button class="rounded_button app
           font-weight-bold display-1" @click="setCounter()">
@@ -73,11 +74,11 @@
       </button>
     </v-col>
     </v-footer>
-              <div class="text-center overall verne_back" v-if="visible">
-                <vue-touch-keyboard :options="options" :layout="myLayout"
-                  :cancel="hide" :accept="speedAccept"
-                  :input="input" />
-              </div>
+    <div class="text-center overall verne_back" v-if="visible">
+      <vue-touch-keyboard :options="options" :layout="myLayout"
+        :cancel="hide" :accept="speedAccept"
+        :input="input" />
+    </div>
   </div>
 </template>
 
@@ -86,9 +87,7 @@ import { mapState } from 'vuex';
 import StopTrainingModal from '../modals/StopTrainingModal.vue';
 import ControlService from '../../services/ControlService';
 import { ROUTES } from '../../router';
-import NumKey from '../keyboards/NumKey.vue';
 import numeric3 from '../../constants/NumericLayout';
-
 
 const ICONS = {
   PAUSE: 'mdi-pause',
@@ -111,7 +110,6 @@ export default {
   },
   components: {
     StopTrainingModal,
-    NumKey,
   },
   data() {
     return {
@@ -137,18 +135,20 @@ export default {
     state: state => state.treadmill.status.state,
   }),
   methods: {
-    speedAccept(text) {
+    speedAccept() {
       ControlService.SetPoint('speed', this.speedSetPoint);
       this.visible = false;
     },
-    inclinationAccpet(text) {
+    inclinationAccpet() {
       ControlService.SetPoint('inclination', this.inclinationSetPoint);
     },
     speedControl(e) {
       this.speedSetPoint = '';
       this.input = e.target;
       this.layout = e.target.dataset.layout;
-      if (!this.visible) { this.visible = true }
+      if (!this.visible) {
+        this.visible = true;
+      }
     },
     inclinationControl(e) {
       this.inclinationSetPoint = '';
@@ -159,7 +159,6 @@ export default {
     hide() {
       this.visible = false;
     },
-    // sold
     setIcon(value) {
       this.icon = value === TREADMILL_STATE.RUNNING ? ICONS.PAUSE : ICONS.PLAY;
       this.isruning = value === TREADMILL_STATE.RUNNING;
@@ -204,21 +203,30 @@ export default {
   },
 };
 </script>
-<style scoped>
-.control_bar{
-background:transparent;
-}
 
+<style lang="scss" scoped>
+.control_bar {
+  background: transparent;
+}
+.background-bar {
+  border-top-left-radius: 25px !important;
+  border-top-right-radius: 25px !important;
+  background-color: $primary-color;
+  height: 78px;
+  width: 100%;
+  top: 65px;
+  position: absolute;
+  z-index: -1;
+}
 .overall {
-    top:0;
-    margin-top:450px;
-    margin-left:580px;
-    display: block;
-    width: 170px;
-    z-index: 3;
-    position:absolute;
+  top:0;
+  margin-top: 450px;
+  margin-left:580px;
+  display: block;
+  width: 170px;
+  z-index: 3;
+  position: absolute;
 }
-
 .rounded_button{
   color:white;
   background-color : transparent;
@@ -260,5 +268,4 @@ background:transparent;
   height: 90px;
   width: 90px;
 }
-
 </style>

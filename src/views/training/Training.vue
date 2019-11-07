@@ -11,49 +11,49 @@
           <widget-circ :value="inclination" unit="inclination"/>
         </v-col>
         <v-col cols="2">
-          <widget-circ :value="kms" unit="KMs"
-          v-bind:class="{ blink: distanceCloseToFinish }"
+          <widget-circ
+            :value="kms"
+            unit="KMs"
+            v-bind:class="{ blink: distanceCloseToFinish }"
           />
         </v-col>
         <v-col cols="2">
-          <widget-circ :value="training_time" unit="tiempo"
-          v-bind:class="{ blink: timeCloseToFinish }"
+          <widget-circ
+            :value="training_time"
+            unit="tiempo"
+            v-bind:class="{ blink: timeCloseToFinish }"
           />
         </v-col>
       </v-row>
- <v-row class="justify-space-around" no-gutters="" align="center">
-   <v-col cols="8">
-     <v-row justify="center">
-        <v-col cols="3" class="justify-center">
+      <v-row class="justify-space-around" no-gutters="" align="center">
+        <v-col cols="8">
+          <v-row justify="center">
+            <v-col cols="3" class="justify-center">
               <widget-img  :value="heartbeat" unit="PPS">
-                <img style="height:65px"
-                src="../../assets/png/corazon_borde.svg" />
+                <img style="height:65px" src="../../assets/png/corazon_borde.svg" />
               </widget-img>
-          </v-col>
-        <v-col cols="3">
+            </v-col>
+            <v-col cols="3">
               <widget-img  :value="rhythm" unit="min/km">
-                <img style="height:65px"
-                src="../../assets/png/cardio_borde.svg" />
+                <img style="height:65px" src="../../assets/png/cardio_borde.svg" />
               </widget-img>
-        </v-col>
-        <v-col cols="3">
-          <div class="frame">
-              <widget-img  :value="calories" unit="kcal">
-                <img style="height:65px"
-                src="../../assets/png/calorias_borde.svg" />
-              </widget-img>
+            </v-col>
+            <v-col cols="3">
+              <div class="frame">
+                <widget-img  :value="calories" unit="kcal">
+                  <img style="height:65px" src="../../assets/png/calorias_borde.svg" />
+                </widget-img>
               </div>
+            </v-col>
+          </v-row>
         </v-col>
-
-     </v-row>
-   </v-col>
-   <v-col cols="4">
-     <v-row justify="center">
-        <v-col  class="pl-0 pb-5">
-          <training-graphic />
+        <v-col cols="4">
+          <v-row justify="center">
+            <v-col  class="pl-0 pb-5">
+              <training-graphic />
+            </v-col>
+          </v-row>
         </v-col>
-     </v-row>
-   </v-col>
       </v-row>
     </v-container>
     <control-bar/>
@@ -145,7 +145,6 @@ export default {
       this.timeCloseToFinish = false;
       this.distanceCloseToFinish = false;
       if (response) {
-        //ControlService.stop();
         this.$router.push({ path: ROUTES.TRAINING_STATS });
       }
     },
@@ -173,14 +172,11 @@ export default {
 </script>
 
 <style>
-
 .frame {
   background-color: red;
-
 }
 .my_row {
-background-color: red;
-
+  background-color: red;
 }
 .widget-container {
   display: flex;
@@ -190,7 +186,6 @@ background-color: red;
 .blink {
   animation: blinker 1.5s linear infinite;
 }
-
 @keyframes blinker {
   50% {
     opacity: 0;

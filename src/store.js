@@ -26,7 +26,6 @@ export default new Vuex.Store({
     },
   },
   mutations: {
-
     reset_event() {
       this.state.treadmill.training_view_event.action = '';
     },

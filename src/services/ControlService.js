@@ -20,23 +20,31 @@ class ControlService extends WebsocketService {
 
   startTraining(extra) {
     let action = MESSAGE_ACTIONS.QUICK;
-    if (extra.training_mode === 'time') {
-      action = MESSAGE_ACTIONS.TRAIN_BY_TIME;
+    let data = {};
+    switch (extra.training_mode) {
+      case 'time':
+        action = MESSAGE_ACTIONS.TRAIN_BY_TIME;
+        data = { ...extra, training_time: extra.training_value };
+        break;
+      case 'distance':
+        action = MESSAGE_ACTIONS.TRAIN_BY_DISTANCE;
+        data = { ...extra, training_distance: extra.training_value };
+        break;
+      case 'program':
+        action = MESSAGE_ACTIONS.PROGRAM;
+        data = { ...extra, training_id: extra.training_value };
+        break;
+      default:
+        data = { ...extra, training_id: extra.training_id };
+        break;
     }
-    if (extra.training_mode === 'distance') {
-      action = MESSAGE_ACTIONS.TRAIN_BY_DISTANCE;
-    }
-    if (extra.training_mode === 'program') {
-      action = MESSAGE_ACTIONS.PROGRAM;
-    }
-    const message = this.createMessage(MESSAGE_CODES.TRAINING_VIEW,
-      action, extra);
+    const message = this.createMessage(MESSAGE_CODES.TRAINING_VIEW, action, data);
     this.sendMessage(message);
   }
 
   startTrainingByTime(extra) {
     const message = this.createMessage(MESSAGE_CODES.TRAINING_VIEW,
-      MESSAGE_ACTIONS.START_TRAINING_BY_TIME, extra);
+      MESSAGE_ACTIONS.START_TRAINING_BY_TIME, { training_time: extra.training_value });
     this.sendMessage(message);
   }
 
@@ -87,7 +95,6 @@ class ControlService extends WebsocketService {
     const message = this.createSetPointMessage(this.code, action, value);
     this.sendMessage(message);
   }
-
 }
 
 export default new ControlService();

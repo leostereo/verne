@@ -1,12 +1,12 @@
 <template>
-          <div class="align-self-center">
-            <div class="button_container">
-              <v-btn  class="align-self-center" outlined large fab @click="redirect(cards[0].route, true)">
-                <img style="height:220px" class="ml-0" src="../../assets/png/comenzar.svg" />
-              </v-btn>
-              <div class="centered">{{ button_text }}</div>
-            </div>
-          </div>
+  <div class="align-self-center">
+    <div class="button_container">
+      <v-btn  class="align-self-center" outlined large fab @click="redirect(cards[0].route, true)">
+        <img style="height:220px" class="ml-0" src="../../assets/png/comenzar.svg" />
+      </v-btn>
+      <div class="centered">{{ button_text }}</div>
+    </div>
+  </div>
 </template>
 
 <style>

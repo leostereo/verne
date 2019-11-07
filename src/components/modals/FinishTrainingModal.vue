@@ -33,6 +33,6 @@ export default {
 </script>
 <style scoped>
 .verne_back{
-  background-color: 
+  background-color:
 }
 </style>

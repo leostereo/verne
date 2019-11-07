@@ -1,5 +1,3 @@
-import Highcharts from 'highcharts';
-
 const StatsGraphOptions = {
   chart: {
     type: 'column',
@@ -22,7 +20,7 @@ const StatsGraphOptions = {
     title: {
       enabled: true,
       text: 'Tiempo',
-        style: {
+      style: {
         color: 'white',
         fontSize: '13px',
         fontFamily: 'Verdana, sans-serif',
@@ -53,7 +51,7 @@ const StatsGraphOptions = {
         color: 'white',
       },
     },
-    
+
     title: {
       text: 'Velocidad',
       style: {
