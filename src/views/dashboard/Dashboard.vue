@@ -1,12 +1,11 @@
 <template>
-  <div>
+  <v-container fluid>
     <counter :show="showCounter" @on-finish="redirect" />
     <v-container fluid>
       <v-row align="center" class="mx-12" justify="center">
         <training-modes @show-counter="setCounter" />
       </v-row>
     </v-container>
- </div>
 </template>
 
 <script>
@@ -16,7 +15,6 @@ import Counter from '../../components/common/Counter.vue';
 export default {
   components: {
     TrainingModes,
-
     Counter,
   },
   data: () => ({
@@ -41,3 +39,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.full-height {
+  height: calc(100vh - 24px);
+}
+</style>
