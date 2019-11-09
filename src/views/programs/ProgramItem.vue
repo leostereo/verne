@@ -95,9 +95,9 @@ export default {
 
 <style scoped>
 .but_frame {
-  margin-left:20px;
   margin-top:10px;
   margin-bottom:10px;
+  text-align: center;
 }
 .container-rounded {
   width: 150px;

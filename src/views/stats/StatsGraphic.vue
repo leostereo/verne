@@ -12,7 +12,6 @@ import GraphService from '../../services/GraphService';
 export default {
   beforeMount() {
     this.getStatsChartData();
-    this.clearGraphSeries();
   },
   beforeDestroy() {
     this.clearGraphSeries();
@@ -35,8 +34,8 @@ export default {
     },
     clearGraphSeries() {
       this.chartOptions.xAxis.categories = [];
-      this.chartOptions.yAxis[0].series.data = [];
-      this.chartOptions.yAxis[1].series.data = [];
+      this.chartOptions.series[0].data = [];
+      this.chartOptions.series[1].data = [];
     },
     createGraphSeries(serieObj) {
       serieObj[0].info.forEach(this.pushSpeed);

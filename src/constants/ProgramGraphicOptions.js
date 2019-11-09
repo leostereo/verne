@@ -1,5 +1,8 @@
 
 const ProgramGraphicOptions = {
+  credits: {
+    enabled: false,
+  },
   title: {
     text: '',
     style: {
@@ -15,6 +18,7 @@ const ProgramGraphicOptions = {
     series: {
       borderRadius: 10,
     },
+
   },
   xAxis: {
     categories: [],

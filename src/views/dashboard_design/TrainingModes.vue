@@ -12,51 +12,29 @@
           </v-card-title>
           <v-divider class="verne_divider"></v-divider>
           <v-list-item-group class="verne_text">
-            <v-list-item>
-              <v-list-item-icon>
-                <img style="height:30px" src="../../assets/png/distancia.svg" />
-              </v-list-item-icon>
-              <v-list-item-content
-                @click="redirect(routes.TRAINING_SETTINGS, false,'distance')"
-              >
-                <v-list-item-title class="verne_text">
-                  Programa de distancia
-                </v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-            <v-list-item>
-              <v-list-item-icon>
-                <img style="height:30px" src="../../assets/png/tiempo.svg" />
-              </v-list-item-icon>
-              <v-list-item-content
-                @click="redirect(routes.TRAINING_SETTINGS, false,'time')"
-              >
-                <v-list-item-title class="verne_text">
-                  Programa de tiempo
-                </v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-            <v-list-item>
-              <v-list-item-icon>
-                <img style="height:30px" src="../../assets/png/cardio.svg" />
-              </v-list-item-icon>
-              <v-list-item-content
-                @click="redirect(routes.TRAINING_PROGRAMS, false,'time')"
-              >
-                <v-list-item-title class="verne_text">
-                  Entrenamiento programado
-                </v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
+            <v-list-item
+              v-for="(trainMode, i) in trainMenu"
+              :key="i"
+            >
+                  <v-list-item-icon>
+                    <img style="height:30px" :src="trainMode.src" />
+                  </v-list-item-icon>
+                  <v-list-item-content
+                    @click="redirect(trainMode.route, trainMode.showCounter,trainMode.mode)"
+                  >
+                    <v-list-item-title class="verne_text" v-text="trainMode.name">
+                    </v-list-item-title>
+                  </v-list-item-content>
+                </v-list-item>
           </v-list-item-group>
         </v-card>
       </v-col>
       <v-col cols="3">
-        <v-card height="500px" class="verne_back layout justify-center">
+        <v-card height="500px" class="verneback layout justify-center">
           <div class="separator_quick"></div>
           <div class="align-self-center">
             <button
-              class="simple_button font-weight-bold display-1"
+              class="simple_button verne_text font-weight-bold display-1"
               @click="redirect(routes.TRAINING, true,'quick')"
             >
               QUICK<br>START

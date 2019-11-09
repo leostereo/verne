@@ -7,8 +7,9 @@
     <v-row class="my-10 title" justify="center">
       {{ title }}
     </v-row>
-    <v-row class="my-10 indicator " justify="center">
-      <div class="indicator verne_back">{{slider}}<br />{{ units }}</div>
+    <v-row class="my-10">
+      <div class="indicator verneback">
+        <p>{{slider}} {{ units }}</p></div>
     </v-row>
     <v-row align="center" justify="center">
       <v-col cols="6">
@@ -47,9 +48,13 @@
         </widget-setter>
       </v-col>
      </v-row>
-     <v-row justify="center">
+    <v-row>
+    <v-footer absolute flat class="font-weight-medium control_bar justify-center">
+      <div class="separator"><br></div>
+      <div class="background-bar"></div>
       <start-button value="COMENZAR" @show-counter="setCounter"/>
-     </v-row>
+    </v-footer>
+    </v-row>
   </v-container>
 </template>
 
@@ -147,14 +152,14 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 .indicator {
   margin:auto;
-  align-content: center;
+  text-align: center;
   width: 20%;
   border-radius: 20px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 15px;
+  padding-bottom: 0px;
   font-weight: bold;
   font-size: 20px;
   line-height: 1;
@@ -187,4 +192,21 @@ export default {
   height: 40px;
   width: 40px;
 }
+.background-bar {
+  border-top-left-radius: 25px !important;
+  border-top-right-radius: 25px !important;
+  background-color: $primary-color;
+  height: 78px;
+  width: 100%;
+  top: 175px;
+  position: absolute;
+  z-index: -1;
+}
+.control_bar {
+  background: transparent;
+}
+.separator{
+  height: 140px;
+}
+
 </style>

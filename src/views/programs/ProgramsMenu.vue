@@ -46,7 +46,7 @@ export default {
     showCounter: false,
     training_cards: '',
     render: false,
-    swiperoptions: SwiperOptions,
+    swiperOption: SwiperOptions,
   }),
   computed: mapState({
     training_view: state => state.treadmill.training_view,
