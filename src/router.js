@@ -18,7 +18,7 @@ export default new Router({
     {
       path: ROUTES.DASHBOARD,
       name: 'dashboard',
-      component: () => import('./views/dashboard_design/Dashboard.vue'),
+      component: () => import('./views/dashboard/Dashboard.vue'),
     },
     {
       path: ROUTES.TRAINING,

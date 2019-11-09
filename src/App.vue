@@ -19,6 +19,5 @@ export default {
 .back {
   background-image: url("assets/png/fondo2.png");
   background-size: cover;
-
 }
 </style>
