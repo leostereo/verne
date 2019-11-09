@@ -3,10 +3,10 @@
     <multimedia-header />
     <v-container fluid>
       <v-row>
-        <back-home-button />
-      </v-row>
-      <v-row justify="center" class="mt-3">
-        <v-col cols="3" class="widget-container">
+        <v-col cols="auto">
+          <back-home-button />
+        </v-col>
+        <v-col cols="auto" class="widget-container">
           <v-card height="500px" class="verneback pl-3 justify-center">
             <div class="separator_prog"></div>
               <v-list-item-group>
@@ -90,10 +90,10 @@
             </v-list-item-group>
           </v-card>
         </v-col>
-        <v-col cols="5">
-          <v-card height="100%" flat class="graph_card">
+        <v-col>
+          <v-row align="center" justify="center">
             <stats-graphic />
-          </v-card>
+          </v-row>
         </v-col>
       </v-row>
     </v-container>

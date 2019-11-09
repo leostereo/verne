@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <v-row align="center" class="full-height" justify="center">
+    <v-row align="center" justify="center">
       <v-col cols="3">
         <v-card height="500px" class="verneback justify-center">
           <div class="separator_prog"></div>
@@ -103,10 +103,6 @@ export default {
 </script>
 
 <style scoped>
-.full-height {
-  margin-top: -64px;
-  height: calc(100vh - 48px);
-}
 .separator_prog {
   height: 30px;
 }
