@@ -1,16 +1,57 @@
 <template>
   <v-container fluid>
     <v-row align="center" class="full-height" justify="center">
-      <v-col cols="4" v-for="card in cards" :key="card.id">
-        <v-card @click="redirect(card.route, card.showCounter)">
-          <v-img
-            :src="card.src"
-            class="white--text"
-            height="400px"
-            gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-          >
-            <v-card-title class="fill-height align-end" v-text="card.title"></v-card-title>
-          </v-img>
+      <v-col cols="3">
+        <v-card height="500px" class="verne-card justify-center">
+          <div class="separator_prog"></div>
+          <div class="icon">
+            <img style="height:100px" src="../../assets/png/entrenamiento.svg" />
+          </div>
+          <v-card-title class="layout justify-center text-center subtitle-2">
+            MENU DE<br />ENTRENAMIENTOS
+          </v-card-title>
+          <v-divider class="verne_divider"></v-divider>
+          <v-list-item-group>
+            <v-list-item
+              v-for="(trainMode, i) in trainMenu"
+              :key="i"
+            >
+                  <v-list-item-icon>
+                    <img style="height:30px" :src="trainMode.src" />
+                  </v-list-item-icon>
+                  <v-list-item-content
+                    @click="redirect(trainMode.route, trainMode.showCounter,trainMode.mode)"
+                  >
+                    <v-list-item-title class="verne-text" v-text="trainMode.name">
+                    </v-list-item-title>
+                  </v-list-item-content>
+                </v-list-item>
+          </v-list-item-group>
+        </v-card>
+      </v-col>
+      <v-col cols="3">
+        <v-card height="500px" class="verneback layout justify-center">
+          <div class="separator_quick"></div>
+          <div class="align-self-center">
+            <button
+              class="simple_button verne-text font-weight-bold display-1"
+              @click="redirect(routes.TRAINING, true,'quick')"
+            >
+              QUICK<br>START
+            </button>
+          </div>
+         </v-card>
+      </v-col>
+      <v-col cols="3">
+        <v-card height="500px" class="verneback card justify-center">
+          <div class="separator_app"></div>
+          <div class="icon">
+            <img style="height:100px" src="../../assets/png/aplicaciones.png" />
+          </div>
+          <v-card-title class="layout justify-center verne-text">
+            Aplicaciones
+          </v-card-title>
+          <v-divider class="verne_divider"></v-divider>
         </v-card>
       </v-col>
     </v-row>
@@ -18,23 +59,61 @@
 </template>
 
 <script>
-import TRAINING_MODES_CARDS from '../../constants/TrainingModesCards';
+import TRAINING_MODES_MENU from '../../constants/TrainingModesMenu';
+import QUICK from '../../constants/QuickTrain';
+import { ROUTES } from '../../router';
 
 export default {
+  components: {
+  },
   data: () => ({
-    cards: TRAINING_MODES_CARDS,
+    trainMenu: TRAINING_MODES_MENU,
+    quick: QUICK,
+    routes: ROUTES,
   }),
+
   methods: {
-    redirect(path, showCounter) {
-      this.$emit('show-counter', { path, showCounter });
+    redirect(path, showCounter, mode) {
+      this.$emit('show-counter', { path, showCounter, mode });
     },
   },
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .full-height {
   margin-top: -64px;
   height: calc(100vh - 48px);
+}
+.verne-card {
+  background-color: $primary-color;
+  color: $verne_text-color;
+}
+.verne-text {
+  font-family: $verne_text_font-family;
+  color: $verne_text-color;
+}
+.separator_prog {
+  height: 30px;
+}
+
+.separator_app {
+  height: 30px;
+}
+.icon {
+  text-align: center;
+}
+.simple_button {
+  background-color : transparent;
+  background-image: url(../../assets/png/comenzar.svg);
+  height: 200px;
+  width: 200px;
+  border: none;
+  border-radius: 50%;
+  padding: 0px;
+  text-align: center;
+  display: inline-block;
+  outline:none;
+  border: 0;
 }
 </style>
