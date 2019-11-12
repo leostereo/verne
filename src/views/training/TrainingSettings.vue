@@ -29,9 +29,10 @@
             <button class="rounded_button inc" @click="increment"></button>
           </template>
         </v-slider>
+        <div class="separator"></div>
       </v-col>
     </v-row>
-    <v-row justify="center">
+    <v-row justify="center pt-0">
       <v-col cols="3">
         <widget-setter :value="age" @set-value="handleAgeSet">
           <img style="height:75px" src="../../assets/png/años.svg" />
@@ -48,12 +49,11 @@
         </widget-setter>
       </v-col>
      </v-row>
-    <v-row>
-    <v-footer absolute flat class="font-weight-medium control_bar justify-center">
-      <div class="separator"><br></div>
+    <v-row justify="center">
       <div class="background-bar"></div>
-      <start-button value="COMENZAR" @show-counter="setCounter"/>
-    </v-footer>
+      <div class="button-container">
+        <start-button value="COMENZAR" @show-counter="setCounter"/>
+      </div>
     </v-row>
   </v-container>
 </template>
@@ -87,6 +87,7 @@ export default {
     units: '',
     slider: 35,
     ex2: { label: '', val: 75, color: 'blue lighten-1' },
+    render: false,
   }),
   mounted() {
     if (this.mode === 'distance') {
@@ -96,6 +97,7 @@ export default {
       this.title = 'ENTRENAMIENTO POR TIEMPO';
       this.units = 'Mins';
     }
+    this.render = true;
   },
   methods: {
     handleAgeSet(isMore) {
@@ -177,10 +179,15 @@ export default {
   outline:none;
   border: 0;
 }
-.start_button {
-  background-image: url(../../assets/png/comenzar.svg);
-  height: 200px;
-  width: 200px;
+.footer-container{
+  text-align: center;
+  top: 320px;
+  width: 100%;
+  border: solid 1px red;
+  background-color: transparent;
+}
+.button-container{
+  z-index: 0;
 }
 .inc {
   background-image: url(../../assets/png/mas.svg);
@@ -198,15 +205,15 @@ export default {
   background-color: $primary-color;
   height: 78px;
   width: 100%;
-  top: 175px;
-  position: absolute;
-  z-index: -1;
+  top: 250px;
+  position: relative;
+  z-index: 0;
 }
 .control_bar {
   background: transparent;
 }
 .separator{
-  height: 140px;
+  height: 50px;
 }
 
 </style>

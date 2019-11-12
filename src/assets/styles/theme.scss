@@ -1,2 +1,11 @@
 @import './modules/_colors.scss';
 @import './modules/_fonts.scss';
+
+.verne-card {
+  background-color: $primary-color;
+  color: $verne_text-color;
+}
+.verne-text {
+  font-family: $verne_text_font-family;
+  color: $verne_text-color;
+}

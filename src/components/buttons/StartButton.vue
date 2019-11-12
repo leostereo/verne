@@ -39,13 +39,9 @@ export default {
 </script>
 
 <style>
-.under {
-  z-index: 4
-}
 .start_button {
   background-image: url(../../assets/png/comenzar.svg);
   height: 200px;
   width: 200px;
-
 }
 </style>

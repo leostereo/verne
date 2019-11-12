@@ -1,7 +1,6 @@
 <template>
   <v-container fluid>
     <counter :show="showCounter" @on-finish="redirect" />
-    <v-container fluid>
       <v-row align="center" class="mx-12" justify="center">
         <training-modes @show-counter="setCounter" />
       </v-row>
