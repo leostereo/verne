@@ -118,7 +118,9 @@ export default {
   },
   methods: {
     redirect(path, showCounter, id, videoPath) {
-      this.$emit('show-counter', { path, showCounter, id, videoPath });
+      this.$emit('show-counter', {
+        path, showCounter, id, videoPath,
+      });
     },
   },
 };

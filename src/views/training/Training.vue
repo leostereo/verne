@@ -1,23 +1,17 @@
 <template>
   <div>
     <finish-training-modal :show="showTrainingFinishModal" @on-close="handleOnCloseModal" />
-    <multimedia-header :video_mode="video_mode"/>
+    <multimedia-header :video_mode="video_mode" />
     <v-container fluid v-if="!video_mode">
       <v-row justify="center" no-gutters>
-         <v-col cols="2">
-          <widget-circ2 :myvalue="speedPorc" :real="speed"
-          unit="KM/Hs"/>
+        <v-col cols="2">
+          <widget-circ2 :myvalue="speedPorc" :real="speed" unit="KM/Hs" />
         </v-col>
         <v-col cols="2">
-          <widget-circ2 :myvalue="inclinationPorc" :real="inclination"
-          unit="inclination"/>
+          <widget-circ2 :myvalue="inclinationPorc" :real="inclination" unit="inclination" />
         </v-col>
         <v-col cols="2">
-          <widget-circ
-            :value="kms"
-            unit="KMs"
-            v-bind:class="{ blink: distanceCloseToFinish }"
-          />
+          <widget-circ :value="kms" unit="KMs" v-bind:class="{ blink: distanceCloseToFinish }" />
         </v-col>
         <v-col cols="2">
           <widget-circ
@@ -27,22 +21,22 @@
           />
         </v-col>
       </v-row>
-      <v-row class="justify-space-around" no-gutters="" align="center">
+      <v-row class="justify-space-around" no-gutters align="center">
         <v-col cols="8">
           <v-row justify="center">
             <v-col cols="3" class="justify-center">
-              <widget-img  :value="heartbeat" unit="PPS">
+              <widget-img :value="heartbeat" unit="PPS">
                 <img style="height:65px" src="../../assets/png/corazon_borde.svg" />
               </widget-img>
             </v-col>
             <v-col cols="3">
-              <widget-img  :value="rhythm" unit="min/km">
+              <widget-img :value="rhythm" unit="min/km">
                 <img style="height:65px" src="../../assets/png/cardio_borde.svg" />
               </widget-img>
             </v-col>
             <v-col cols="3">
               <div class="frame">
-                <widget-img  :value="calories" unit="kcal">
+                <widget-img :value="calories" unit="kcal">
                   <img style="height:65px" src="../../assets/png/calorias_borde.svg" />
                 </widget-img>
               </div>
@@ -51,7 +45,7 @@
         </v-col>
         <v-col cols="4">
           <v-row justify="center">
-            <v-col  class="pl-0 pb-5">
+            <v-col class="pl-0 pb-5">
               <training-graphic />
             </v-col>
           </v-row>
@@ -61,15 +55,16 @@
     <div v-if="video_mode">
       <v-container fluid>
         <v-row justify="center">
-          <video ref="myvideo" 
-            @ended="videoEnds"
+          <video
+            ref="myvideo"
+            @ended="handleTriningFinish('virtual')"
             src="../../assets/videos/bata.mp4"
             height="450px"
           ></video>
         </v-row>
       </v-container>
     </div>
-    <control-bar @playerEvent="controlPlayer"/>
+    <control-bar @playerEvent="controlPlayer" />
   </div>
 </template>
 
@@ -86,7 +81,6 @@ import FinishTrainingModal from '../../components/modals/FinishTrainingModal.vue
 import { ROUTES } from '../../router';
 import { TRAININGDEF } from '../../constants/TrainingDefaults';
 import GraphService from '../../services/GraphService';
-
 
 export default {
   components: {
@@ -178,6 +172,9 @@ export default {
           this.distanceCloseToFinish = false;
           this.showTrainingFinishModal = true;
           break;
+        case 'virtual':
+          this.showTrainingFinishModal = true;
+          break;
         default:
           break;
       }
@@ -202,10 +199,10 @@ export default {
   },
   watch: {
     speed(value) {
-      this.speedPorc = parseInt(value, 10) * 100 / TRAININGDEF.MAX_SPEED;
+      this.speedPorc = (parseInt(value, 10) * 100) / TRAININGDEF.MAX_SPEED;
     },
     inclination(value) {
-      this.inclinationPorc = parseInt(value, 10) * 100 / TRAININGDEF.MAX_INC;
+      this.inclinationPorc = (parseInt(value, 10) * 100) / TRAININGDEF.MAX_INC;
     },
     isConnected(value) {
       if (value) {

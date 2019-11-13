@@ -50,7 +50,9 @@ export default {
     swiperOption: SwiperOptions,
   }),
   methods: {
-    setCounter({ path, showCounter, id, videoPath }) {
+    setCounter({
+      path, showCounter, id, videoPath,
+    }) {
       this.path = path;
       this.training_id = id;
       this.video_path = videoPath;
