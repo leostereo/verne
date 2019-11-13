@@ -4,7 +4,7 @@
       class="verne-text align-end"
       height="200px"
       :src="src"
-      @click="redirect('/training-virtual-detail',false,training_id)"
+      @click="redirect('/training-virtual-detail',false,training_id,video_path)"
     ></v-img>
   <v-card-title
     class="justify-center fill-height verne-text"
@@ -59,7 +59,7 @@
   <div class="but_frame">
     <button
       class="verne_degrade container-rounded"
-      @click="redirect('/training',true,training_id)"
+      @click="redirect('/training',true,training_id,video_path)"
     >
       COMENZAR
     </button>
@@ -110,10 +110,15 @@ export default {
       default: 'nan',
       required: true,
     },
+    video_path: {
+      type: String,
+      default: 'nan',
+      required: true,
+    },
   },
   methods: {
-    redirect(path, showCounter, id) {
-      this.$emit('show-counter', { path, showCounter, id });
+    redirect(path, showCounter, id, videoPath) {
+      this.$emit('show-counter', { path, showCounter, id, videoPath });
     },
   },
 };

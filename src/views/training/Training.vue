@@ -1,8 +1,8 @@
 <template>
   <div>
     <finish-training-modal :show="showTrainingFinishModal" @on-close="handleOnCloseModal" />
-    <multimedia-header />
-    <v-container fluid>
+    <multimedia-header :video_mode="video_mode"/>
+    <v-container fluid v-if="!video_mode">
       <v-row justify="center" no-gutters>
          <v-col cols="2">
           <widget-circ2 :myvalue="speedPorc" :real="speed"
@@ -58,7 +58,18 @@
         </v-col>
       </v-row>
     </v-container>
-    <control-bar/>
+    <div v-if="video_mode">
+      <v-container fluid>
+        <v-row justify="center">
+          <video ref="myvideo" 
+            @ended="videoEnds"
+            src="../../assets/videos/bata.mp4"
+            height="450px"
+          ></video>
+        </v-row>
+      </v-container>
+    </div>
+    <control-bar @playerEvent="controlPlayer"/>
   </div>
 </template>
 
@@ -89,6 +100,7 @@ export default {
   },
   props: {
     training_mode: String,
+    video_path: String,
     training_value: String,
     user_age: {
       type: Number,
@@ -116,6 +128,8 @@ export default {
   }),
   data() {
     return {
+      video_mode: true,
+      video_path2: '../../assets/videos/bata.mp4',
       trainParams: {
         training_mode: this.training_mode,
         training_value: this.training_value,
@@ -131,6 +145,21 @@ export default {
     };
   },
   methods: {
+    controlPlayer(event) {
+      if (event === 'running') {
+        this.$refs.myvideo.play();
+      } else if (event === 'stopped') {
+        this.$refs.myvideo.pause();
+      }
+    },
+    setScreen() {
+      if (this.training_mode === 'virtual') {
+        this.video_mode = true;
+        // this.$refs.myvideo.src = this.video_path;
+      } else {
+        this.video_mode = false;
+      }
+    },
     handleTriningFinish(event) {
       switch (event) {
         case 'training_by_distance_close_to_finish':
@@ -167,6 +196,7 @@ export default {
   },
   mounted() {
     this.$store.commit('reset_data');
+    this.setScreen();
     ControlService.startTraining(this.trainParams);
     this.subscribeInProgresChartData();
   },

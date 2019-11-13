@@ -1,6 +1,6 @@
 const SOCKET = {
-  URL2: 'ws://localhost',
-  URL: 'ws://10.1.1.50',
+  URL: 'ws://localhost',
+  URL1: 'ws://10.1.1.50',
   PORT: 8081,
   PATH: 'control',
   PROTOCOL: 'websocket',
@@ -40,6 +40,7 @@ const MESSAGE_ACTIONS = {
   TRAIN_BY_TIME: 'start_training_by_time',
   QUICK: 'start_quickstart_training',
   PROGRAM: 'start_training_by_id',
+  VIRTUAL: 'start_virtual_training_by_id',
   STOP_STATUS_POLLING: 'stop_status_polling',
   INCLINE_SET_POINT: 'incline_set_point',
   SPEED_SET_POINT: 'speed_set_point',
