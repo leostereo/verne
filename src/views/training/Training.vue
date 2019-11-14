@@ -58,7 +58,7 @@
           <video
             ref="myvideo"
             @ended="handleTriningFinish('virtual')"
-            src="../../assets/videos/bata.mp4"
+            :src="video_path"
             height="450px"
           ></video>
         </v-row>

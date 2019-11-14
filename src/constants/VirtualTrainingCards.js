@@ -8,7 +8,7 @@ const VIRTUAL_TRAINING_CARDS = [
     time: '20',
     distance: '40',
     creator: 'Profe Peter',
-    video_path: '../../assets/videos/bata.mp4',
+    video_path: './videos/bata.mp4',
   },
   {
     id: 2,
@@ -18,7 +18,7 @@ const VIRTUAL_TRAINING_CARDS = [
     time: '20',
     distance: '40',
     creator: 'Profe Cacho',
-    video_path: '../../assets/videos/bata.mp4',
+    video_path: './videos/miami.mp4',
   },
   {
     id: 4,
@@ -28,7 +28,7 @@ const VIRTUAL_TRAINING_CARDS = [
     time: '30',
     distance: '10',
     creator: 'Profe franzua',
-    video_path: '../../assets/videos/bata.mp4',
+    video_path: './videos/bata.mp4',
   },
   {
     id: 4,
@@ -38,7 +38,7 @@ const VIRTUAL_TRAINING_CARDS = [
     time: '20',
     distance: '50',
     creator: 'Profe Guille',
-    video_path: '../../assets/videos/bata.mp4',
+    video_path: './videos/bata.mp4',
   },
 ];
 

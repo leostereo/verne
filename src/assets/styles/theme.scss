@@ -9,3 +9,10 @@
   font-family: $verne_text_font-family;
   color: $verne_text-color;
 }
+.verne-chip {
+  background-color: $primary-color;
+  color: $verne_text-color;
+  padding: 2%;
+  font-family: $verne_number_font-family;
+  height: 60px;
+}
