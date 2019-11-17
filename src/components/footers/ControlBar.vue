@@ -187,6 +187,9 @@ export default {
       this.icon = value === TREADMILL_STATE.RUNNING ? ICONS.PAUSE : ICONS.PLAY;
       this.isruning = value === TREADMILL_STATE.RUNNING;
     },
+    emitPlayerEvent(value) {
+      this.$emit('playerEvent', value);
+    },
     handleOnClickStart() {
       const value = this.state;
       if (value === 'running') {
@@ -229,6 +232,7 @@ export default {
     },
     state(value) {
       this.setIcon(value);
+      this.emitPlayerEvent(value);
     },
   },
 };

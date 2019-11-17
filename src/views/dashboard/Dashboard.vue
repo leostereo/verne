@@ -1,10 +1,10 @@
 <template>
   <v-container fluid>
     <counter :show="showCounter" @on-finish="redirect" />
-    <v-row align="center" class="mx-12 full-height" justify="center">
-      <training-modes @show-counter="setCounter" />
-    </v-row>
-  </v-container>
+      <v-row align="center" class="mx-12" justify="center">
+        <training-modes @show-counter="setCounter" />
+      </v-row>
+    </v-container>
 </template>
 
 <script>

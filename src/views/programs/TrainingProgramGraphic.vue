@@ -24,11 +24,17 @@ export default {
   data: () => ({
     chartOptions2: ProgramTrainGraphOptions,
     chartOptions: {
+      credits: {
+        enabled: false,
+      },
       title: {
         text: '',
+        style: {
+          color: 'white',
+        },
       },
       chart: {
-        type: 'line',
+        type: 'spline',
         backgroundColor: '#3c3e55',
       },
       plotOptions: {
@@ -37,16 +43,41 @@ export default {
         },
       },
       xAxis: {
+        title: {
+          enabled: true,
+          text: 'Tiempo (mins)',
+          style: {
+            color: 'white',
+            fontSize: '13px',
+            fontFamily: 'Verdana, sans-serif',
+          },
+        },
         categories: [],
+        labels: {
+          style: {
+            color: 'white',
+          },
+        },
       },
       yAxis: {
         title: {
-          text: 'Velocidad',
+          enabled: true,
+          text: 'Tiempo',
+          style: {
+            color: 'white',
+            fontSize: '13px',
+            fontFamily: 'Verdana, sans-serif',
+          },
+        },
+        labels: {
+          style: {
+            color: 'white',
+          },
         },
       },
       series: [
         {
-          name: 'tiempo(mins)',
+          name: '',
           data: [],
         },
       ],
@@ -63,7 +94,7 @@ export default {
       require: true,
     },
     source: {
-      type: Number,
+      type: String,
       require: true,
     },
   },
@@ -75,7 +106,7 @@ export default {
       this.chartOptions.title.text = this.title;
       this.chartOptions.yAxis.title.text = this.yaxys;
       this.training_view.training_element
-        .training_secuence[this.source].info.forEach(this.pushData);
+        .training_secuence[Number(this.source)].info.forEach(this.pushData);
       this.render = true;
     },
     clearGraphSeries() {

@@ -17,6 +17,17 @@ class ProgramService extends WebsocketService {
       MESSAGE_ACTIONS.GET_TRAINING_DETAIL_BY_ID, extra);
     this.sendMessage(message);
   }
+
+  getVirtualData() {
+    const message = this.createMessage(this.code, MESSAGE_ACTIONS.GET_ALL_VIRTUAL_TRAININGS);
+    this.sendMessage(message);
+  }
+
+  getVirtualDetail(extra) {
+    const message = this.createMessage(this.code,
+      MESSAGE_ACTIONS.GET_VIRTUAL_TRAINING_DETAIL_BY_ID, extra);
+    this.sendMessage(message);
+  }
 }
 
 export default new ProgramService();

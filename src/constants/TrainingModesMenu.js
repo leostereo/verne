@@ -25,6 +25,14 @@ const TRAINING_MODES_MENU = [
     showCounter: false,
     mode: 'program',
   },
+  {
+    id: 4,
+    name: 'Entrenamiento virtual',
+    src: './img/train_modes/virtual.svg',
+    route: ROUTES.TRAINING_VIRTUAL,
+    showCounter: false,
+    mode: 'virtual',
+  },
 ];
 
 export default TRAINING_MODES_MENU;

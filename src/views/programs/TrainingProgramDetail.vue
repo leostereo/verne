@@ -2,6 +2,7 @@
 <div>
   <counter :show="showCounter" @on-finish="redirect" />
   <v-container fluid>
+    <div class="background-bar"></div>
     <v-row>
       <back-home-button path="/training-programs"/>
     </v-row>
@@ -12,7 +13,6 @@
           :name="card.name"
           :time="card.total_time"
           :description="card.description"
-          @show-counter="setCounter"
         />
       </v-col>
       <v-col cols="3">
@@ -24,10 +24,12 @@
           title="inclinacion por tiempo" yaxys="grados" source="1"/>
       </v-col>
     </v-row>
-    <v-row justify="center">
+    <div class="separator"></div>
+    <v-footer absolute flat class="font-weight-medium control_bar justify-center">
+      <div class="background-bar"></div>
       <start-button value="COMENZAR"
       @show-counter="setCounter" v-if="render"/>
-    </v-row>
+    </v-footer>
   </v-container>
 </div>
 
@@ -100,9 +102,24 @@ export default {
 };
 </script>
 
-<style scoped>
+<style  lang="scss" scoped>
 .full-height {
   margin-top: -20px;
   height: calc(100vh - 10px);
+}.control_bar {
+  background: transparent;
+}
+.separator{
+  height: 120px;
+}
+.background-bar {
+  border-top-left-radius: 25px !important;
+  border-top-right-radius: 25px !important;
+  background-color: $primary-color;
+  height: 78px;
+  width: 100%;
+  top: 175px;
+  position: absolute;
+  z-index: -1;
 }
 </style>

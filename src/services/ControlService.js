@@ -34,6 +34,10 @@ class ControlService extends WebsocketService {
         action = MESSAGE_ACTIONS.PROGRAM;
         data = { ...extra, training_id: extra.training_value };
         break;
+      case 'virtual':
+        action = MESSAGE_ACTIONS.VIRTUAL;
+        data = { ...extra, training_id: extra.training_value };
+        break;
       default:
         data = { ...extra, training_id: extra.training_id };
         break;

@@ -1,5 +1,5 @@
 <template>
-          <div class="mt-12 align-self-center verne_text">
+          <div class="mt-12 align-self-center verne_text under">
               <button class="start_button font-weighthis.pat-bold
               headline" @click="redirect('',true,'')">
                 {{ value}}

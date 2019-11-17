@@ -81,6 +81,12 @@ export default new Vuex.Store({
     get_training_detail_by_id_response(_, message) {
       this.state.treadmill.training_view = message;
     },
+    get_all_virtual_trainings_response(_, message) {
+      this.state.treadmill.training_view = message;
+    },
+    get_virtual_training_detail_by_id_response(_, message) {
+      this.state.treadmill.training_view = message;
+    },
     reset_training_view_events() {
       this.state.treadmill.training_view_event.action = '';
     },

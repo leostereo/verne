@@ -1,53 +1,31 @@
 <template>
   <v-container fluid>
-    <v-row align="center" justify="center">
+    <v-row align="center" class="full-height" justify="center">
       <v-col cols="3">
-        <v-card height="500px" class="verneback justify-center">
+        <v-card height="500px" class="verne-card justify-center">
           <div class="separator_prog"></div>
           <div class="icon">
             <img style="height:100px" src="../../assets/png/entrenamiento.svg" />
           </div>
-          <v-card-title class="layout justify-center text-center subtitle-2 verne_text">
+          <v-card-title class="layout justify-center text-center subtitle-2">
             MENU DE<br />ENTRENAMIENTOS
           </v-card-title>
           <v-divider class="verne_divider"></v-divider>
-          <v-list-item-group class="verne_text">
-            <v-list-item>
-              <v-list-item-icon>
-                <img style="height:30px" src="../../assets/png/distancia.svg" />
-              </v-list-item-icon>
-              <v-list-item-content
-                @click="redirect(routes.TRAINING_SETTINGS, false,'distance')"
-              >
-                <v-list-item-title class="verne_text">
-                  Programa de distancia
-                </v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-            <v-list-item>
-              <v-list-item-icon>
-                <img style="height:30px" src="../../assets/png/tiempo.svg" />
-              </v-list-item-icon>
-              <v-list-item-content
-                @click="redirect(routes.TRAINING_SETTINGS, false,'time')"
-              >
-                <v-list-item-title class="verne_text">
-                  Programa de tiempo
-                </v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-            <v-list-item>
-              <v-list-item-icon>
-                <img style="height:30px" src="../../assets/png/cardio.svg" />
-              </v-list-item-icon>
-              <v-list-item-content
-                @click="redirect(routes.TRAINING_PROGRAMS, false,'time')"
-              >
-                <v-list-item-title class="verne_text">
-                  Entrenamiento programado
-                </v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
+          <v-list-item-group>
+            <v-list-item
+              v-for="(trainMode, i) in trainMenu"
+              :key="i"
+            >
+                  <v-list-item-icon>
+                    <img style="height:30px" :src="trainMode.src" />
+                  </v-list-item-icon>
+                  <v-list-item-content
+                    @click="redirect(trainMode.route, trainMode.showCounter,trainMode.mode)"
+                  >
+                    <v-list-item-title class="verne-text" v-text="trainMode.name">
+                    </v-list-item-title>
+                  </v-list-item-content>
+                </v-list-item>
           </v-list-item-group>
         </v-card>
       </v-col>
@@ -56,7 +34,7 @@
           <div class="separator_quick"></div>
           <div class="align-self-center">
             <button
-              class="simple_button font-weight-bold display-1"
+              class="simple_button verne-text font-weight-bold display-1"
               @click="redirect(routes.TRAINING, true,'quick')"
             >
               QUICK<br>START
@@ -70,7 +48,7 @@
           <div class="icon">
             <img style="height:100px" src="../../assets/png/aplicaciones.png" />
           </div>
-          <v-card-title class="layout justify-center verne_text">
+          <v-card-title class="layout justify-center verne-text">
             Aplicaciones
           </v-card-title>
           <v-divider class="verne_divider"></v-divider>
@@ -102,10 +80,23 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.full-height {
+  margin-top: -64px;
+  height: calc(100vh - 48px);
+}
+.verne-card {
+  background-color: $primary-color;
+  color: $verne_text-color;
+}
+.verne-text {
+  font-family: $verne_text_font-family;
+  color: $verne_text-color;
+}
 .separator_prog {
   height: 30px;
 }
+
 .separator_app {
   height: 30px;
 }

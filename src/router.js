@@ -5,7 +5,9 @@ export const ROUTES = {
   DASHBOARD: '/',
   TRAINING: '/training',
   TRAINING_PROGRAMS: '/training-programs',
+  TRAINING_VIRTUAL: '/training-virtual',
   TRAINING_PROGRAM_DETAIL: '/training-program-detail',
+  TRAINING_VIRTUAL_DETAIL: '/training-virtual-detail',
   TRAINING_SETTINGS: '/training-settings',
   TRAINING_STATS: '/training/stats',
   APPS: '/apps',
@@ -39,10 +41,22 @@ export default new Router({
       component: () => import('./views/programs/ProgramsMenu.vue'),
     },
     {
+      path: ROUTES.TRAINING_VIRTUAL,
+      props: true,
+      name: '/training-virtual',
+      component: () => import('./views/virtual/VirtualMenu.vue'),
+    },
+    {
       path: ROUTES.TRAINING_PROGRAM_DETAIL,
       props: true,
       name: '/training-program-detail',
       component: () => import('./views/programs/TrainingProgramDetail.vue'),
+    },
+    {
+      path: ROUTES.TRAINING_VIRTUAL_DETAIL,
+      props: true,
+      name: '/training-virtual-detail',
+      component: () => import('./views/virtual/TrainingVirtualDetail.vue'),
     },
     {
       path: ROUTES.TRAINING_STATS,

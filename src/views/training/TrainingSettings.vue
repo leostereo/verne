@@ -7,8 +7,9 @@
     <v-row class="my-10 title" justify="center">
       {{ title }}
     </v-row>
-    <v-row class="my-10 indicator " justify="center">
-      <div class="indicator verne_back">{{slider}}<br />{{ units }}</div>
+    <v-row class="my-10">
+      <div class="indicator verneback">
+        <p>{{slider}} {{ units }}</p></div>
     </v-row>
     <v-row align="center" justify="center">
       <v-col cols="6">
@@ -28,9 +29,10 @@
             <button class="rounded_button inc" @click="increment"></button>
           </template>
         </v-slider>
+        <div class="separator"></div>
       </v-col>
     </v-row>
-    <v-row justify="center">
+    <v-row justify="center pt-0">
       <v-col cols="3">
         <widget-setter :value="age" @set-value="handleAgeSet">
           <img style="height:75px" src="../../assets/png/años.svg" />
@@ -47,9 +49,12 @@
         </widget-setter>
       </v-col>
      </v-row>
-     <v-row justify="center">
-      <start-button value="COMENZAR" @show-counter="setCounter"/>
-     </v-row>
+    <v-row justify="center">
+      <div class="background-bar"></div>
+      <div class="button-container">
+        <start-button value="COMENZAR" @show-counter="setCounter"/>
+      </div>
+    </v-row>
   </v-container>
 </template>
 
@@ -82,6 +87,7 @@ export default {
     units: '',
     slider: 35,
     ex2: { label: '', val: 75, color: 'blue lighten-1' },
+    render: false,
   }),
   mounted() {
     if (this.mode === 'distance') {
@@ -91,6 +97,7 @@ export default {
       this.title = 'ENTRENAMIENTO POR TIEMPO';
       this.units = 'Mins';
     }
+    this.render = true;
   },
   methods: {
     handleAgeSet(isMore) {
@@ -147,14 +154,14 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 .indicator {
   margin:auto;
-  align-content: center;
+  text-align: center;
   width: 20%;
   border-radius: 20px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 15px;
+  padding-bottom: 0px;
   font-weight: bold;
   font-size: 20px;
   line-height: 1;
@@ -172,10 +179,15 @@ export default {
   outline:none;
   border: 0;
 }
-.start_button {
-  background-image: url(../../assets/png/comenzar.svg);
-  height: 200px;
-  width: 200px;
+.footer-container{
+  text-align: center;
+  top: 320px;
+  width: 100%;
+  border: solid 1px red;
+  background-color: transparent;
+}
+.button-container{
+  z-index: 0;
 }
 .inc {
   background-image: url(../../assets/png/mas.svg);
@@ -187,4 +199,21 @@ export default {
   height: 40px;
   width: 40px;
 }
+.background-bar {
+  border-top-left-radius: 25px !important;
+  border-top-right-radius: 25px !important;
+  background-color: $primary-color;
+  height: 78px;
+  width: 100%;
+  top: 250px;
+  position: relative;
+  z-index: 0;
+}
+.control_bar {
+  background: transparent;
+}
+.separator{
+  height: 50px;
+}
+
 </style>
