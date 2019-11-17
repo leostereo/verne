@@ -1,30 +1,141 @@
 <template>
-<div id="app">
-  <video ref="myvideo"
-    src="../../assets/videos/bata.mp4"
-    width="400"></video>
-    <hr>
-    <button :disabled="isPlaying" @click="play">Play</button>
-    <button :disabled="!isPlaying" @click="stop">Stop</button>
-</div>
+<v-card class="verne-card" @click="redirect()">
+  <v-card-title class="layout justify-center white--text subtitle-2">
+    <v-list-item>
+      <v-list-item-icon>
+        <img style="height:80px" src="../../assets/png/virtual_borde.svg" />
+      </v-list-item-icon>
+      <v-list-item-content>
+        <v-list-item-title class="verne-text">
+          Detalle entrenamiento virtual
+        </v-list-item-title>
+      </v-list-item-content>
+    </v-list-item>
+  </v-card-title>
+    <divider></divider>
+  <v-list-item-group>
+    <v-list-item>
+      <v-list-item-icon>
+        <img style="height:30px" src="../../assets/png/nivel.svg" />
+      </v-list-item-icon>
+      <v-list-item-content>
+        <v-list-item-title class="verne-text">
+          Nivel: {{ level }}
+        </v-list-item-title>
+      </v-list-item-content>
+    </v-list-item>
+    <v-list-item>
+      <v-list-item-icon>
+        <img style="height:30px" src="../../assets/png/tiempo.svg" />
+      </v-list-item-icon>
+      <v-list-item-content>
+        <v-list-item-title class="verne-text">
+          tiempo: {{ time }}
+        </v-list-item-title>
+      </v-list-item-content>
+    </v-list-item>
+    <v-list-item>
+      <v-list-item-icon>
+        <img style="height:30px" src="../../assets/png/distancia.svg" />
+      </v-list-item-icon>
+      <v-list-item-content>
+        <v-list-item-title class="verne-text">
+          distancia: {{ distance }}
+        </v-list-item-title>
+      </v-list-item-content>
+    </v-list-item>
+    <v-list-item>
+      <v-list-item-icon>
+        <img style="height:30px" src="../../assets/png/objetivos.svg" />
+      </v-list-item-icon>
+      <v-list-item-content>
+        <v-list-item-title class="verne-text">
+          Descripcion:
+        </v-list-item-title>
+        <div class="verne-text">
+          {{ description }}
+        </div>
+      </v-list-item-content>
+    </v-list-item>
+    <v-list-item>
+      <v-list-item-icon>
+        <img style="height:30px" src="../../assets/png/creador.svg" />
+      </v-list-item-icon>
+      <v-list-item-content>
+        <v-list-item-title class="verne-text">
+          Creador: {{ creator }}
+        </v-list-item-title>
+      </v-list-item-content>
+    </v-list-item>
+    <v-list-item>
+      <v-list-item-icon>
+        <img style="height:30px" src="../../assets/png/ubicacion.svg" />
+      </v-list-item-icon>
+      <v-list-item-content>
+        <v-list-item-title class="verne-text">
+          lugar: {{ place }}
+        </v-list-item-title>
+      </v-list-item-content>
+    </v-list-item>
+  </v-list-item-group>
+</v-card>
 </template>
 
 <script>
+import Divider from '../../components/common/Divider.vue';
+
 export default {
-  data() {
-    return {
-      isPlaying: false,
-    };
+  components: {
+    Divider,
+  },
+  props: {
+    name: {
+      type: String,
+      default: '0',
+      required: true,
+    },
+    time: {
+      type: String,
+      default: '0',
+      required: true,
+    },
+    distance: {
+      type: String,
+      default: 'nan',
+      required: true,
+    },
+    creator: {
+      type: String,
+      default: '0',
+      required: true,
+    },
+    level: {
+      type: String,
+      default: '0',
+      required: true,
+    },
+    description: {
+      type: String,
+      default: '0',
+      required: true,
+    },
+    place: {
+      type: String,
+      default: '0',
+      required: true,
+    },
   },
   methods: {
-    play() {
-      this.$refs.myvideo.play();
-      this.isPlaying = true;
-    },
-    stop() {
-      this.$refs.myvideo.pause();
-      this.isPlaying = false;
+    redirect() {
+      this.$emit('show-counter');
     },
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.verne-card {
+  background-color: $primary-color;
+  color: $verne_text-color;
+}
+</style>

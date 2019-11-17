@@ -8,20 +8,43 @@
     </v-row>
     <v-row v-if="render" justify="center" align="center" class="full-height">
       <v-col cols="4">
-        <train-program-detail
+        <train-virtual-detail
           :creator="card.creator"
           :name="card.name"
           :time="card.total_time"
           :description="card.description"
+          :level="card.level"
+          :place="card.place"
+          :distance="card.distance"
         />
       </v-col>
-      <v-col cols="3">
-          <training-program-graphic
-          title="velocidad por tiempo" yaxys="kms/h" source="0"/>
-      </v-col>
-      <v-col cols="3">
-          <training-program-graphic
-          title="inclinacion por tiempo" yaxys="grados" source="1"/>
+      <v-col cols="7">
+        <v-row justify="center">
+          <v-col cols="10">
+            <v-card>
+              <v-carousel height="300">
+                <v-carousel-item
+                  v-for="(item,i) in card.images"
+                  :key="i"
+                  :src="item"
+                  reverse-transition="fade-transition"
+                  transition="fade-transition"
+                ></v-carousel-item>
+              </v-carousel>
+          </v-card>
+          </v-col>
+
+        </v-row>
+        <v-row>
+          <v-col cols="6">
+            <training-program-graphic
+            title="velocidad por tiempo" yaxys="kms/h" source="0"/>
+          </v-col>
+          <v-col cols="6">
+            <training-program-graphic
+            title="inclinacion por tiempo" yaxys="grados" source="1"/>
+          </v-col>
+        </v-row>
       </v-col>
     </v-row>
     <div class="separator"></div>
@@ -38,7 +61,7 @@
 <script>
 import { mapState } from 'vuex';
 import ProgramService from '../../services/ProgramService';
-// import TrainProgramDetail from './TrainProgramDetail.vue';
+import TrainVirtualDetail from './TrainVirtualDetail.vue';
 import Counter from '../../components/common/Counter.vue';
 import TrainingProgramGraphic from './TrainingProgramGraphic.vue';
 import BackHomeButton from '../../components/common/BackHomeButton.vue';
@@ -46,9 +69,10 @@ import StartButton from '../../components/buttons/StartButton.vue';
 
 export default {
   beforeMount() {
-    this.getProgramDetail();
+    this.getVirtualDetail();
   },
   components: {
+    TrainVirtualDetail,
     Counter,
     TrainingProgramGraphic,
     BackHomeButton,
@@ -62,7 +86,7 @@ export default {
   },
   data() {
     return {
-      mode: 'program',
+      mode: 'virtual',
       trainDetail: {
         training_id: this.training_value,
       },
@@ -75,8 +99,8 @@ export default {
     training_view: state => state.treadmill.training_view,
   }),
   methods: {
-    getProgramDetail() {
-      ProgramService.getProgramDetail(this.trainDetail);
+    getVirtualDetail() {
+      ProgramService.getVirtualDetail(this.trainDetail);
     },
     createTrainDetailCard(card) {
       this.card = card;
@@ -88,7 +112,11 @@ export default {
       this.showCounter = false;
       this.$router.push({
         name: '/training',
-        params: { training_mode: this.mode, training_value: this.training_value },
+        params: {
+          training_mode: this.mode,
+          training_value: this.training_value,
+          video_path: this.card.video_path,
+        },
       });
     },
   },
@@ -109,7 +137,7 @@ export default {
   background: transparent;
 }
 .separator{
-  height: 120px;
+  height: 180px;
 }
 .background-bar {
   border-top-left-radius: 25px !important;

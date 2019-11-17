@@ -55,8 +55,8 @@ export default new Router({
     {
       path: ROUTES.TRAINING_VIRTUAL_DETAIL,
       props: true,
-      name: '/training-virtual-detail', // corregir
-      component: () => import('./views/virtual/TrainVirtualDetail.vue'),
+      name: '/training-virtual-detail',
+      component: () => import('./views/virtual/TrainingVirtualDetail.vue'),
     },
     {
       path: ROUTES.TRAINING_STATS,

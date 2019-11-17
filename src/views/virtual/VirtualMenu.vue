@@ -3,7 +3,7 @@
   <counter :show="showCounter" @on-finish="redirect" />
     <v-row>
       <back-home-button/>
-   </v-row>
+    </v-row>
    <v-row justify="center" class="full-height" align="center">
      <v-col cols="11">
         <swiper :options="swiperOption" class="slider">
@@ -11,7 +11,7 @@
             <virtual-item
               :creator="card.creator"
               :name="card.name" :time="card.time"
-              :level="card.level" :training_id="card.training_id"
+              :level="card.level" :training_id="card.id"
               :place="card.place" :src="card.src"
               :video_path="card.video_path"
               @show-counter="setCounter"
@@ -27,15 +27,17 @@
 </template>
 
 <script>
-
+import { mapState } from 'vuex';
+import ProgramService from '../../services/ProgramService';
 import BackHomeButton from '../../components/common/BackHomeButton.vue';
 import VirtualItem from './VirtualItem.vue';
 import Counter from '../../components/common/Counter.vue';
 import SwiperOptions from '../../constants/SwiperOptions';
-import VirtualTrainingCards from '../../constants/VirtualTrainingCards';
 
 export default {
-  beforeMount() {},
+  beforeMount() {
+    this.getVirtualData();
+  },
   components: {
     BackHomeButton,
     VirtualItem,
@@ -43,19 +45,24 @@ export default {
   },
   data: () => ({
     training_id: '',
-    video_path: '',
     showCounter: false,
-    training_cards: VirtualTrainingCards,
+    training_cards: '',
     render: false,
     swiperOption: SwiperOptions,
   }),
+  computed: mapState({
+    training_view: state => state.treadmill.training_view,
+  }),
   methods: {
-    setCounter({
-      path, showCounter, id, videoPath,
-    }) {
+    getVirtualData() {
+      ProgramService.getVirtualData();
+    },
+    createVirtualCards(cards) {
+      this.training_cards = cards;
+    },
+    setCounter({ path, showCounter, id }) {
       this.path = path;
       this.training_id = id;
-      this.video_path = videoPath;
       this.showCounter = showCounter;
       if (!showCounter) {
         this.redirect();
@@ -66,12 +73,17 @@ export default {
       this.$router.push({
         name: this.path,
         params: {
-          training_mode: 'virtual',
+          training_mode: 'program',
           training_value: this.training_id,
           training_id: this.training_id,
-          video_path: this.video_path,
         },
       });
+    },
+  },
+  watch: {
+    training_view(value) {
+      this.createVirtualCards(value.training_list);
+      this.render = true;
     },
   },
 };
