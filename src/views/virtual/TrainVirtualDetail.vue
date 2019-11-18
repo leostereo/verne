@@ -1,6 +1,6 @@
 <template>
 <v-card class="verne-card" @click="redirect()">
-  <v-card-title class="layout justify-center white--text subtitle-2">
+  <v-card-title class="layout justify-center verne-text subtitle-2">
     <v-list-item>
       <v-list-item-icon>
         <img style="height:80px" src="../../assets/icons/virtual_borde.svg" />

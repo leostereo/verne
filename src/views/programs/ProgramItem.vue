@@ -40,7 +40,7 @@
     </v-list-item>
   </v-list-item-group>
   <v-divider></v-divider>
-  <div class="footer">
+  <div class="but_frame">
     <button
       class="verne_degrade container-rounded"
       @click="redirect('/training',true,training_id)"

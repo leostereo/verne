@@ -4,7 +4,7 @@
       class="verne-text align-end"
       height="200px"
       :src="src"
-      @click="redirect('/training-virtual-detail',false,training_id,video_path)"
+      @click="redirect('/training-virtual-detail',false,training_id)"
     ></v-img>
   <v-card-title
     class="justify-center fill-height verne-text"

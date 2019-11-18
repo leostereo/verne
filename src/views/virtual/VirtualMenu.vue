@@ -10,8 +10,8 @@
           <swiper-slide v-for="card in training_cards" :key="card.training_id" class="inner">
             <virtual-item
               :creator="card.creator"
-              :name="card.name" :time="card.time"
-              :level="card.level" :training_id="card.id"
+              :name="card.name" :time="card.total_time"
+              :level="card.level" :training_id="card.training_id"
               :place="card.place" :src="card.src"
               :video_path="card.video_path"
               @show-counter="setCounter"
@@ -45,6 +45,7 @@ export default {
   },
   data: () => ({
     training_id: '',
+    video_path: '',
     showCounter: false,
     training_cards: '',
     render: false,
@@ -60,9 +61,12 @@ export default {
     createVirtualCards(cards) {
       this.training_cards = cards;
     },
-    setCounter({ path, showCounter, id }) {
+    setCounter({
+      path, showCounter, id, videoPath,
+    }) {
       this.path = path;
       this.training_id = id;
+      this.video_path = videoPath;
       this.showCounter = showCounter;
       if (!showCounter) {
         this.redirect();
@@ -73,9 +77,10 @@ export default {
       this.$router.push({
         name: this.path,
         params: {
-          training_mode: 'program',
+          training_mode: 'virtual',
           training_value: this.training_id,
           training_id: this.training_id,
+          video_path: this.video_path,
         },
       });
     },

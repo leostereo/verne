@@ -4,7 +4,7 @@
   <v-container fluid>
     <div class="background-bar"></div>
     <v-row>
-      <back-home-button path="/training-programs"/>
+      <back-home-button path="/training-virtual"/>
     </v-row>
     <v-row v-if="render" justify="center" align="center" class="full-height">
       <v-col cols="4">

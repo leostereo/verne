@@ -5,16 +5,20 @@
     <v-container fluid v-if="!video_mode">
       <v-row justify="center" no-gutters>
         <v-col cols="2">
-          <widget-circ2 :myvalue="speedPorc" :real="speed" unit="KM/Hs" />
+          <widget-circ :myvalue="speedPorc" :real="speed" unit="KM/Hs" />
         </v-col>
         <v-col cols="2">
-          <widget-circ2 :myvalue="inclinationPorc" :real="inclination" unit="inclination" />
+          <widget-circ :myvalue="inclinationPorc" :real="inclination" unit="inclination" />
         </v-col>
         <v-col cols="2">
-          <widget-circ :value="kms" unit="KMs" v-bind:class="{ blink: distanceCloseToFinish }" />
+          <widget-circ :myvalue="distancePorc" :real="kms" unit="KMs"
+          v-bind:class="{ blink: distanceCloseToFinish }"
+          />
         </v-col>
         <v-col cols="2">
-          <widget-circ :myvalue="timeCloseToFinish" :real="training_time" unit="tiempo"/>
+          <widget-circ :myvalue="timePorc" :real="training_time" unit="tiempo"
+          v-bind:class="{ blink: timeCloseToFinish }"
+          />
         </v-col>
       </v-row>
       <v-row justify="center" align="end" class="graph-row">
@@ -113,7 +117,6 @@ export default {
   data() {
     return {
       video_mode: true,
-      video_path2: '../../assets/videos/bata.mp4',
       trainParams: {
         training_mode: this.training_mode,
         training_value: this.training_value,
@@ -126,6 +129,8 @@ export default {
       timeCloseToFinish: false,
       speedPorc: 0,
       inclinationPorc: 0,
+      distancePorc: 0,
+      timePortc: 0,
     };
   },
   methods: {
@@ -139,7 +144,6 @@ export default {
     setScreen() {
       if (this.training_mode === 'virtual') {
         this.video_mode = true;
-        // this.$refs.myvideo.src = this.video_path;
       } else {
         this.video_mode = false;
       }
