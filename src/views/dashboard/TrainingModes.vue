@@ -5,7 +5,7 @@
         <v-card height="500px" class="verne-card justify-center">
           <div class="separator_prog"></div>
           <div class="icon">
-            <img style="height:100px" src="../../assets/png/entrenamiento.svg" />
+            <img style="height:100px" src="../../assets/icons/entrenamiento.svg" />
           </div>
           <v-card-title class="layout justify-center text-center subtitle-2">
             MENU DE<br />ENTRENAMIENTOS
@@ -30,7 +30,7 @@
         </v-card>
       </v-col>
       <v-col cols="3">
-        <v-card height="500px" class="verneback layout justify-center">
+        <v-card class="dashboard-card verneback layout justify-center">
           <div class="separator_quick"></div>
           <div class="align-self-center">
             <button
@@ -43,10 +43,10 @@
          </v-card>
       </v-col>
       <v-col cols="3">
-        <v-card height="500px" class="verneback card justify-center">
+        <v-card class="dashboard-card verneback card justify-center">
           <div class="separator_app"></div>
           <div class="icon">
-            <img style="height:100px" src="../../assets/png/aplicaciones.png" />
+            <img style="height:100px" src="../../assets/icons/aplicaciones.png" />
           </div>
           <v-card-title class="layout justify-center verne-text">
             Aplicaciones
@@ -60,6 +60,7 @@
 
 <script>
 import TRAINING_MODES_MENU from '../../constants/TrainingModesMenu';
+
 import QUICK from '../../constants/QuickTrain';
 import { ROUTES } from '../../router';
 
@@ -103,11 +104,14 @@ export default {
 .icon {
   text-align: center;
 }
+.dashboard-card {
+  height: calc(100vh - 150px);
+}
 .simple_button {
   background-color : transparent;
-  background-image: url(../../assets/png/comenzar.svg);
-  height: 200px;
-  width: 200px;
+  background-image: url(../../assets/icons/comenzar.svg);
+  height: 250px;
+  width: 250px;
   border: none;
   border-radius: 50%;
   padding: 0px;
@@ -115,5 +119,6 @@ export default {
   display: inline-block;
   outline:none;
   border: 0;
+  color: white;
 }
 </style>

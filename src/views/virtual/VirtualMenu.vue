@@ -29,7 +29,7 @@
 <script>
 import { mapState } from 'vuex';
 import ProgramService from '../../services/ProgramService';
-import BackHomeButton from '../../components/common/BackHomeButton.vue';
+import BackHomeButton from '../../components/buttons/BackHomeButton.vue';
 import VirtualItem from './VirtualItem.vue';
 import Counter from '../../components/common/Counter.vue';
 import SwiperOptions from '../../constants/SwiperOptions';

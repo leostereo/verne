@@ -16,7 +16,7 @@
   <v-list-item-group>
     <v-list-item>
       <v-list-item-icon>
-        <img style="height:30px" src="../../assets/png/ubicacion.svg" />
+        <img style="height:30px" src="../../assets/icons/ubicacion.svg" />
       </v-list-item-icon>
       <v-list-item-content>
         <v-list-item-title class="verne-text">
@@ -26,7 +26,7 @@
     </v-list-item>
     <v-list-item>
       <v-list-item-icon>
-        <img style="height:30px" src="../../assets/png/nivel.svg" />
+        <img style="height:30px" src="../../assets/icons/nivel.svg" />
       </v-list-item-icon>
       <v-list-item-content>
         <v-list-item-title class="verne-text">
@@ -36,7 +36,7 @@
     </v-list-item>
     <v-list-item>
       <v-list-item-icon>
-        <img style="height:30px" src="../../assets/png/tiempo.svg" />
+        <img style="height:30px" src="../../assets/icons/tiempo.svg" />
       </v-list-item-icon>
       <v-list-item-content>
         <v-list-item-title class="verne-text">
@@ -46,7 +46,7 @@
     </v-list-item>
     <v-list-item>
       <v-list-item-icon>
-        <img style="height:30px" src="../../assets/png/creador.svg" />
+        <img style="height:30px" src="../../assets/icons/creador.svg" />
       </v-list-item-icon>
       <v-list-item-content>
         <v-list-item-title class="verne-text">

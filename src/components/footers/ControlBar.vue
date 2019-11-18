@@ -12,15 +12,40 @@
         <div>
           <v-row justify="center" align="center" no-gutters>
             <v-col cols="12">
-              <input type="text" maxlength="4" v-model="speedSetPoint"
-                class="verne_container_rounded_deg"
-                v-bind:class="{'blink': speedOutOfRange}"
-                @focus="speedControl"
-              />
+              <div class="text-center">
+                <v-menu top offset-y
+                  v-model="showSpeedKeyboard"
+                  content-class="keyboard-menu"
+                  :close-on-click="false"
+                  :close-on-content-click="false"
+                >
+                  <template v-slot:activator="{ on }">
+                    <input
+                      type="text"
+                      maxlength="4"
+                      v-model="speedSetPoint"
+                      class="verne-indicator"
+                      v-bind:class="{'blink': speedOutOfRange}"
+                      @click="speedControl"
+                      v-on="on"
+                    />
+                  </template>
+                  <v-card class="keyboard-card">
+                    <vue-touch-keyboard
+                      class="keyboard"
+                      :options="options"
+                      :layout="keyboard"
+                      :cancel="hide"
+                      :accept="speedAccept"
+                      :input="inputSpeed"
+                    />
+                  </v-card>
+                </v-menu>
+              </div>
             </v-col>
           </v-row>
           <v-row justify="center" align="center" no-gutters>
-            <v-col cols="12" class="verne_text text-center">velocidad</v-col>
+            <v-col cols="12" class="verne_text text-center">Velocidad</v-col>
           </v-row>
         </div>
       </v-col>
@@ -50,15 +75,40 @@
         <div>
           <v-row justify="center" align="center" no-gutters>
             <v-col cols="12">
-              <input type="text" maxlength="4" v-model="inclinationSetPoint"
-                class="verne_container_rounded_deg"
-                v-bind:class="{'blink': inclinationOutOfRange}"
-                @focus="inclinationControl"
-              />
+              <div class="text-center">
+                <v-menu top offset-y
+                  v-model="showInclinationKeyboard"
+                  content-class="keyboard-menu"
+                  :close-on-click="false"
+                  :close-on-content-click="false"
+                >
+                  <template v-slot:activator="{ on }">
+                    <input
+                      type="text"
+                      maxlength="4"
+                      v-model="inclinationSetPoint"
+                      class="verne-indicator"
+                      v-bind:class="{'blink': inclinationOutOfRange}"
+                      @click="inclinationControl"
+                      v-on="on"
+                    />
+                  </template>
+                  <v-card class="keyboard-card">
+                    <vue-touch-keyboard
+                      class="keyboard"
+                      :options="options"
+                      :layout="keyboard"
+                      :cancel="hide"
+                      :accept="inclinationAccept"
+                      :input="inputInclination"
+                    />
+                  </v-card>
+                </v-menu>
+              </div>
             </v-col>
           </v-row>
           <v-row justify="center" align="center" no-gutters>
-            <v-col cols="12" class="verne_text text-center">inclinacion</v-col>
+            <v-col cols="12" class="verne_text text-center">Inclinacion</v-col>
           </v-row>
         </div>
     </v-col>
@@ -68,16 +118,6 @@
       </button>
     </v-col>
     </v-footer>
-    <div class="text-center overall verne_back" v-if="SpeedVisible">
-      <vue-touch-keyboard :options="options" :layout="myLayout"
-        :cancel="hide" :accept="speedAccept"
-        :input="input" />
-    </div>
-    <div class="text-center overall verne_back" v-if="InclinationVisible">
-      <vue-touch-keyboard :options="options" :layout="myLayout"
-        :cancel="hide" :accept="inclinationAccept"
-        :input="input" />
-    </div>
   </div>
 </template>
 
@@ -86,10 +126,8 @@ import { mapState } from 'vuex';
 import StopTrainingModal from '../modals/StopTrainingModal.vue';
 import ControlService from '../../services/ControlService';
 import { ROUTES } from '../../router';
-import numeric3 from '../../constants/NumericLayout';
+import NUMERIC_KEYBOARD from '../../constants/NumericKeyboard';
 import { TRAININGDEF } from '../../constants/TrainingDefaults';
-import NumKey from '../keyboards/NumKey.vue';
-
 
 const ICONS = {
   PAUSE: 'mdi-pause',
@@ -112,7 +150,6 @@ export default {
   },
   components: {
     StopTrainingModal,
-    NumKey,
   },
   data() {
     return {
@@ -121,18 +158,19 @@ export default {
       inclinationSetPoint: '',
       speedOutOfRange: false,
       inclinationOutOfRange: false,
-      SpeedVisible: false,
-      InclinationVisible: false,
+      showSpeedKeyboard: false,
+      showInclinationKeyboard: false,
       icon: ICONS.PAUSE,
       showConfirmModal: false,
       isruning: true,
       layout: 'numeric',
-      input: null,
+      inputSpeed: null,
+      inputInclination: null,
       options: {
         useKbEvents: false,
         preventClickEvent: false,
       },
-      myLayout: numeric3,
+      keyboard: NUMERIC_KEYBOARD,
     };
   },
   computed: mapState({
@@ -149,7 +187,7 @@ export default {
       } else if (this.speedSetPoint > TRAININGDEF.MAX_SPEED) {
         this.speedSetPoint = '';
       }
-      this.SpeedVisible = false;
+      this.showSpeedKeyboard = false;
     },
     inclinationAccept() {
       if (this.inclinationSetPoint <= TRAININGDEF.MAX_INC) {
@@ -159,27 +197,20 @@ export default {
       } else if (this.inclinationSetPoint > TRAININGDEF.MAX_INC) {
         this.inclinationSetPoint = '';
       }
-      this.InclinationVisible = false;
+      this.showInclinationKeyboard = false;
     },
     speedControl(e) {
-      this.InclinationVisible = false;
       this.speedSetPoint = '';
-      this.input = e.target;
+      this.inputSpeed = e.target;
       this.layout = e.target.dataset.layout;
-      if (!this.SpeedVisible && !this.InclinationVisible) {
-        this.SpeedVisible = true;
-      }
+      if (!this.showSpeedKeyboard) this.showSpeedKeyboard = true;
     },
     inclinationControl(e) {
-      this.SpeedVisible = false;
       this.inclinationSetPoint = '';
-      this.input = e.target;
+      this.inputInclination = e.target;
       this.layout = e.target.dataset.layout;
-      if (!this.InclinationVisible && !this.SpeedVisible) {
-        this.InclinationVisible = true;
-      }
+      if (!this.showInclinationKeyboard) this.showInclinationKeyboard = true;
     },
-
     hide() {
       this.visible = false;
     },
@@ -239,6 +270,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.keyboard {
+  background-color: $primary-color;
+  padding: 10px;
+}
+.keyboard-card {
+  background-color: $primary-color;
+}
+.keyboard-menu {
+  border-color: $primary-color;
+  background: $primary-color;
+  width: 220px;
+  margin-left: -45px;
+}
 .control_bar {
   background: transparent;
 }
@@ -252,15 +296,6 @@ export default {
   position: absolute;
   z-index: -1;
 }
-.overall {
-  top:0;
-  margin-top: 450px;
-  margin-left:580px;
-  display: block;
-  width: 170px;
-  z-index: 3;
-  position: absolute;
-}
 .rounded_button{
   color:white;
   background-color : transparent;
@@ -273,33 +308,47 @@ export default {
   border: 0;
 }
 .app {
-  background-image: url(../../assets/png/footer_app.svg);
+  background-image: url(../../assets/icons/footer_app.svg);
   height: 100px;
   width: 100px;
 }
 .aumentar {
-  background-image: url(../../assets/png/aumentar.svg);
+  background-image: url(../../assets/icons/aumentar.svg);
   height: 70px;
   width: 70px;
 }
 .disminuir {
-  background-image: url(../../assets/png/disminuir.svg);
+  background-image: url(../../assets/icons/disminuir.svg);
   height: 70px;
   width: 70px;
 }
 .start {
-  background-image: url(../../assets/png/start.svg);
+  background-image: url(../../assets/icons/start.svg);
   height: 90px;
   width: 90px;
 }
 .pause {
-  background-image: url(../../assets/png/pause.svg);
+  background-image: url(../../assets/icons/pause.svg);
   height: 90px;
   width: 90px;
 }
 .stop {
-  background-image: url(../../assets/png/stop.svg);
+  background-image: url(../../assets/icons/stop.svg);
   height: 90px;
   width: 90px;
+}
+.verne-indicator {
+  border-radius: 25px;
+  border-width: 7px;
+  border-style: solid;
+  border-color: #3c3e55;
+  background: linear-gradient(to right, rgba(132,87,255,1) 0%, rgba(108,108,254,1) 27%,
+    rgba(48,164,253,1) 71%, rgba(0,210,252,1) 100%);
+  width: 100%;
+  height: 50px;
+  padding-top:1px;
+  text-align: center;
+  color: #dbddf3;
+  font-family: Open Sans, sans-serif;
 }
 </style>

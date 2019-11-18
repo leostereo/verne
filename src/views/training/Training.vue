@@ -14,41 +14,33 @@
           <widget-circ :value="kms" unit="KMs" v-bind:class="{ blink: distanceCloseToFinish }" />
         </v-col>
         <v-col cols="2">
-          <widget-circ
-            :value="training_time"
-            unit="tiempo"
-            v-bind:class="{ blink: timeCloseToFinish }"
-          />
+          <widget-circ :myvalue="timeCloseToFinish" :real="training_time" unit="tiempo"/>
         </v-col>
       </v-row>
-      <v-row class="justify-space-around" no-gutters align="center">
-        <v-col cols="8">
-          <v-row justify="center">
-            <v-col cols="3" class="justify-center">
+      <v-row justify="center" align="end" class="graph-row">
+        <v-col cols="7">
+          <v-row justify="left">
+            <v-col cols="4">
               <widget-img :value="heartbeat" unit="PPS">
-                <img style="height:65px" src="../../assets/png/corazon_borde.svg" />
+                <img height="80px" src="../../assets/icons/corazon_borde.svg" />
               </widget-img>
             </v-col>
-            <v-col cols="3">
+            <v-col cols="4">
               <widget-img :value="rhythm" unit="min/km">
-                <img style="height:65px" src="../../assets/png/cardio_borde.svg" />
+                <img height="80px" src="../../assets/icons/cardio_borde.svg" />
               </widget-img>
             </v-col>
-            <v-col cols="3">
+            <v-col cols="4">
               <div class="frame">
                 <widget-img :value="calories" unit="kcal">
-                  <img style="height:65px" src="../../assets/png/calorias_borde.svg" />
+                  <img height="80px" src="../../assets/icons/calorias_borde.svg" />
                 </widget-img>
               </div>
             </v-col>
           </v-row>
         </v-col>
         <v-col cols="4">
-          <v-row justify="center">
-            <v-col class="pl-0 pb-5">
-              <training-graphic />
-            </v-col>
-          </v-row>
+          <training-graphic />
         </v-col>
       </v-row>
     </v-container>
@@ -73,10 +65,9 @@ import { mapState } from 'vuex';
 import ControlBar from '../../components/footers/ControlBar.vue';
 import MultimediaHeader from '../../components/headers/MultimediaHeader.vue';
 import TrainingGraphic from './TrainingGraphic.vue';
-import WidgetCirc from '../../components/common/WidgetCirc.vue';
-import WidgetCirc2 from '../../components/common/WidgetCirc2.vue';
+import WidgetCirc from '../../components/widgets/WidgetCirc.vue';
 import ControlService from '../../services/ControlService';
-import WidgetImg from '../../components/common/WidgetImg.vue';
+import WidgetImg from '../../components/widgets/WidgetImg.vue';
 import FinishTrainingModal from '../../components/modals/FinishTrainingModal.vue';
 import { ROUTES } from '../../router';
 import { TRAININGDEF } from '../../constants/TrainingDefaults';
@@ -89,7 +80,6 @@ export default {
     TrainingGraphic,
     WidgetImg,
     WidgetCirc,
-    WidgetCirc2,
     FinishTrainingModal,
   },
   props: {
@@ -219,6 +209,14 @@ export default {
 </script>
 
 <style>
+.graph-row {
+  height: calc(100vh - 500px);
+}
+.training-container {
+  padding: 3rem;
+  padding-left: 6rem;
+  padding-right: 6rem;
+}
 .widget-container {
   display: flex;
   flex-direction: column;

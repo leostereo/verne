@@ -1,9 +1,9 @@
-const numeric3 = {
+const NUMERIC_KEYBOARD = {
   _meta: {
     numbers: { keySet: 'numbers', text: '123', classes: 'control' },
     backspace: { func: 'backspace', classes: 'control' },
     accept: {
-      func: 'accept', text: 'set', classes: 'control featured',
+      func: 'accept', text: 'Set', classes: 'control featured',
     },
     next: { func: 'next', text: 'Next', classes: 'control featured' },
     zero: { key: '0' },
@@ -16,4 +16,4 @@ const numeric3 = {
   ],
 };
 
-export default numeric3;
+export default NUMERIC_KEYBOARD;

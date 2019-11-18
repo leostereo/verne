@@ -6,8 +6,8 @@
     <v-row>
       <back-home-button path="/training-programs"/>
     </v-row>
-    <v-row v-if="render" justify="center" align="center" class="full-height">
-      <v-col cols="4">
+    <v-row v-if="render" justify="center" align="center">
+      <v-col cols="auto">
         <train-program-detail
           :creator="card.creator"
           :name="card.name"
@@ -15,13 +15,11 @@
           :description="card.description"
         />
       </v-col>
-      <v-col cols="3">
-          <training-program-graphic
-          title="velocidad por tiempo" yaxys="kms/h" source="0"/>
+      <v-col cols="4">
+        <training-program-graphic :options="speedGraph" :source="0"/>
       </v-col>
-      <v-col cols="3">
-          <training-program-graphic
-          title="inclinacion por tiempo" yaxys="grados" source="1"/>
+      <v-col cols="4">
+        <training-program-graphic :options="inclinationGraph" :source="1"/>
       </v-col>
     </v-row>
     <div class="separator"></div>
@@ -41,8 +39,10 @@ import ProgramService from '../../services/ProgramService';
 import TrainProgramDetail from './TrainProgramDetail.vue';
 import Counter from '../../components/common/Counter.vue';
 import TrainingProgramGraphic from './TrainingProgramGraphic.vue';
-import BackHomeButton from '../../components/common/BackHomeButton.vue';
+import BackHomeButton from '../../components/buttons/BackHomeButton.vue';
 import StartButton from '../../components/buttons/StartButton.vue';
+import ProgramTrainGraphSpeedOptions from '../../constants/ProgramTrainGraphSpeedOptions';
+import ProgramTrainGraphInclinationOptions from '../../constants/ProgramTrainGraphInclinationOptions';
 
 export default {
   beforeMount() {
@@ -70,6 +70,8 @@ export default {
       card: {},
       render: false,
       showCounter: false,
+      speedGraph: ProgramTrainGraphSpeedOptions,
+      inclinationGraph: ProgramTrainGraphInclinationOptions,
     };
   },
   computed: mapState({

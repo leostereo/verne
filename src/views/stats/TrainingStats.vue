@@ -7,14 +7,14 @@
           <back-home-button />
         </v-col>
         <v-col>
-          <v-row align="center" class="info-container">
-            <v-col cols="auto" class="widget-container">
+          <v-row justify="space-around" align="center" class="info-container">
+            <v-col offset="1" cols="auto" class="widget-container">
               <v-card class="verneback justify-center">
                 <div class="separator_prog"></div>
                   <v-list-item-group>
                     <v-list-item>
                       <v-list-item-icon>
-                        <img style="height:60px" src="../../assets/png/entrenamiento.svg" />
+                        <img style="height:60px" src="../../assets/icons/entrenamiento.svg" />
                       </v-list-item-icon>
                       <v-list-item-content class="verne_text">
                         <v-list-item-title>Estadisticas</v-list-item-title>
@@ -25,7 +25,7 @@
                 <v-list-item-group>
                   <v-list-item>
                     <v-list-item-icon>
-                      <img style="height:30px" src="../../assets/png/tiempo.svg" />
+                      <img style="height:30px" src="../../assets/icons/tiempo.svg" />
                     </v-list-item-icon>
                     <v-list-item-content class="verne_text">
                       <v-list-item-title v-text="tiempo"></v-list-item-title>
@@ -33,7 +33,7 @@
                   </v-list-item>
                   <v-list-item>
                     <v-list-item-icon>
-                      <img style="height:30px" src="../../assets/png/distancia.svg" />
+                      <img style="height:30px" src="../../assets/icons/distancia.svg" />
                     </v-list-item-icon>
                     <v-list-item-content class="verne_text">
                       <v-list-item-title v-text="distancia"></v-list-item-title>
@@ -41,7 +41,7 @@
                   </v-list-item>
                   <v-list-item>
                     <v-list-item-icon>
-                      <img style="height:26px" src="../../assets/png/velocidad_stats.svg" />
+                      <img style="height:26px" src="../../assets/icons/velocidad_stats.svg" />
                     </v-list-item-icon>
                     <v-list-item-content class="verne_text">
                       <v-list-item-title v-text="vel_promedio"></v-list-item-title>
@@ -49,7 +49,7 @@
                   </v-list-item>
                   <v-list-item>
                     <v-list-item-icon>
-                      <img style="height:26px" src="../../assets/png/velocidad_stats.svg" />
+                      <img style="height:26px" src="../../assets/icons/velocidad_stats.svg" />
                     </v-list-item-icon>
                     <v-list-item-content class="verne_text">
                       <v-list-item-title v-text="vel_maxima"></v-list-item-title>
@@ -57,7 +57,7 @@
                   </v-list-item>
                   <v-list-item>
                     <v-list-item-icon>
-                      <img style="height:30px" src="../../assets/png/corazon.svg" />
+                      <img style="height:30px" src="../../assets/icons/corazon.svg" />
                     </v-list-item-icon>
                     <v-list-item-content class="verne_text">
                       <v-list-item-title v-text="pulso_prom"></v-list-item-title>
@@ -65,7 +65,7 @@
                   </v-list-item>
                   <v-list-item>
                     <v-list-item-icon>
-                      <img style="height:30px" src="../../assets/png/corazon.svg" />
+                      <img style="height:30px" src="../../assets/icons/corazon.svg" />
                     </v-list-item-icon>
                     <v-list-item-content class="verne_text">
                       <v-list-item-title v-text="pulso_max"></v-list-item-title>
@@ -73,7 +73,7 @@
                   </v-list-item>
                   <v-list-item>
                     <v-list-item-icon>
-                      <img style="height:30px" src="../../assets/png/cardio.svg" />
+                      <img style="height:30px" src="../../assets/icons/cardio.svg" />
                     </v-list-item-icon>
                     <v-list-item-content class="verne_text">
                       <v-list-item-title v-text="ritmo_max"></v-list-item-title>
@@ -81,7 +81,7 @@
                   </v-list-item>
                   <v-list-item>
                     <v-list-item-icon>
-                      <img style="height:30px" src="../../assets/png/cardio.svg" />
+                      <img style="height:30px" src="../../assets/icons/cardio.svg" />
                     </v-list-item-icon>
                     <v-list-item-content class="verne_text">
                       <v-list-item-title v-text="ritmo_prom"></v-list-item-title>
@@ -107,7 +107,7 @@ import { mapState } from 'vuex';
 import MultimediaHeader from '../../components/headers/MultimediaHeader.vue';
 import VERTICAL_WIDGETS from '../../constants/StatsWidgets';
 import StatsGraphic from './StatsGraphic.vue';
-import BackHomeButton from '../../components/common/BackHomeButton.vue';
+import BackHomeButton from '../../components/buttons/BackHomeButton.vue';
 
 export default {
   components: {

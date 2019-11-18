@@ -37,11 +37,11 @@
         </v-row>
         <v-row>
           <v-col cols="6">
-            <training-program-graphic
+            <training-virtual-graphic
             title="velocidad por tiempo" yaxys="kms/h" source="0"/>
           </v-col>
           <v-col cols="6">
-            <training-program-graphic
+            <training-virtual-graphic
             title="inclinacion por tiempo" yaxys="grados" source="1"/>
           </v-col>
         </v-row>
@@ -63,8 +63,8 @@ import { mapState } from 'vuex';
 import ProgramService from '../../services/ProgramService';
 import TrainVirtualDetail from './TrainVirtualDetail.vue';
 import Counter from '../../components/common/Counter.vue';
-import TrainingProgramGraphic from './TrainingProgramGraphic.vue';
-import BackHomeButton from '../../components/common/BackHomeButton.vue';
+import TrainingVirtualGraphic from './TrainingVirtualGraphic.vue';
+import BackHomeButton from '../../components/buttons/BackHomeButton.vue';
 import StartButton from '../../components/buttons/StartButton.vue';
 
 export default {
@@ -74,7 +74,7 @@ export default {
   components: {
     TrainVirtualDetail,
     Counter,
-    TrainingProgramGraphic,
+    TrainingVirtualGraphic,
     BackHomeButton,
     StartButton,
   },
@@ -137,7 +137,7 @@ export default {
   background: transparent;
 }
 .separator{
-  height: 180px;
+  height: 260px;
 }
 .background-bar {
   border-top-left-radius: 25px !important;

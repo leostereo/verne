@@ -5,7 +5,7 @@
       <back-home-button/>
     </v-row>
    <v-row justify="center" class="full-height" align="center">
-     <v-col cols="11">
+     <v-col cols="10">
         <swiper :options="swiperOption" class="slider">
           <swiper-slide v-for="card in training_cards" :key="card.training_id" class="inner">
             <program-item
@@ -16,9 +16,9 @@
             />
           </swiper-slide>
           <div class="swiper-pagination" slot="pagination"></div>
-          <div class="swiper-button-prev" slot="button-prev"></div>
-          <div class="swiper-button-next" slot="button-next"></div>
         </swiper>
+        <div class="swiper-button-prev" slot="button-prev"></div>
+        <div class="swiper-button-next" slot="button-next"></div>
       </v-col>
     </v-row>
   </v-container>
@@ -27,7 +27,7 @@
 <script>
 import { mapState } from 'vuex';
 import ProgramService from '../../services/ProgramService';
-import BackHomeButton from '../../components/common/BackHomeButton.vue';
+import BackHomeButton from '../../components/buttons/BackHomeButton.vue';
 import ProgramItem from './ProgramItem.vue';
 import Counter from '../../components/common/Counter.vue';
 import SwiperOptions from '../../constants/SwiperOptions';
@@ -88,8 +88,16 @@ export default {
 </script>
 
 <style scoped>
+.swiper-button-prev {
+  left: 65px;
+}
+.swiper-button-next {
+  right: 65px;
+}
 .full-height {
-  margin-top: -20px;
-  height: calc(100vh - 10px);
+  height: calc(100vh - 100px);
+}
+.slider {
+  height: 375px;
 }
 </style>

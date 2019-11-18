@@ -1,9 +1,10 @@
 <template>
-  <img src="../../assets/png/go_back.svg" class="ml-10" height="70" @click="redirect()">
+  <button class="round_button ml-10" @click="redirect()">
+    <img src="../../assets/icons/go_back.svg" height="70" >
+  </button>
 </template>
 
 <script>
-
 export default {
   name: 'back',
   data: () => ({

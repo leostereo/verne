@@ -7,7 +7,6 @@
 <script>
 import { Chart } from 'highcharts-vue';
 import { mapState } from 'vuex';
-import ProgramTrainGraphOptions from '../../constants/ProgramTrainGraphOptions';
 
 export default {
   mounted() {
@@ -22,7 +21,6 @@ export default {
     highcharts: Chart,
   },
   data: () => ({
-    chartOptions2: ProgramTrainGraphOptions,
     chartOptions: {
       credits: {
         enabled: false,

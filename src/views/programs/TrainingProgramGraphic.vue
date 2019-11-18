@@ -5,15 +5,13 @@
 </template>
 
 <script>
+import Vue from 'vue';
 import { Chart } from 'highcharts-vue';
 import { mapState } from 'vuex';
-import ProgramTrainGraphOptions from '../../constants/ProgramTrainGraphOptions';
 
-export default {
-  mounted() {
+const TrainingProgramGraphic = Vue.extend({
+  created() {
     this.createGraph();
-  },
-  beforeMount() {
   },
   beforeDestroy() {
     this.clearGraphSeries();
@@ -22,7 +20,6 @@ export default {
     highcharts: Chart,
   },
   data: () => ({
-    chartOptions2: ProgramTrainGraphOptions,
     chartOptions: {
       credits: {
         enabled: false,
@@ -85,16 +82,12 @@ export default {
     render: false,
   }),
   props: {
-    title: {
-      type: String,
-      require: true,
-    },
-    yaxys: {
-      type: String,
-      require: true,
-    },
     source: {
       type: String,
+      require: true,
+    },
+    options: {
+      type: Object,
       require: true,
     },
   },
@@ -103,8 +96,7 @@ export default {
   }),
   methods: {
     createGraph() {
-      this.chartOptions.title.text = this.title;
-      this.chartOptions.yAxis.title.text = this.yaxys;
+      this.chartOptions = this.options;
       this.training_view.training_element
         .training_secuence[Number(this.source)].info.forEach(this.pushData);
       this.render = true;
@@ -120,12 +112,14 @@ export default {
       this.chartOptions.series[1].data.push(Number(item.y));
     },
   },
-};
+});
+
+export default TrainingProgramGraphic;
 </script>
 
 <style scoped>
 .chart {
-  height: calc(100vh - 300px);
+  height: 350px;
 }
 .card {
   background-color:transparent;

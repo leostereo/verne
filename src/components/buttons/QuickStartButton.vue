@@ -38,7 +38,7 @@ export default {
 <style>
 .round_button {
   background-color : transparent;
-  background-image: url(../../assets/png/comenzar.svg);
+  background-image: url(../../assets/icons/comenzar.svg);
   height: 200px;
   width: 200px;
   border: none;

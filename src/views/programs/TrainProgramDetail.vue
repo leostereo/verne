@@ -3,7 +3,7 @@
   <v-card-title class="layout justify-center white--text subtitle-2">
     <v-list-item>
       <v-list-item-icon>
-        <img style="height:80px" src="../../assets/png/entrenamiento.svg" />
+        <img height="80px" src="../../assets/icons/entrenamiento.svg" />
       </v-list-item-icon>
       <v-list-item-content>
         <v-list-item-title class="white--text">
@@ -16,18 +16,20 @@
   <v-list-item-group>
     <v-list-item>
       <v-list-item-icon>
-        <img style="height:30px" src="../../assets/png/tiempo.svg" />
+        <img height="30px" src="../../assets/icons/tiempo.svg" />
       </v-list-item-icon>
       <v-list-item-content>
         <v-list-item-title class="white--text">
-          tiempo: {{ time }}
+          Tiempo: {{ time }}
         </v-list-item-title>
       </v-list-item-content>
     </v-list-item>
     <v-list-item>
-      <v-list-item-icon>
-        <img style="height:30px" src="../../assets/png/objetivos.svg" />
-      </v-list-item-icon>
+      <div class="center-icon">
+        <v-list-item-icon>
+          <img height="30px" src="../../assets/icons/objetivos.svg" />
+        </v-list-item-icon>
+      </div>
       <v-list-item-content>
         <v-list-item-title class="white--text">
           Descripcion:
@@ -39,7 +41,7 @@
     </v-list-item>
     <v-list-item>
       <v-list-item-icon>
-        <img style="height:30px" src="../../assets/png/creador.svg" />
+        <img height="30px" src="../../assets/icons/creador.svg" />
       </v-list-item-icon>
       <v-list-item-content>
         <v-list-item-title class="white--text">
@@ -91,5 +93,11 @@ export default {
 <style scoped>
 .program-train-card {
   background-color: #3c3e55;
+  max-width: 400px;
+}
+.center-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

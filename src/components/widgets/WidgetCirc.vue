@@ -1,6 +1,5 @@
 <template>
-
-<div class="context white--text ">
+<div class="context white--text">
   <div class="rounded-corners-gradient-borders justify-center">
     <div class="inner_circle">
       <v-progress-circular
@@ -11,9 +10,11 @@
         :width="width"
         color="light-blue"
       >
-      <div class="verne_text">
-      <span class="display-1">{{real}}</span><br><span>{{unit}}</span>
-      </div>
+        <div class="verne_text">
+          <span class="display-1">{{real}}</span>
+          <br>
+          <span>{{unit}}</span>
+        </div>
      </v-progress-circular>
     </div>
   </div>
@@ -32,7 +33,6 @@ export default {
       width: 10,
     };
   },
-
   props: {
     real: {
       type: String,
@@ -53,18 +53,16 @@ export default {
 </script>
 
 <style>
-.inner_circle{
-    top:0;
-    margin-top:-9px;
-    margin-left:-14px;
-    display: block;
-    width: 170px;
-    z-index: 1;
-    position:relative;
+.inner_circle {
+  margin-top:-9px;
+  margin-left:-14px;
+  display: block;
+  width: 170px;
+  z-index: 1;
+  position:relative;
 }
 .rounded-corners-gradient-borders {
   text-align: center;
-  position: absolute;
   width: 150px;
   height: 150px;
   border: double 4px transparent;
@@ -74,5 +72,14 @@ export default {
   background-origin: border-box;
   background-clip: content-box, border-box;
 }
-
+.context {
+  margin:0%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: #3c3e55;
+}
 </style>

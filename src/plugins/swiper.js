@@ -3,8 +3,8 @@ import VueAwesomeSwiper from 'vue-awesome-swiper';
 
 export default Vue.use(VueAwesomeSwiper, {
   initialSlide: 0,
-  slidesPerView: 3,
-  spaceBetween: 10,
+  slidesPerView: 5,
+  spaceBetween: 75,
   freeMode: true,
   watchOverflow: true,
   breakpoints: {

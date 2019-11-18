@@ -1,10 +1,9 @@
 <template>
-          <div class="mt-12 align-self-center verne_text under">
-              <button class="start_button font-weighthis.pat-bold
-              headline" @click="redirect('',true,'')">
-                {{ value}}
-            </button>
-          </div>
+  <div class="align-self-center verne_text">
+      <button class="start_button font-weighthis.pat-bold headline" @click="redirect('',true,'')">
+        {{ value}}
+    </button>
+  </div>
 </template>
 
 <script>
@@ -40,7 +39,7 @@ export default {
 
 <style>
 .start_button {
-  background-image: url(../../assets/png/comenzar.svg);
+  background-image: url(../../assets/icons/comenzar.svg);
   height: 200px;
   width: 200px;
 }

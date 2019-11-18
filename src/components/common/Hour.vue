@@ -1,7 +1,7 @@
 <template>
   <div>
-    <v-btn icon>
-      <img style="height:40px" src="../../assets/png/wifi.svg" alt="">
+    <v-btn icon class="btn-icon">
+      <img height="40px" src="../../assets/icons/wifi.svg" alt="wifi">
     </v-btn>
     <span class="white--text">{{ time }} hs</span>
   </div>
@@ -27,3 +27,10 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.btn-icon {
+  padding-top: 10px;
+  margin-right: 10px;
+}
+</style>

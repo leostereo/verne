@@ -4,16 +4,16 @@
     <v-row>
       <back-home-button/>
     </v-row>
-    <v-row class="my-10 title" justify="center">
+    <v-row class="my-6 title" justify="center">
       {{ title }}
     </v-row>
-    <v-row class="my-10">
-      <div class="indicator verneback">
-        <p>{{slider}} {{ units }}</p></div>
+    <v-row class="my-6 indicator" justify="center">
+      <span class="indicator-value">{{indicator}}</span>
     </v-row>
     <v-row align="center" justify="center">
       <v-col cols="6">
         <v-slider
+          class="slider-bar"
           v-model="slider"
           :color="ex2.color"
           :label="ex2.label"
@@ -35,17 +35,17 @@
     <v-row justify="center pt-0">
       <v-col cols="3">
         <widget-setter :value="age" @set-value="handleAgeSet">
-          <img style="height:75px" src="../../assets/png/años.svg" />
+          <img class="widget-icon" src="../../assets/icons/años.svg" />
         </widget-setter>
       </v-col>
-      <v-col cols="3">
+      <v-col cols="3" class="center-col">
         <widget-setter :value="weight" @set-value="handleWeightSet">
-          <img style="height:75px" src="../../assets/png/peso.svg" />
+          <img class="widget-icon" src="../../assets/icons/peso.svg" />
         </widget-setter>
       </v-col>
-      <v-col cols="3">
+      <v-col cols="3" class="center-col">
         <widget-setter :value="speed" @set-value="handleSpeedSet">
-          <img style="height:75px" src="../../assets/png/vel_incial.svg" />
+          <img class="widget-icon" src="../../assets/icons/vel_incial.svg" />
         </widget-setter>
       </v-col>
      </v-row>
@@ -61,8 +61,8 @@
 <script>
 import Counter from '../../components/common/Counter.vue';
 import { TRAININGDEF } from '../../constants/TrainingDefaults';
-import WidgetSetter from '../../components/common/WidgetSetter.vue';
-import BackHomeButton from '../../components/common/BackHomeButton.vue';
+import WidgetSetter from '../../components/widgets/WidgetSetter.vue';
+import BackHomeButton from '../../components/buttons/BackHomeButton.vue';
 import StartButton from '../../components/buttons/StartButton.vue';
 
 export default {
@@ -89,6 +89,11 @@ export default {
     ex2: { label: '', val: 75, color: 'blue lighten-1' },
     render: false,
   }),
+  computed: {
+    indicator() {
+      return `${this.slider} ${this.units}`;
+    },
+  },
   mounted() {
     if (this.mode === 'distance') {
       this.title = 'ENTRENAMIENTO POR DISTANCIA';
@@ -168,8 +173,8 @@ export default {
   margin-bottom: 0px !important;
   background: #3c3e55;
 }
-
-.rounded_button{
+.rounded_button {
+  margin-top: -8px;
   background-color : transparent;
   border: none;
   border-radius: 50%;
@@ -190,12 +195,12 @@ export default {
   z-index: 0;
 }
 .inc {
-  background-image: url(../../assets/png/mas.svg);
+  background-image: url(../../assets/icons/mas.svg);
   height: 40px;
   width: 40px;
 }
 .dec {
-  background-image: url(../../assets/png/menos.svg);
+  background-image: url(../../assets/icons/menos.svg);
   height: 40px;
   width: 40px;
 }

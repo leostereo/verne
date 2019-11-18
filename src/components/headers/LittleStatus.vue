@@ -7,7 +7,7 @@
         pill
         >
           <v-avatar left height="62" class="mr-2">
-            <img src="../../assets/png/velocidad_sup.svg">
+            <img src="../../assets/icons/velocidad_sup.svg">
           </v-avatar>
           {{speed}}KM/s
         </v-chip>
@@ -19,7 +19,7 @@
         pill
         >
           <v-avatar left height="62" class="mr-2">
-            <img src="../../assets/png/inclinacion_sup.svg">
+            <img src="../../assets/icons/inclinacion_sup.svg">
           </v-avatar>
           {{inclination}}º
         </v-chip>
@@ -32,7 +32,7 @@
         pill
         >
           <v-avatar left  height="62" class="mr-2">
-            <img src="../../assets/png/distancia_sup.svg">
+            <img src="../../assets/icons/distancia_sup.svg">
           </v-avatar>
           {{kms}}kms
         </v-chip>
@@ -44,7 +44,7 @@
         pill
         >
           <v-avatar left height="62" class="mr-2">
-            <img src="../../assets/png/tiempo_sup.svg">
+            <img src="../../assets/icons/tiempo_sup.svg">
           </v-avatar>
           {{training_time}}
         </v-chip>

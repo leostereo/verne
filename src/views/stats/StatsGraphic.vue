@@ -56,9 +56,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.chart {
-  height: 580px;
-}
-</style>

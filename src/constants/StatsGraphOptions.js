@@ -3,10 +3,10 @@ const StatsGraphOptions = {
     zoomType: 'x',
     backgroundColor: 'rgba(255, 255, 255, 0.0)',
     events: {},
+    height: '60%',
   },
   title: {
-    text: 'Estadisticas',
-    align: 'center',
+    text: null,
   },
   tooltip: {
     enabled: false,

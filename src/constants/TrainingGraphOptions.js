@@ -5,6 +5,7 @@ const TrainingGraphOptions = {
     type: 'column',
     backgroundColor: 'rgba(255, 255, 255, 0.0)',
     events: {},
+    height: '50%',
   },
   title: {
     text: null,
@@ -25,6 +26,7 @@ const TrainingGraphOptions = {
     labels: {
       rotation: 0,
       style: {
+        color: 'white',
         fontSize: '13px',
         fontFamily: 'Verdana, sans-serif',
       },
@@ -50,13 +52,13 @@ const TrainingGraphOptions = {
     labels: {
       format: '{value} m/s',
       style: {
-        color: Highcharts.getOptions().colors[1],
+        color: 'white',
       },
     },
     title: {
       text: 'Velocidad',
       style: {
-        color: Highcharts.getOptions().colors[1],
+        color: 'white',
       },
     },
   },
