@@ -1,6 +1,6 @@
 const SOCKET = {
-  URL: 'ws://localhost',
-  URL1: 'ws://10.1.1.50',
+  URL1: 'ws://localhost',
+  URL: 'ws://10.1.1.50',
   PORT: 8081,
   PATH: 'control',
   PROTOCOL: 'websocket',
