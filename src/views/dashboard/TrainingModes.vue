@@ -2,7 +2,7 @@
   <v-container fluid>
     <v-row align="center" class="full-height" justify="center">
       <v-col cols="3">
-        <v-card height="500px" class="verne-card justify-center">
+        <v-card  class="dashboard-card verne-card justify-center">
           <div class="separator_prog"></div>
           <div class="icon">
             <img style="height:100px" src="../../assets/icons/entrenamiento.svg" />
@@ -83,7 +83,6 @@ export default {
 
 <style lang="scss" scoped>
 .full-height {
-  margin-top: -64px;
   height: calc(100vh - 48px);
 }
 .verne-card {
@@ -105,7 +104,7 @@ export default {
   text-align: center;
 }
 .dashboard-card {
-  height: calc(100vh - 150px);
+  height: calc(100vh - 250px);
 }
 .simple_button {
   background-color : transparent;

@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div class="circle verne_back">
+    <div class="circle verne-card">
       <slot></slot>
     </div>
-    <div class="data verne_back">
+    <div class="data verne-card">
       <div class="value-container">
-        <p class="verne_number text display-1">{{value}}</p>
+        <p class="verne-number text display-1">{{value}}</p>
       </div>
       <v-divider vertical class="mr-3"></v-divider>
       <v-btn
@@ -49,7 +49,8 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+
 .circle {
   border-radius: 45px;
   height: 90px;
@@ -58,7 +59,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 3;
 }
 .data {
   margin-top: 15px;

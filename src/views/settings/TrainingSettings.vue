@@ -7,8 +7,8 @@
     <v-row class="my-6 title" justify="center">
       {{ title }}
     </v-row>
-    <v-row class="my-6 indicator" justify="center">
-      <span class="indicator-value">{{indicator}}</span>
+    <v-row class="my-6 indicator" justify="center" align="center">
+      <div>{{indicator}}</div>
     </v-row>
     <v-row align="center" justify="center">
       <v-col cols="6">
@@ -165,14 +165,15 @@ export default {
   text-align: center;
   width: 20%;
   border-radius: 20px;
-  padding-top: 15px;
-  padding-bottom: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   font-weight: bold;
   font-size: 20px;
   line-height: 1;
   margin-bottom: 0px !important;
   background: #3c3e55;
 }
+
 .rounded_button {
   margin-top: -8px;
   background-color : transparent;
@@ -184,13 +185,7 @@ export default {
   outline:none;
   border: 0;
 }
-.footer-container{
-  text-align: center;
-  top: 320px;
-  width: 100%;
-  border: solid 1px red;
-  background-color: transparent;
-}
+
 .button-container{
   z-index: 0;
 }
@@ -210,7 +205,7 @@ export default {
   background-color: $primary-color;
   height: 78px;
   width: 100%;
-  top: 250px;
+  top: 240px;
   position: relative;
   z-index: 0;
 }

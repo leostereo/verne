@@ -32,7 +32,7 @@ export default new Router({
       path: ROUTES.TRAINING_SETTINGS,
       props: true,
       name: '/training-settings',
-      component: () => import('./views/training/TrainingSettings.vue'),
+      component: () => import('./views/settings/TrainingSettings.vue'),
     },
     {
       path: ROUTES.TRAINING_PROGRAMS,
