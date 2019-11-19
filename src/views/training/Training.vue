@@ -137,7 +137,7 @@ export default {
     controlPlayer(event) {
       if (event === 'running') {
         this.$refs.myvideo.play();
-      } else if (event === 'stopped') {
+      } else if (event === 'stopped' || event === 'pause') {
         this.$refs.myvideo.pause();
       }
     },

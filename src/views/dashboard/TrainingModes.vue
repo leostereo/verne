@@ -7,7 +7,7 @@
           <div class="icon">
             <img style="height:100px" src="../../assets/icons/entrenamiento.svg" />
           </div>
-          <v-card-title class="layout justify-center text-center subtitle-2">
+          <v-card-title class="layout justify-center text-center subtitle-1">
             MENU DE<br />ENTRENAMIENTOS
           </v-card-title>
           <v-divider class="verne_divider"></v-divider>
@@ -43,13 +43,13 @@
          </v-card>
       </v-col>
       <v-col cols="3">
-        <v-card class="dashboard-card verneback card justify-center">
+        <v-card  class="dashboard-card verne-card justify-center">
           <div class="separator_app"></div>
           <div class="icon">
             <img style="height:100px" src="../../assets/icons/aplicaciones.png" />
           </div>
-          <v-card-title class="layout justify-center verne-text">
-            Aplicaciones
+          <v-card-title class="layout justify-center text-center subtitle-1">
+            APLICACIONES
           </v-card-title>
           <v-divider class="verne_divider"></v-divider>
         </v-card>
