@@ -50,12 +50,12 @@
     </v-container>
     <div v-if="video_mode">
       <v-container fluid>
-        <v-row justify="center">
+        <v-row justify="center" class="video-row">
           <video
             ref="myvideo"
             @ended="handleTriningFinish('virtual')"
             :src="video_path"
-            height="450px"
+
           ></video>
         </v-row>
       </v-container>
@@ -109,6 +109,8 @@ export default {
     inclination: state => state.treadmill.status.inclination,
     kms: state => state.treadmill.status.kms,
     training_time: state => state.treadmill.status.training_time,
+    time_percentage: state => state.treadmill.status.time_percentage,
+    distance_percentage: state => state.treadmill.status.distance_percentage,
     rhythm: state => state.treadmill.status.rhythm,
     heartbeat: state => state.treadmill.status.heartbeat,
     calories: state => state.treadmill.status.calories,
@@ -130,7 +132,7 @@ export default {
       speedPorc: 0,
       inclinationPorc: 0,
       distancePorc: 0,
-      timePortc: 0,
+      timePorc: 0,
     };
   },
   methods: {
@@ -198,6 +200,20 @@ export default {
     inclination(value) {
       this.inclinationPorc = (parseInt(value, 10) * 100) / TRAININGDEF.MAX_INC;
     },
+    time_percentage(value) {
+      if (this.training_mode === 'time') {
+        this.timePorc = (100 - Number(value));
+      } else {
+        this.timePorc = 0;
+      }
+    },
+    distance_percentage(value) {
+      if (this.training_mode === 'distance') {
+        this.distancePorc = Number(value);
+      } else {
+        this.distancePorc = 0;
+      }
+    },
     isConnected(value) {
       if (value) {
         ControlService.startPolling();
@@ -213,6 +229,11 @@ export default {
 </script>
 
 <style>
+video {
+  width: 85%    !important;
+  height: auto   !important;
+}
+
 .graph-row {
   height: calc(100vh - 500px);
 }
