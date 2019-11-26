@@ -20,70 +20,12 @@ const TrainingProgramGraphic = Vue.extend({
     highcharts: Chart,
   },
   data: () => ({
-    chartOptions: {
-      credits: {
-        enabled: false,
-      },
-      title: {
-        text: '',
-        style: {
-          color: 'white',
-        },
-      },
-      chart: {
-        type: 'spline',
-        backgroundColor: '#3c3e55',
-      },
-      plotOptions: {
-        series: {
-          borderRadius: 10,
-        },
-      },
-      xAxis: {
-        title: {
-          enabled: true,
-          text: 'Tiempo (mins)',
-          style: {
-            color: 'white',
-            fontSize: '13px',
-            fontFamily: 'Verdana, sans-serif',
-          },
-        },
-        categories: [],
-        labels: {
-          style: {
-            color: 'white',
-          },
-        },
-      },
-      yAxis: {
-        title: {
-          enabled: true,
-          text: 'Tiempo',
-          style: {
-            color: 'white',
-            fontSize: '13px',
-            fontFamily: 'Verdana, sans-serif',
-          },
-        },
-        labels: {
-          style: {
-            color: 'white',
-          },
-        },
-      },
-      series: [
-        {
-          name: '',
-          data: [],
-        },
-      ],
-    },
+    chartOptions: null,
     render: false,
   }),
   props: {
     source: {
-      type: String,
+      type: Number,
       require: true,
     },
     options: {
@@ -118,9 +60,7 @@ export default TrainingProgramGraphic;
 </script>
 
 <style scoped>
-.chart {
-  height: 350px;
-}
+
 .card {
   background-color:transparent;
 }

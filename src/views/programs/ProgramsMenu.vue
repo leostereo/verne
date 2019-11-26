@@ -10,8 +10,10 @@
           <swiper-slide v-for="card in training_cards" :key="card.training_id" class="inner">
             <program-item
               :creator="card.creator"
-              :name="card.name" :time="card.total_time"
-              :level="card.level" :training_id="card.training_id"
+              :name="card.name"
+              :time="card.total_time"
+              :level="card.level"
+              :training_id="card.training_id"
               @show-counter="setCounter"
             />
           </swiper-slide>
@@ -95,7 +97,7 @@ export default {
   right: 65px;
 }
 .full-height {
-  height: calc(100vh - 100px);
+  height: calc(100vh - 101px);
 }
 .slider {
   height: 375px;

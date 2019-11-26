@@ -1,60 +1,58 @@
 <template>
   <v-container fluid class="verne_text">
-    <counter :show="showCounter" @on-finish="redirect" />
     <v-row>
       <back-home-button/>
     </v-row>
-    <v-row class="my-6 title" justify="center">
-      {{ title }}
-    </v-row>
-    <v-row class="my-6 indicator" justify="center" align="center">
-      <div>{{indicator}}</div>
-    </v-row>
-    <v-row align="center" justify="center">
-      <v-col cols="6">
-        <v-slider
-          class="slider-bar"
-          v-model="slider"
-          :color="ex2.color"
-          :label="ex2.label"
-          :thumb-color="ex2.color"
-          :track-color="ex2.color"
-          min="1"
-          max="100"
-        >
-          <template v-slot:prepend>
-            <button class="rounded_button dec" @click="decrement"></button>
-          </template>
-          <template v-slot:append>
-            <button class="rounded_button inc" @click="increment"></button>
-          </template>
-        </v-slider>
-        <div class="separator"></div>
+    <v-row align="center" class="settings-container" justify="center">
+      <v-col>
+        <counter :show="showCounter" @on-finish="redirect" />
+        <v-row class="my-6 title" justify="center">
+          {{ title }}
+        </v-row>
+        <v-row class="my-6 indicator" justify="center" align="center">
+          <span class="indicator-value">{{indicator}}</span>
+        </v-row>
+        <v-row align="center" justify="center">
+          <v-col cols="6">
+            <v-slider
+              class="slider-bar"
+              v-model="slider"
+              :color="ex2.color"
+              :label="ex2.label"
+              :thumb-color="ex2.color"
+              :track-color="ex2.color"
+              min="1"
+              max="100"
+            >
+              <template v-slot:prepend>
+                <button class="rounded_button dec" @click="decrement"></button>
+              </template>
+              <template v-slot:append>
+                <button class="rounded_button inc" @click="increment"></button>
+              </template>
+            </v-slider>
+          </v-col>
+        </v-row>
+        <v-row justify="center" align="center">
+          <v-col cols="3" class="center-col">
+            <widget-setter :value="age" @set-value="handleAgeSet">
+              <img class="widget-icon" src="../../assets/icons/años.svg" />
+            </widget-setter>
+          </v-col>
+          <v-col cols="3" class="center-col">
+            <widget-setter :value="weight" @set-value="handleWeightSet">
+              <img class="widget-icon" src="../../assets/icons/peso.svg" />
+            </widget-setter>
+          </v-col>
+          <v-col cols="3" class="center-col">
+            <widget-setter :value="speed" @set-value="handleSpeedSet">
+              <img class="widget-icon" src="../../assets/icons/vel_incial.svg" />
+            </widget-setter>
+          </v-col>
+        </v-row>
       </v-col>
     </v-row>
-    <v-row justify="center pt-0">
-      <v-col cols="3">
-        <widget-setter :value="age" @set-value="handleAgeSet">
-          <img class="widget-icon" src="../../assets/icons/años.svg" />
-        </widget-setter>
-      </v-col>
-      <v-col cols="3" class="center-col">
-        <widget-setter :value="weight" @set-value="handleWeightSet">
-          <img class="widget-icon" src="../../assets/icons/peso.svg" />
-        </widget-setter>
-      </v-col>
-      <v-col cols="3" class="center-col">
-        <widget-setter :value="speed" @set-value="handleSpeedSet">
-          <img class="widget-icon" src="../../assets/icons/vel_incial.svg" />
-        </widget-setter>
-      </v-col>
-     </v-row>
-    <v-row justify="center">
-      <div class="background-bar"></div>
-      <div class="button-container">
-        <start-button value="COMENZAR" @show-counter="setCounter"/>
-      </div>
-    </v-row>
+    <start-footer @click="setCounter"></start-footer>
   </v-container>
 </template>
 
@@ -63,14 +61,14 @@ import Counter from '../../components/common/Counter.vue';
 import { TRAININGDEF } from '../../constants/TrainingDefaults';
 import WidgetSetter from '../../components/widgets/WidgetSetter.vue';
 import BackHomeButton from '../../components/buttons/BackHomeButton.vue';
-import StartButton from '../../components/buttons/StartButton.vue';
+import StartFooter from '../../components/footers/StartFooter.vue';
 
 export default {
   components: {
     Counter,
     WidgetSetter,
     BackHomeButton,
-    StartButton,
+    StartFooter,
   },
   props: {
     mode: {
@@ -159,21 +157,26 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
+.settings-container {
+  height: calc(100vh - 250px);
+}
 .indicator {
   margin:auto;
-  text-align: center;
   width: 20%;
   border-radius: 20px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 1;
-  margin-bottom: 0px !important;
-  background: #3c3e55;
+  background: $primary-color;
 }
-
+.indicator-value {
+  font-size: 20px;
+  font-weight: bold;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin: 0;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
 .rounded_button {
   margin-top: -8px;
   background-color : transparent;
@@ -185,10 +188,6 @@ export default {
   outline:none;
   border: 0;
 }
-
-.button-container{
-  z-index: 0;
-}
 .inc {
   background-image: url(../../assets/icons/mas.svg);
   height: 40px;
@@ -199,21 +198,13 @@ export default {
   height: 40px;
   width: 40px;
 }
-.background-bar {
-  border-top-left-radius: 25px !important;
-  border-top-right-radius: 25px !important;
-  background-color: $primary-color;
-  height: 78px;
-  width: 100%;
-  top: 240px;
-  position: relative;
-  z-index: 0;
+.widget-icon {
+  height: 85px;
+  z-index: 4;
 }
-.control_bar {
-  background: transparent;
+.center-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.separator{
-  height: 50px;
-}
-
 </style>

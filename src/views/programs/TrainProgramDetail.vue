@@ -94,6 +94,7 @@ export default {
 .program-train-card {
   background-color: #3c3e55;
   max-width: 400px;
+  min-height: 400px;
 }
 .center-icon {
   display: flex;

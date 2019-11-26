@@ -40,7 +40,7 @@
     </v-list-item>
   </v-list-item-group>
   <v-divider></v-divider>
-  <div class="but_frame">
+  <div class="footer">
     <button
       class="verne_degrade container-rounded"
       @click="redirect('/training',true,training_id)"
@@ -94,10 +94,12 @@ export default {
 </script>
 
 <style scoped>
-.but_frame {
-  margin-top:10px;
-  margin-bottom:10px;
+.footer {
+  margin-top: 10px;
   text-align: center;
+}
+.title {
+  text-transform: capitalize;
 }
 .container-rounded {
   width: 150px;

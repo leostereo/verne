@@ -2,22 +2,28 @@
   <div>
     <finish-training-modal :show="showTrainingFinishModal" @on-close="handleOnCloseModal" />
     <multimedia-header :video_mode="video_mode" />
-    <v-container fluid v-if="!video_mode">
-      <v-row justify="center" no-gutters>
-        <v-col cols="2">
-          <widget-circ :myvalue="speedPorc" :real="speed" unit="KM/Hs" />
+    <v-container class="training-container" fluid v-if="!video_mode">
+      <v-row justify="center" align="center">
+        <v-col cols="3">
+          <widget-circ :myvalue="speedPorc" :real="speed" unit="KM/Hs"/>
         </v-col>
-        <v-col cols="2">
-          <widget-circ :myvalue="inclinationPorc" :real="inclination" unit="inclination" />
+        <v-col cols="3">
+          <widget-circ :myvalue="inclinationPorc" :real="inclination" unit="inclination"/>
         </v-col>
-        <v-col cols="2">
-          <widget-circ :myvalue="distancePorc" :real="kms" unit="KMs"
-          v-bind:class="{ blink: distanceCloseToFinish }"
+        <v-col cols="3">
+          <widget-circ
+            :myvalue="distancePorc"
+            :real="kms"
+            v-bind:class="{ blink: distanceCloseToFinish }"
+            unit="KMs"
           />
         </v-col>
         <v-col cols="2">
-          <widget-circ :myvalue="timePorc" :real="training_time" unit="tiempo"
-          v-bind:class="{ blink: timeCloseToFinish }"
+          <widget-circ
+            :myvalue="timePorc"
+            :real="training_time"
+            unit="tiempo"
+            v-bind:class="{ blink: timeCloseToFinish }"
           />
         </v-col>
       </v-row>
@@ -233,7 +239,6 @@ video {
   width: 85%    !important;
   height: auto   !important;
 }
-
 .graph-row {
   height: calc(100vh - 500px);
 }

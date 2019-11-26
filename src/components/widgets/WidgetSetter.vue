@@ -36,8 +36,8 @@
 export default {
   props: {
     value: {
-      type: String,
-      default: '0',
+      type: Number,
+      default: 0,
       required: true,
     },
   },
@@ -59,6 +59,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 3;
 }
 .data {
   margin-top: 15px;

@@ -5,10 +5,10 @@
         <v-card  class="dashboard-card verne-card justify-center">
           <div class="separator_prog"></div>
           <div class="icon">
-            <img style="height:100px" src="../../assets/icons/entrenamiento.svg" />
+            <img height="100px" src="../../assets/icons/entrenamiento.svg" />
           </div>
           <v-card-title class="layout justify-center text-center subtitle-1">
-            MENU DE<br />ENTRENAMIENTOS
+            MENU DE ENTRENAMIENTOS
           </v-card-title>
           <v-divider class="verne_divider"></v-divider>
           <v-list-item-group>
@@ -16,16 +16,15 @@
               v-for="(trainMode, i) in trainMenu"
               :key="i"
             >
-                  <v-list-item-icon>
-                    <img style="height:30px" :src="trainMode.src" />
-                  </v-list-item-icon>
-                  <v-list-item-content
-                    @click="redirect(trainMode.route, trainMode.showCounter,trainMode.mode)"
-                  >
-                    <v-list-item-title class="verne-text" v-text="trainMode.name">
-                    </v-list-item-title>
-                  </v-list-item-content>
-                </v-list-item>
+              <v-list-item-icon>
+                <img width="30px" height="30px" :src="trainMode.src" />
+              </v-list-item-icon>
+              <v-list-item-content
+                @click="redirect(trainMode.route, trainMode.showCounter, trainMode.mode)"
+              >
+                <v-list-item-title class="verne-text" v-text="trainMode.name"></v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
           </v-list-item-group>
         </v-card>
       </v-col>
@@ -96,7 +95,6 @@ export default {
 .separator_prog {
   height: 30px;
 }
-
 .separator_app {
   height: 30px;
 }
@@ -104,7 +102,7 @@ export default {
   text-align: center;
 }
 .dashboard-card {
-  height: calc(100vh - 250px);
+  height: calc(100vh - 195px);
 }
 .simple_button {
   background-color : transparent;
