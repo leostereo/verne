@@ -2,11 +2,10 @@
 <div>
   <counter :show="showCounter" @on-finish="redirect" />
   <v-container fluid>
-    <div class="background-bar"></div>
     <v-row>
       <back-home-button path="/training-programs"/>
     </v-row>
-    <v-row v-if="render" justify="center" align="center">
+    <v-row v-if="render" justify="center" align="center" class="training-container">
       <v-col cols="auto">
         <train-program-detail
           :creator="card.creator"
@@ -22,12 +21,7 @@
         <training-program-graphic :options="inclinationGraph" :source="1"/>
       </v-col>
     </v-row>
-    <div class="separator"></div>
-    <v-footer absolute flat class="font-weight-medium control_bar justify-center">
-      <div class="background-bar"></div>
-      <start-button value="COMENZAR"
-      @show-counter="setCounter" v-if="render"/>
-    </v-footer>
+    <start-footer @click="setCounter" v-if="render"></start-footer>
   </v-container>
 </div>
 
@@ -40,9 +34,9 @@ import TrainProgramDetail from './TrainProgramDetail.vue';
 import Counter from '../../components/common/Counter.vue';
 import TrainingProgramGraphic from './TrainingProgramGraphic.vue';
 import BackHomeButton from '../../components/buttons/BackHomeButton.vue';
-import StartButton from '../../components/buttons/StartButton.vue';
 import ProgramTrainGraphSpeedOptions from '../../constants/ProgramTrainGraphSpeedOptions';
 import ProgramTrainGraphInclinationOptions from '../../constants/ProgramTrainGraphInclinationOptions';
+import StartFooter from '../../components/footers/StartFooter.vue';
 
 export default {
   beforeMount() {
@@ -53,7 +47,7 @@ export default {
     Counter,
     TrainingProgramGraphic,
     BackHomeButton,
-    StartButton,
+    StartFooter,
   },
   props: {
     training_value: {
@@ -104,24 +98,8 @@ export default {
 };
 </script>
 
-<style  lang="scss" scoped>
-.full-height {
-  margin-top: -20px;
-  height: calc(100vh - 10px);
-}.control_bar {
-  background: transparent;
-}
-.separator{
-  height: 120px;
-}
-.background-bar {
-  border-top-left-radius: 25px !important;
-  border-top-right-radius: 25px !important;
-  background-color: $primary-color;
-  height: 78px;
-  width: 100%;
-  top: 175px;
-  position: absolute;
-  z-index: -1;
+<style lang="scss" scoped>
+.training-container {
+  height: calc(100vh - 200px);
 }
 </style>

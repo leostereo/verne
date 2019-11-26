@@ -1,4 +1,3 @@
-
 const VIRTUAL_TRAINING_CARDS = [
   {
     id: '1',

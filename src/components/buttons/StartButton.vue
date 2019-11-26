@@ -1,7 +1,7 @@
 <template>
   <div class="align-self-center verne_text">
-      <button class="start_button font-weighthis.pat-bold headline" @click="redirect('',true,'')">
-        {{ value}}
+    <button class="start-button" @click="redirect('',true,'')">
+      {{ value }}
     </button>
   </div>
 </template>
@@ -18,16 +18,6 @@ export default {
     },
   },
   props: {
-    mode: {
-      type: String,
-      default: '',
-      required: false,
-    },
-    path: {
-      type: String,
-      default: '',
-      required: false,
-    },
     value: {
       type: String,
       default: '0',
@@ -38,9 +28,13 @@ export default {
 </script>
 
 <style>
-.start_button {
+.start-button {
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: normal;
+  font-size: 18px;
+  font-weight: 600;
   background-image: url(../../assets/icons/comenzar.svg);
-  height: 200px;
-  width: 200px;
+  height: 150px;
+  width: 150px;
 }
 </style>

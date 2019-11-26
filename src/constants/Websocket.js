@@ -1,6 +1,5 @@
 const SOCKET = {
-  URL1: 'ws://localhost',
-  URL: 'ws://10.1.1.50',
+  URL: 'ws://localhost',
   PORT: 8081,
   PATH: 'control',
   PROTOCOL: 'websocket',
@@ -50,7 +49,6 @@ const MESSAGE_ACTIONS = {
   GET_TRAINING_DETAIL_BY_ID: 'get_training_detail_by_id',
   GET_ALL_VIRTUAL_TRAININGS: 'get_all_virtual_trainings',
   GET_VIRTUAL_TRAINING_DETAIL_BY_ID: 'get_virtual_training_detail_by_id',
-
 };
 
 export { SOCKET, MESSAGE_CODES, MESSAGE_ACTIONS };
