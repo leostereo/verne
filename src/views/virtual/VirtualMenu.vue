@@ -5,7 +5,7 @@
       <back-home-button/>
     </v-row>
    <v-row justify="center" class="full-height" align="center">
-     <v-col cols="11">
+     <v-col cols="10">
         <swiper :options="swiperOption" class="slider">
           <swiper-slide v-for="card in training_cards" :key="card.training_id" class="inner">
             <virtual-item
@@ -95,8 +95,17 @@ export default {
 </script>
 
 <style scoped>
+
+.swiper-button-prev {
+  left: 0px;
+}
+.swiper-button-next {
+  right: 0px;
+}
 .full-height {
-  margin-top: -20px;
-  height: calc(100vh - 10px);
+  height: calc(100vh - 100px);
+}
+.slider {
+  height: 575px;
 }
 </style>

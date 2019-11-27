@@ -47,12 +47,7 @@
         </v-row>
       </v-col>
     </v-row>
-    <div class="separator"></div>
-    <v-footer absolute flat class="font-weight-medium control_bar justify-center">
-      <div class="background-bar"></div>
-      <start-button value="COMENZAR"
-      @show-counter="setCounter" v-if="render"/>
-    </v-footer>
+    <start-footer @click="setCounter" v-if="render"></start-footer>
   </v-container>
 </div>
 
@@ -65,7 +60,7 @@ import TrainVirtualDetail from './TrainVirtualDetail.vue';
 import Counter from '../../components/common/Counter.vue';
 import TrainingVirtualGraphic from './TrainingVirtualGraphic.vue';
 import BackHomeButton from '../../components/buttons/BackHomeButton.vue';
-import StartButton from '../../components/buttons/StartButton.vue';
+import StartFooter from '../../components/footers/StartFooter.vue';
 
 export default {
   beforeMount() {
@@ -76,7 +71,7 @@ export default {
     Counter,
     TrainingVirtualGraphic,
     BackHomeButton,
-    StartButton,
+    StartFooter,
   },
   props: {
     training_value: {
@@ -131,22 +126,7 @@ export default {
 
 <style  lang="scss" scoped>
 .full-height {
-  margin-top: -20px;
-  height: calc(100vh - 10px);
-}.control_bar {
-  background: transparent;
+  height: calc(100vh - 200px);
 }
-.separator{
-  height: 260px;
-}
-.background-bar {
-  border-top-left-radius: 25px !important;
-  border-top-right-radius: 25px !important;
-  background-color: $primary-color;
-  height: 78px;
-  width: 100%;
-  top: 175px;
-  position: absolute;
-  z-index: -1;
-}
+
 </style>

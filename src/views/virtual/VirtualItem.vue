@@ -1,5 +1,5 @@
 <template>
-<v-card class="verne-card ml-10">
+<v-card class="verne-card" width="300px">
       <v-img
       class="verne-text align-end"
       height="200px"
