@@ -5,7 +5,7 @@
       <div class="background-bar"></div>
       <v-col cols="1">
         <button class="rounded_button app
-          font-weight-bold display-1" @click="setCounter()">
+          font-weight-bold display-1" @click="toggleModal()">
         </button>
       </v-col>
       <v-col cols="1">
@@ -220,6 +220,9 @@ export default {
     },
     emitPlayerEvent(value) {
       this.$emit('playerEvent', value);
+    },
+    toggleModal() {
+      this.$emit('apps-modal-action', { action: 'open' });
     },
     handleOnClickStart() {
       const value = this.state;

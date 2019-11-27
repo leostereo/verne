@@ -6,7 +6,7 @@
       <back-home-button path="/training-programs"/>
     </v-row>
     <v-row v-if="render" justify="center" align="center" class="training-container">
-      <v-col cols="auto">
+      <v-col cols="3">
         <train-program-detail
           :creator="card.creator"
           :name="card.name"

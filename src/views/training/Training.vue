@@ -1,11 +1,12 @@
 <template>
   <div>
     <finish-training-modal :show="showTrainingFinishModal" @on-close="handleOnCloseModal" />
-    <multimedia-header :video_mode="video_mode" />
-    <v-container class="training-container" fluid v-if="!video_mode">
-      <v-row justify="center" align="center">
+    <apps-modal :show="showAppsModal" @apps-modal-action="handleAppsModal" />
+    <multimedia-header :video_mode="mini_status" />
+    <v-container class="training-container" fluid v-if="!mini_status">
+      <v-row justify="center" align="center" no-gutters>
         <v-col cols="3">
-          <widget-circ :myvalue="speedPorc" :real="speed" unit="KM/Hs"/>
+          <widget-circ :myvalue="speedPorc" :real="speed" unit="KM/Hs" />
         </v-col>
         <v-col cols="3">
           <widget-circ :myvalue="inclinationPorc" :real="inclination" unit="inclination"/>
@@ -29,7 +30,7 @@
       </v-row>
       <v-row justify="center" align="end" class="graph-row">
         <v-col cols="7">
-          <v-row justify="left">
+          <v-row justify="start">
             <v-col cols="4">
               <widget-img :value="heartbeat" unit="PPS">
                 <img height="80px" src="../../assets/icons/corazon_borde.svg" />
@@ -54,19 +55,23 @@
         </v-col>
       </v-row>
     </v-container>
-    <div v-if="video_mode">
+    <div v-if="training_mode === 'virtual'">
       <v-container fluid>
         <v-row justify="center" class="video-row">
           <video
             ref="myvideo"
             @ended="handleTriningFinish('virtual')"
             :src="video_path"
-
           ></video>
         </v-row>
       </v-container>
     </div>
-    <control-bar @playerEvent="controlPlayer" />
+    <div v-if="showApps">
+      <app-viewer :url="this.appUrl"/>
+    </div>
+    <control-bar @playerEvent="controlPlayer"
+    @apps-modal-action="handleAppsModal"
+    />
   </div>
 </template>
 
@@ -75,10 +80,12 @@ import { mapState } from 'vuex';
 import ControlBar from '../../components/footers/ControlBar.vue';
 import MultimediaHeader from '../../components/headers/MultimediaHeader.vue';
 import TrainingGraphic from './TrainingGraphic.vue';
+import AppViewer from './AppViewer.vue';
 import WidgetCirc from '../../components/widgets/WidgetCirc.vue';
 import ControlService from '../../services/ControlService';
 import WidgetImg from '../../components/widgets/WidgetImg.vue';
 import FinishTrainingModal from '../../components/modals/FinishTrainingModal.vue';
+import AppsModal from '../../components/modals/AppsModal.vue';
 import { ROUTES } from '../../router';
 import { TRAININGDEF } from '../../constants/TrainingDefaults';
 import GraphService from '../../services/GraphService';
@@ -91,6 +98,8 @@ export default {
     WidgetImg,
     WidgetCirc,
     FinishTrainingModal,
+    AppsModal,
+    AppViewer,
   },
   props: {
     training_mode: String,
@@ -124,7 +133,9 @@ export default {
   }),
   data() {
     return {
-      video_mode: true,
+      mini_status: true,
+      showApps: false,
+      appUrl: '',
       trainParams: {
         training_mode: this.training_mode,
         training_value: this.training_value,
@@ -133,6 +144,7 @@ export default {
         initial_speed: this.initial_speed.toString(),
       },
       showTrainingFinishModal: false,
+      showAppsModal: false,
       distanceCloseToFinish: false,
       timeCloseToFinish: false,
       speedPorc: 0,
@@ -150,10 +162,11 @@ export default {
       }
     },
     setScreen() {
-      if (this.training_mode === 'virtual') {
-        this.video_mode = true;
+      if (this.training_mode === 'virtual' || this.training_mode === 'app') {
+        this.mini_status = true;
+        this.showApps = true;
       } else {
-        this.video_mode = false;
+        this.mini_status = false;
       }
     },
     handleTriningFinish(event) {
@@ -187,6 +200,24 @@ export default {
       this.distanceCloseToFinish = false;
       if (response) {
         this.$router.push({ path: ROUTES.TRAINING_STATS });
+      }
+    },
+    handleAppsModal(event) {
+      switch (event.action) {
+        case 'open':
+          this.showAppsModal = true;
+          break;
+        case 'close':
+          this.showAppsModal = false;
+          break;
+        case 'set-url':
+          this.showAppsModal = false;
+          this.mini_status = true;
+          this.appUrl = event.url;
+          this.showApps = true;
+          break;
+        default:
+          break;
       }
     },
     subscribeInProgresChartData() {
