@@ -164,7 +164,9 @@ export default {
     setScreen() {
       if (this.training_mode === 'virtual' || this.training_mode === 'app') {
         this.mini_status = true;
-        this.showApps = true;
+        if (this.training_mode === 'app') {
+          this.showApps = true;
+        }
       } else {
         this.mini_status = false;
       }
