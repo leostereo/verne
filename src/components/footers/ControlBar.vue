@@ -4,9 +4,10 @@
     <v-footer absolute flat class="font-weight-medium control_bar justify-center">
       <div class="background-bar"></div>
       <v-col cols="1">
-        <button class="rounded_button app
-          font-weight-bold display-1" @click="toggleModal()">
-        </button>
+        <button
+          class="rounded_button app font-weight-bold display-1"
+          @click="toggleModal()"
+        ></button>
       </v-col>
       <v-col cols="1">
         <div>

@@ -90,6 +90,18 @@ export default new Vuex.Store({
     reset_training_view_events() {
       this.state.treadmill.training_view_event.action = '';
     },
+    start_training_by_time_response(_, message) {
+      this.state.socket.response = message;
+    },
+    start_training_by_distance_response(_, message) {
+      this.state.socket.response = message;
+    },
+    start_training_by_id_response(_, message) {
+      this.state.socket.response = message;
+    },
+    start_virtual_training_by_id_response(_, message) {
+      this.state.socket.response = message;
+    },
     clear_event(context) {
       context.commit('reset_event');
     },

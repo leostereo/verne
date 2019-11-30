@@ -38,7 +38,7 @@ export default {
 </script>
 <style scoped>
 .header{
-background:transparent;
+  background:transparent;
 }
 
 </style>

@@ -1,11 +1,11 @@
 <template>
 <v-card class="verne-card" width="300px">
-      <v-img
-      class="verne-text align-end"
-      height="200px"
-      :src="src"
-      @click="redirect('/training-virtual-detail',false,training_id)"
-    ></v-img>
+  <v-img
+    class="verne-text align-end"
+    height="200px"
+    :src="src"
+    @click="redirect('/training-virtual-detail',false,training_id)"
+  />
   <v-card-title
     class="justify-center fill-height verne-text"
     @click="redirect('/training-virtual-detail',false,training_id)"
@@ -16,7 +16,7 @@
   <v-list-item-group>
     <v-list-item>
       <v-list-item-icon>
-        <img style="height:30px" src="../../assets/icons/ubicacion.svg" />
+        <img height="30px" width="30px" src="../../assets/icons/ubicacion.svg" />
       </v-list-item-icon>
       <v-list-item-content>
         <v-list-item-title class="verne-text">
@@ -26,27 +26,27 @@
     </v-list-item>
     <v-list-item>
       <v-list-item-icon>
-        <img style="height:30px" src="../../assets/icons/nivel.svg" />
+        <img height="30px" width="30px" src="../../assets/icons/nivel.svg" />
       </v-list-item-icon>
       <v-list-item-content>
         <v-list-item-title class="verne-text">
-          nivel: {{ level }}
+          Nivel: {{ level }}
         </v-list-item-title>
       </v-list-item-content>
     </v-list-item>
     <v-list-item>
       <v-list-item-icon>
-        <img style="height:30px" src="../../assets/icons/tiempo.svg" />
+        <img height="30px" width="30px" src="../../assets/icons/tiempo.svg" />
       </v-list-item-icon>
       <v-list-item-content>
         <v-list-item-title class="verne-text">
-          tiempo: {{ time }}
+          Tiempo: {{ time }}
         </v-list-item-title>
       </v-list-item-content>
     </v-list-item>
     <v-list-item>
       <v-list-item-icon>
-        <img style="height:30px" src="../../assets/icons/creador.svg" />
+        <img height="30px" width="30px" src="../../assets/icons/creador.svg" />
       </v-list-item-icon>
       <v-list-item-content>
         <v-list-item-title class="verne-text">

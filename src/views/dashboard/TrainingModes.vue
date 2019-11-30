@@ -15,13 +15,12 @@
             <v-list-item
               v-for="(trainMode, i) in trainMenu"
               :key="i"
+              @click="redirect(trainMode.route, trainMode.showCounter, trainMode.mode)"
             >
               <v-list-item-icon>
                 <img width="30px" height="30px" :src="trainMode.src" />
               </v-list-item-icon>
-              <v-list-item-content
-                @click="redirect(trainMode.route, trainMode.showCounter, trainMode.mode)"
-              >
+              <v-list-item-content>
                 <v-list-item-title class="verne-text" v-text="trainMode.name"></v-list-item-title>
               </v-list-item-content>
             </v-list-item>

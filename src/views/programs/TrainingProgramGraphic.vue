@@ -60,7 +60,6 @@ export default TrainingProgramGraphic;
 </script>
 
 <style scoped>
-
 .card {
   background-color:transparent;
 }

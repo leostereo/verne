@@ -269,8 +269,8 @@ export default {
 
 <style>
 video {
-  width: 85%    !important;
-  height: auto   !important;
+  width: 100% !important;
+  height: calc(100vh - 220px) !important;
 }
 .graph-row {
   height: calc(100vh - 500px);
