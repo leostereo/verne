@@ -17,10 +17,8 @@ export default {
 </script>
 <style>
 .back {
+  margin-top: -1px;
   background-image: url("assets/images/fondo2.png");
   background-size: cover;
 }
 </style>
-
-@todo
-- Revisar comportamiento de los indicadores de velocidad e inclinación en el entrenamiento
