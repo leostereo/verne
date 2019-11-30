@@ -1,12 +1,12 @@
 <template>
 <v-card class="verne-card" @click="redirect()">
-  <v-card-title class="layout justify-center verne-text subtitle-2">
+  <v-card-title class="layout justify-center white--text subtitle-2">
     <v-list-item>
       <v-list-item-icon>
-        <img style="height:80px" src="../../assets/icons/virtual_borde.svg" />
+        <img height="80px" src="../../assets/icons/virtual_borde.svg" />
       </v-list-item-icon>
       <v-list-item-content>
-        <v-list-item-title class="verne-text">
+        <v-list-item-title class="white--text">
           Detalle entrenamiento virtual
         </v-list-item-title>
       </v-list-item-content>
@@ -16,7 +16,7 @@
   <v-list-item-group>
     <v-list-item>
       <v-list-item-icon>
-        <img style="height:30px" src="../../assets/icons/nivel.svg" />
+        <img height="30px" width="30px" src="../../assets/icons/nivel.svg" />
       </v-list-item-icon>
       <v-list-item-content>
         <v-list-item-title class="verne-text">
@@ -26,27 +26,27 @@
     </v-list-item>
     <v-list-item>
       <v-list-item-icon>
-        <img style="height:30px" src="../../assets/icons/tiempo.svg" />
+        <img height="30px" width="30px" src="../../assets/icons/tiempo.svg" />
       </v-list-item-icon>
       <v-list-item-content>
         <v-list-item-title class="verne-text">
-          tiempo: {{ time }}
+          Tiempo: {{ time }}
         </v-list-item-title>
       </v-list-item-content>
     </v-list-item>
     <v-list-item>
       <v-list-item-icon>
-        <img style="height:30px" src="../../assets/icons/distancia.svg" />
+        <img height="30px" width="30px" src="../../assets/icons/distancia.svg" />
       </v-list-item-icon>
       <v-list-item-content>
         <v-list-item-title class="verne-text">
-          distancia: {{ distance }}
+          Distancia: {{ distance }}
         </v-list-item-title>
       </v-list-item-content>
     </v-list-item>
     <v-list-item>
       <v-list-item-icon>
-        <img style="height:30px" src="../../assets/icons/objetivos.svg" />
+        <img height="30px" width="30px" src="../../assets/icons/objetivos.svg" />
       </v-list-item-icon>
       <v-list-item-content>
         <v-list-item-title class="verne-text">
@@ -59,7 +59,7 @@
     </v-list-item>
     <v-list-item>
       <v-list-item-icon>
-        <img style="height:30px" src="../../assets/icons/creador.svg" />
+        <img height="30px" width="30px" src="../../assets/icons/creador.svg" />
       </v-list-item-icon>
       <v-list-item-content>
         <v-list-item-title class="verne-text">
@@ -69,11 +69,11 @@
     </v-list-item>
     <v-list-item>
       <v-list-item-icon>
-        <img style="height:30px" src="../../assets/icons/ubicacion.svg" />
+        <img height="30px" width="30px" src="../../assets/icons/ubicacion.svg" />
       </v-list-item-icon>
       <v-list-item-content>
         <v-list-item-title class="verne-text">
-          lugar: {{ place }}
+          Lugar: {{ place }}
         </v-list-item-title>
       </v-list-item-content>
     </v-list-item>

@@ -21,78 +21,16 @@ export default {
     highcharts: Chart,
   },
   data: () => ({
-    chartOptions: {
-      credits: {
-        enabled: false,
-      },
-      title: {
-        text: '',
-        style: {
-          color: 'white',
-        },
-      },
-      chart: {
-        type: 'spline',
-        backgroundColor: '#3c3e55',
-      },
-      plotOptions: {
-        series: {
-          borderRadius: 10,
-        },
-      },
-      xAxis: {
-        title: {
-          enabled: true,
-          text: 'Tiempo (mins)',
-          style: {
-            color: 'white',
-            fontSize: '13px',
-            fontFamily: 'Verdana, sans-serif',
-          },
-        },
-        categories: [],
-        labels: {
-          style: {
-            color: 'white',
-          },
-        },
-      },
-      yAxis: {
-        title: {
-          enabled: true,
-          text: 'Tiempo',
-          style: {
-            color: 'white',
-            fontSize: '13px',
-            fontFamily: 'Verdana, sans-serif',
-          },
-        },
-        labels: {
-          style: {
-            color: 'white',
-          },
-        },
-      },
-      series: [
-        {
-          name: '',
-          data: [],
-        },
-      ],
-    },
+    chartOptions: null,
     render: false,
   }),
   props: {
-    title: {
-      type: String,
-      require: true,
-    },
-    yaxys: {
-      type: String,
+    options: {
+      type: Object,
       require: true,
     },
     source: {
-      type: String,
+      type: Number,
       require: true,
     },
   },
@@ -101,10 +39,9 @@ export default {
   }),
   methods: {
     createGraph() {
-      this.chartOptions.title.text = this.title;
-      this.chartOptions.yAxis.title.text = this.yaxys;
+      this.chartOptions = this.options;
       this.training_view.training_element
-        .training_secuence[Number(this.source)].info.forEach(this.pushData);
+        .training_secuence[this.source].info.forEach(this.pushData);
       this.render = true;
     },
     clearGraphSeries() {
@@ -122,9 +59,6 @@ export default {
 </script>
 
 <style scoped>
-.chart {
-  height: calc(100vh - 300px);
-}
 .card {
   background-color:transparent;
 }

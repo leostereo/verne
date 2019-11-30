@@ -145,7 +145,7 @@ export default {
         name: '/training',
         params: {
           training_mode: this.mode,
-          training_value: this.slider,
+          training_value: String(this.slider),
           user_age: this.age,
           user_weight: this.weight,
           initial_speed: this.speed,

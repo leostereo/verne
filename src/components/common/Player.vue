@@ -1,13 +1,13 @@
 <template>
   <v-row justify="center" class="align-center">
     <v-btn icon small class="mx-3">
-      <img style="height:30px" src="../../assets/icons/atras.svg" alt="">
+      <img height="30px" src="../../assets/icons/atras.svg" alt="">
     </v-btn>
     <v-btn icon small class="mx-3">
-      <img style="height:30px" src="../../assets/icons/play.svg" alt="">
+      <img height="30px" src="../../assets/icons/play.svg" alt="">
     </v-btn>
     <v-btn icon small class="mx-3">
-      <img style="height:30px" src="../../assets/icons/adelante.svg" alt="">
+      <img height="30px" src="../../assets/icons/adelante.svg" alt="">
     </v-btn>
     <v-chip class="ma-2" color="#3c3e55" text-color="white" v-if="true">
       <span class="display text-center"></span>

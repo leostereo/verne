@@ -4,8 +4,8 @@
     <v-row>
       <back-home-button/>
     </v-row>
-   <v-row justify="center" class="full-height" align="center">
-     <v-col cols="10">
+    <v-row justify="center" class="full-height" align="center">
+      <v-col cols="10">
         <swiper :options="swiperOption" class="slider">
           <swiper-slide v-for="card in training_cards" :key="card.training_id" class="inner">
             <virtual-item
@@ -18,9 +18,9 @@
             />
           </swiper-slide>
           <div class="swiper-pagination" slot="pagination"></div>
-          <div class="swiper-button-prev" slot="button-prev"></div>
-          <div class="swiper-button-next" slot="button-next"></div>
         </swiper>
+        <div class="swiper-button-prev" slot="button-prev"></div>
+        <div class="swiper-button-next" slot="button-next"></div>
       </v-col>
     </v-row>
   </v-container>
@@ -95,17 +95,17 @@ export default {
 </script>
 
 <style scoped>
-
 .swiper-button-prev {
-  left: 0px;
+  left: 65px;
 }
 .swiper-button-next {
-  right: 0px;
+  right: 65px;
 }
 .full-height {
-  height: calc(100vh - 100px);
+  height: calc(100vh - 101px);
+  overflow-y: hidden;
 }
 .slider {
-  height: 575px;
+  height: 630px;
 }
 </style>

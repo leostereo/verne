@@ -6,8 +6,8 @@
     <v-row>
       <back-home-button path="/training-virtual"/>
     </v-row>
-    <v-row v-if="render" justify="center" align="center" class="full-height">
-      <v-col cols="4">
+    <v-row v-if="render" justify="center" align="center">
+      <v-col cols="3">
         <train-virtual-detail
           :creator="card.creator"
           :name="card.name"
@@ -18,7 +18,7 @@
           :distance="card.distance"
         />
       </v-col>
-      <v-col cols="7">
+      <v-col cols="8">
         <v-row justify="center">
           <v-col cols="10">
             <v-card>
@@ -31,18 +31,15 @@
                   transition="fade-transition"
                 ></v-carousel-item>
               </v-carousel>
-          </v-card>
+            </v-card>
           </v-col>
-
         </v-row>
-        <v-row>
+        <v-row class="virtual-graphs">
           <v-col cols="6">
-            <training-virtual-graphic
-            title="velocidad por tiempo" yaxys="kms/h" source="0"/>
+            <training-virtual-graphic :options="speedGraph" :source="0"/>
           </v-col>
           <v-col cols="6">
-            <training-virtual-graphic
-            title="inclinacion por tiempo" yaxys="grados" source="1"/>
+            <training-virtual-graphic :options="inclinationGraph" :source="1"/>
           </v-col>
         </v-row>
       </v-col>
@@ -61,6 +58,8 @@ import Counter from '../../components/common/Counter.vue';
 import TrainingVirtualGraphic from './TrainingVirtualGraphic.vue';
 import BackHomeButton from '../../components/buttons/BackHomeButton.vue';
 import StartFooter from '../../components/footers/StartFooter.vue';
+import TRAINING_VIRTUAL_SPEED_GRAPH from '../../constants/TrainingVirtualGraphSpeed';
+import TRAINING_VIRTUAL_INCLINATION_GRAPH from '../../constants/TrainingVirtualGraphInclination';
 
 export default {
   beforeMount() {
@@ -88,6 +87,8 @@ export default {
       card: {},
       render: false,
       showCounter: false,
+      speedGraph: TRAINING_VIRTUAL_SPEED_GRAPH,
+      inclinationGraph: TRAINING_VIRTUAL_INCLINATION_GRAPH,
     };
   },
   computed: mapState({
@@ -124,9 +125,8 @@ export default {
 };
 </script>
 
-<style  lang="scss" scoped>
-.full-height {
-  height: calc(100vh - 200px);
+<style lang="scss" scoped>
+.virtual-graphs {
+  height: calc(100vh - 550px);
 }
-
 </style>
