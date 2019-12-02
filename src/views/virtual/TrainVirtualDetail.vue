@@ -1,12 +1,12 @@
 <template>
 <v-card class="verne-card" @click="redirect()">
-  <v-card-title class="layout justify-center white--text subtitle-2">
+  <v-card-title class="layout justify-center verne-card subtitle-2">
     <v-list-item>
       <v-list-item-icon>
         <img height="80px" src="../../assets/icons/virtual_borde.svg" />
       </v-list-item-icon>
       <v-list-item-content>
-        <v-list-item-title class="white--text">
+        <v-list-item-title class="verne-text">
           Detalle entrenamiento
         </v-list-item-title>
       </v-list-item-content>
@@ -136,6 +136,10 @@ export default {
 <style lang="scss" scoped>
 .verne-card {
   background-color: $primary-color;
+  color: $verne_text-color;
+}
+.verne-text {
+  font-family: $verne_text_font-family;
   color: $verne_text-color;
 }
 </style>

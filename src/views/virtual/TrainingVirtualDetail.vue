@@ -6,7 +6,7 @@
     <v-row>
       <back-home-button path="/training-virtual"/>
     </v-row>
-    <v-row v-if="render" justify="center" align="">
+    <v-row v-if="render" justify="center" class="ml-3">
       <v-col cols="3">
         <train-virtual-detail
           :creator="card.creator"
@@ -34,11 +34,11 @@
             </v-card>
           </v-col>
         </v-row>
-        <v-row class="virtual-graphs">
-          <v-col cols="6">
+        <v-row class="virtual-graphs" justify="center">
+          <v-col cols="5">
             <training-virtual-graphic :options="speedGraph" :source="0"/>
           </v-col>
-          <v-col cols="6">
+          <v-col cols="5">
             <training-virtual-graphic :options="inclinationGraph" :source="1"/>
           </v-col>
         </v-row>
@@ -129,4 +129,5 @@ export default {
 .virtual-graphs {
   height: calc(100vh - 650px);
 }
+
 </style>
