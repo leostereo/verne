@@ -6,7 +6,7 @@
     <v-row>
       <back-home-button path="/training-virtual"/>
     </v-row>
-    <v-row v-if="render" justify="center" align="center">
+    <v-row v-if="render" justify="center" align="">
       <v-col cols="3">
         <train-virtual-detail
           :creator="card.creator"
@@ -22,7 +22,7 @@
         <v-row justify="center">
           <v-col cols="10">
             <v-card>
-              <v-carousel height="300">
+              <v-carousel height="250">
                 <v-carousel-item
                   v-for="(item,i) in card.images"
                   :key="i"
@@ -127,6 +127,6 @@ export default {
 
 <style lang="scss" scoped>
 .virtual-graphs {
-  height: calc(100vh - 550px);
+  height: calc(100vh - 650px);
 }
 </style>

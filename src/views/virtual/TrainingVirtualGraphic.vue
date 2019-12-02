@@ -42,6 +42,7 @@ export default {
       this.chartOptions = this.options;
       this.training_view.training_element
         .training_secuence[this.source].info.forEach(this.pushData);
+      this.chartOptions.chart.height = '60%';
       this.render = true;
     },
     clearGraphSeries() {
