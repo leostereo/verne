@@ -2,14 +2,13 @@
   <v-container fluid>
     <v-row align="center" class="full-height" justify="center">
       <v-col cols="3">
-        <v-card  class="dashboard-card verne-card justify-center">
+        <v-card class="dashboard-card verne-card justify-center">
           <div class="separator_prog"></div>
           <div class="icon">
             <img height="100px" src="../../assets/icons/entrenamiento.svg" />
           </div>
           <v-card-title class="layout justify-center text-center subtitle-1">
-            MENU DE ENTRENAMIENTOS
-          </v-card-title>
+            MENU DE ENTRENAMIENTOS</v-card-title>
           <v-divider class="verne_divider"></v-divider>
           <v-list-item-group>
             <v-list-item
@@ -30,25 +29,25 @@
       <v-col cols="3">
         <v-card class="dashboard-card verneback layout justify-center">
           <div class="separator_quick"></div>
-          <div class="align-self-center">
+          <div class="align-self-center wrapper">
             <button
-              class="simple_button verne-text font-weight-bold display-1"
+              class="simple_button font-weight-bold display-1"
               @click="redirect(routes.TRAINING, true,'quick')"
             >
-              QUICK<br>START
+              QUICK
+              <br />START
             </button>
           </div>
-         </v-card>
+        </v-card>
       </v-col>
       <v-col cols="3">
-        <v-card  class="dashboard-card verne-card justify-center">
+        <v-card class="dashboard-card verne-card justify-center">
           <div class="separator_app"></div>
           <div class="icon">
             <img style="height:100px" src="../../assets/icons/aplicaciones.png" />
           </div>
           <v-card-title class="layout justify-center text-center subtitle-1">
-            APLICACIONES
-          </v-card-title>
+            APLICACIONES</v-card-title>
           <v-divider class="verne_divider"></v-divider>
         </v-card>
       </v-col>
@@ -63,8 +62,7 @@ import QUICK from '../../constants/QuickTrain';
 import { ROUTES } from '../../router';
 
 export default {
-  components: {
-  },
+  components: {},
   data: () => ({
     trainMenu: TRAINING_MODES_MENU,
     quick: QUICK,
@@ -104,7 +102,7 @@ export default {
   height: calc(100vh - 195px);
 }
 .simple_button {
-  background-color : transparent;
+  background-color: transparent;
   background-image: url(../../assets/icons/comenzar.svg);
   height: 250px;
   width: 250px;
@@ -113,8 +111,13 @@ export default {
   padding: 0px;
   text-align: center;
   display: inline-block;
-  outline:none;
+  outline: none;
   border: 0;
-  color: white;
+  color: $verne_text-color;
+}
+.wrapper {
+  outline: none;
+  border: 0;
+  border: none;
 }
 </style>

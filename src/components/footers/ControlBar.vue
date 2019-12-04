@@ -321,13 +321,28 @@ export default {
   height: 70px;
   width: 70px;
 }
+.aumentar:active {
+  background-image: url(../../assets/icons/aumentar_presionado.svg);
+  height: 70px;
+  width: 70px;
+}
 .disminuir {
   background-image: url(../../assets/icons/disminuir.svg);
   height: 70px;
   width: 70px;
 }
+.disminuir:active {
+  background-image: url(../../assets/icons/disminuir_presionado.svg);
+  height: 70px;
+  width: 70px;
+}
 .start {
   background-image: url(../../assets/icons/start.svg);
+  height: 90px;
+  width: 90px;
+}
+.start:active {
+  background-image: url(../../assets/icons/start_presionado.svg);
   height: 90px;
   width: 90px;
 }

@@ -12,6 +12,9 @@ const TRAINING_VIRTUAL_INCLINATION_GRAPH = {
     type: 'spline',
     backgroundColor: '#3c3e55',
   },
+  legend: {
+    enabled: false,
+  },
   plotOptions: {
     series: {
       borderRadius: 10,

@@ -9,12 +9,15 @@ const TRAINING_VIRTUAL_SPEED_GRAPH = {
     },
   },
   chart: {
-    type: 'spline',
+    type: 'column',
     backgroundColor: '#3c3e55',
+  },
+  legend: {
+    enabled: false,
   },
   plotOptions: {
     series: {
-      borderRadius: 10,
+      borderRadius: 3,
     },
   },
   xAxis: {
