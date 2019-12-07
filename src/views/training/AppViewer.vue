@@ -1,9 +1,9 @@
 <template>
   <v-container fluid>
-    <v-row align="center" class="full-height" justify="center">
-      <iframe src='https://www.w3schools.com'>
-        <p>Your browser does not support iframes.</p>
-      </iframe>
+    <v-row align="center" justify="center">
+      <v-col class="app-container">
+        <webview id="foo" src="https://www.youtube.com/" class="app"></webview>
+      </v-col>
     </v-row>
   </v-container>
 </template>
@@ -27,8 +27,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.full-height {
-  height: calc(100vh - 48px);
+.app-container {
+  margin-left: 50px;
+  margin-right: 50px;
 }
-
+.app {
+  display: inline-flex;
+  width: 100%;
+  height: calc(100vh - 225px);
+  background: white;
+}
 </style>
