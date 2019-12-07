@@ -1,7 +1,7 @@
 <template>
   <div>
     <stop-training-modal :show="showConfirmModal" @on-close="handleOnCloseModal" />
-    <v-footer absolute flat class="font-weight-medium control_bar justify-center">
+    <v-footer absolute flat class="font-weight-medium control-bar justify-center">
       <div class="background-bar"></div>
       <v-col cols="1">
         <button
@@ -287,8 +287,8 @@ export default {
   width: 220px;
   margin-left: -45px;
 }
-.control_bar {
-  background: transparent;
+.control-bar {
+  background-color: transparent !important;
 }
 .background-bar {
   border-top-left-radius: 25px !important;

@@ -2,7 +2,7 @@
 import { app, protocol, BrowserWindow } from 'electron';
 import { createProtocol, installVueDevtools } from 'vue-cli-plugin-electron-builder/lib';
 
-const isDevelopment = process.env.NODE_ENV !== 'production';
+const isDevelopment = true;
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -25,6 +25,7 @@ function createWindow() {
     webPreferences: {
       devTools: isDevelopment,
       nodeIntegration: true,
+      webviewTag: true,
     },
   });
 

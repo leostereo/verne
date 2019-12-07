@@ -7,8 +7,9 @@
           <div class="icon">
             <img height="100px" src="../../assets/icons/entrenamiento.svg" />
           </div>
-          <v-card-title class="layout justify-center text-center subtitle-1">
-            MENU DE ENTRENAMIENTOS</v-card-title>
+          <v-card-title class="layout justify-center verne-text text-center subtitle-1">
+            MENU DE ENTRENAMIENTOS
+          </v-card-title>
           <v-divider class="verne_divider"></v-divider>
           <v-list-item-group>
             <v-list-item
@@ -46,8 +47,9 @@
           <div class="icon">
             <img style="height:100px" src="../../assets/icons/aplicaciones.png" />
           </div>
-          <v-card-title class="layout justify-center text-center subtitle-1">
-            APLICACIONES</v-card-title>
+          <v-card-title class="layout justify-center text-center verne-text subtitle-1">
+            APLICACIONES
+          </v-card-title>
           <v-divider class="verne_divider"></v-divider>
         </v-card>
       </v-col>
