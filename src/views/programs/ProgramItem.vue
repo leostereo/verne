@@ -13,7 +13,9 @@
         <img style="height:30px" src="../../assets/icons/nivel.svg" />
       </v-list-item-icon>
       <v-list-item-content>
-        <v-list-item-title class="white--text">
+        <v-list-item-title class="white--text"
+        @click="redirect('/training-program-detail',false,training_id)"
+        >
           Nivel: {{ level }}
         </v-list-item-title>
       </v-list-item-content>
@@ -23,7 +25,9 @@
         <img style="height:30px" src="../../assets/icons/tiempo.svg" />
       </v-list-item-icon>
       <v-list-item-content>
-        <v-list-item-title class="white--text">
+        <v-list-item-title class="white--text"
+        @click="redirect('/training-program-detail',false,training_id)"
+        >
           Tiempo: {{ time }}
         </v-list-item-title>
       </v-list-item-content>
@@ -33,7 +37,9 @@
         <img style="height:30px" src="../../assets/icons/creador.svg" />
       </v-list-item-icon>
       <v-list-item-content>
-        <v-list-item-title class="white--text">
+        <v-list-item-title class="white--text"
+        @click="redirect('/training-program-detail',false,training_id)"
+        >
           Creador: {{ creator }}
         </v-list-item-title>
       </v-list-item-content>

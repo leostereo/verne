@@ -9,16 +9,6 @@
       </div>
       <v-divider vertical class="mr-3"></v-divider>
       <v-btn
-        v-on:click.prevent="handleOnClickSetting(true)"
-        elevation="0"
-        color="#3c3e55"
-        fab
-        x-small
-        class="mr-2"
-      >
-        <img height="30px" src="../../assets/icons/mas.svg" />
-      </v-btn>
-      <v-btn
         v-on:click.prevent="handleOnClickSetting(false)"
         elevation="0"
         color="#3c3e55"
@@ -27,6 +17,16 @@
         class="mr-2"
       >
         <img height="30px" src="../../assets/icons/menos.svg" />
+      </v-btn>
+      <v-btn
+        v-on:click.prevent="handleOnClickSetting(true)"
+        elevation="0"
+        color="#3c3e55"
+        fab
+        x-small
+        class="mr-2"
+      >
+        <img height="30px" src="../../assets/icons/mas.svg" />
       </v-btn>
     </div>
   </div>

@@ -70,31 +70,32 @@ const StatsGraphOptions = {
     title: {
       text: 'Inclinación',
       style: {
-        color: 'white',
+        color: 'orange',
       },
     },
     labels: {
       format: '{value} °',
       style: {
-        color: 'white',
+        color: 'orange',
       },
     },
     opposite: true,
   }],
   series: [{
     name: 'Velocidad',
-    type: 'line',
+    type: 'column',
     yAxis: 0,
     zIndex: 1,
+    borderRadius: 4,
     showInLegend: false,
-    color: 'red',
     data: [],
   },
   {
     name: 'Inclinación',
     type: 'line',
     yAxis: 1,
-    color: 'blue',
+    zIndex: 2,
+    color: 'orange',
     data: [],
     showInLegend: false,
   }],

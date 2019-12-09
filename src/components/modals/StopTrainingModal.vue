@@ -1,6 +1,6 @@
 <template>
   <v-row justify="center">
-    <v-dialog v-model="show" width="400">
+    <v-dialog persistent v-model="show" width="400">
       <v-card class="verneback">
           <div class="text-center pt-10">
             <img style="height:100px" src="@/assets/icons/finalizar.svg"/>

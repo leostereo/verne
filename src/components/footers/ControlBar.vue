@@ -3,7 +3,7 @@
     <stop-training-modal :show="showConfirmModal" @on-close="handleOnCloseModal" />
     <v-footer absolute flat class="font-weight-medium control-bar justify-center">
       <div class="background-bar"></div>
-      <v-col cols="1">
+      <v-col cols="1" class="mr-6">
         <button
           class="rounded_button app font-weight-bold display-1"
           @click="toggleModal()"
@@ -11,7 +11,7 @@
       </v-col>
       <v-col cols="1">
         <div>
-          <v-row justify="center" align="center" no-gutters>
+          <v-row justify="end" align="center" no-gutters>
             <v-col cols="12">
               <div class="text-center">
                 <v-menu top offset-y
@@ -313,48 +313,48 @@ export default {
 }
 .app {
   background-image: url(../../assets/icons/footer_app.svg);
-  height: 100px;
-  width: 100px;
+  height: 110px;
+  width: 110px;
 }
 .aumentar {
   background-image: url(../../assets/icons/aumentar.svg);
-  height: 70px;
-  width: 70px;
+  height: 80px;
+  width: 80px;
 }
 .aumentar:active {
   background-image: url(../../assets/icons/aumentar_presionado.svg);
-  height: 70px;
-  width: 70px;
+  height: 80px;
+  width: 80px;
 }
 .disminuir {
   background-image: url(../../assets/icons/disminuir.svg);
-  height: 70px;
-  width: 70px;
+  height: 80px;
+  width: 80px;
 }
 .disminuir:active {
   background-image: url(../../assets/icons/disminuir_presionado.svg);
-  height: 70px;
-  width: 70px;
+  height: 80px;
+  width: 80px;
 }
 .start {
   background-image: url(../../assets/icons/start.svg);
-  height: 90px;
-  width: 90px;
+  height: 110px;
+  width: 110px;
 }
 .start:active {
   background-image: url(../../assets/icons/start_presionado.svg);
-  height: 90px;
-  width: 90px;
+  height: 110px;
+  width: 110px;
 }
 .pause {
   background-image: url(../../assets/icons/pause.svg);
-  height: 90px;
-  width: 90px;
+  height: 110px;
+  width: 110px;
 }
 .stop {
   background-image: url(../../assets/icons/stop.svg);
-  height: 90px;
-  width: 90px;
+  height: 110px;
+  width: 110px;
 }
 .verne-indicator {
   border-radius: 25px;

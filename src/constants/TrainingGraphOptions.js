@@ -1,4 +1,4 @@
-import Highcharts from 'highcharts';
+// import Highcharts from 'highcharts';
 
 const TrainingGraphOptions = {
   chart: {
@@ -66,13 +66,15 @@ const TrainingGraphOptions = {
     title: {
       text: 'Inclinación',
       style: {
-        color: Highcharts.getOptions().colors[0],
+        // color: Highcharts.getOptions().colors[0],
+        color: 'orange',
       },
     },
     labels: {
       format: '{value} °',
       style: {
-        color: Highcharts.getOptions().colors[0],
+        color: 'orange',
+        // color: Highcharts.getOptions().colors[0],
       },
     },
     opposite: true,
@@ -83,10 +85,11 @@ const TrainingGraphOptions = {
     yAxis: 0,
     zIndex: 1,
     showInLegend: false,
-    color: Highcharts.getOptions().colors[1],
+    // color: Highcharts.getOptions().colors[1],
+    borderRadius: 4,
     data: [],
     dataLabels: {
-      enabled: true,
+      enabled: false,
       rotation: -90,
       color: '#FFFFFF',
       align: 'right',
@@ -102,7 +105,9 @@ const TrainingGraphOptions = {
     name: 'Inclinación',
     type: 'spline',
     yAxis: 1,
-    color: Highcharts.getOptions().colors[0],
+    zIndex: 2,
+    // color: Highcharts.getOptions().colors[0],
+    color: 'orange',
     data: [],
     showInLegend: false,
   }],

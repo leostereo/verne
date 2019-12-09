@@ -11,7 +11,7 @@
         color="light-blue"
       >
         <div class="verne_text">
-          <span class="display-1">{{real}}</span>
+          <span class="display-2">{{real}}</span>
           <br>
           <span>{{unit}}</span>
         </div>
@@ -27,10 +27,10 @@ export default {
     return {
       indeterminate: false,
       rotate: 90,
-      size: 160,
+      size: 200,
       value: 0,
       valor: 20,
-      width: 10,
+      width: 12,
     };
   },
   props: {
@@ -55,7 +55,7 @@ export default {
 <style>
 .inner_circle {
   margin-top:-9px;
-  margin-left:-14px;
+  margin-left:-9px;
   display: block;
   width: 170px;
   z-index: 1;
@@ -63,8 +63,8 @@ export default {
 }
 .rounded-corners-gradient-borders {
   text-align: center;
-  width: 150px;
-  height: 150px;
+  width: 190px;
+  height: 190px;
   border: double 4px transparent;
   border-radius: 110px;
   background-image: linear-gradient(#3c3e55, #3c3e55),
@@ -77,8 +77,8 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 180px;
-  height: 180px;
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
   background: #3c3e55;
 }
