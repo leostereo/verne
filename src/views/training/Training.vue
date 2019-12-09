@@ -33,18 +33,18 @@
           <v-row justify="start">
             <v-col cols="4">
               <widget-img :value="heartbeat" unit="PPS">
-                <img height="80px" src="../../assets/icons/corazon_borde.svg" />
+                <img height="85px" src="../../assets/icons/corazon_borde.svg" />
               </widget-img>
             </v-col>
             <v-col cols="4">
               <widget-img :value="rhythm" unit="min/km">
-                <img height="80px" src="../../assets/icons/cardio_borde.svg" />
+                <img height="85px" src="../../assets/icons/cardio_borde.svg" />
               </widget-img>
             </v-col>
             <v-col cols="4">
               <div class="frame">
                 <widget-img :value="calories" unit="kcal">
-                  <img height="80px" src="../../assets/icons/calorias_borde.svg" />
+                  <img height="85px" src="../../assets/icons/calorias_borde.svg" />
                 </widget-img>
               </div>
             </v-col>

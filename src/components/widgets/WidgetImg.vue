@@ -41,12 +41,12 @@ export default {
 .data {
   padding-left: 0px;
   background: #3c3e55;
-  margin-top: 20px;
+  margin-top: 15px;
   z-index: -1;
   margin-left: -10px;
   border-bottom-right-radius: 35px;
   border-top-right-radius: 35px;
-  height: 50px;
+  height: 60px;
   width: calc(100% - 80px);
   float: left;
   display: flex;
@@ -54,7 +54,7 @@ export default {
   align-items: center;
 }
 .text {
-  font-size: 20px;
+  font-size: 25px;
   color: white;
 }
 .litle {

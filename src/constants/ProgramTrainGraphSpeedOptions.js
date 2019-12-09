@@ -6,12 +6,12 @@ const ProgramTrainGraphSpeedOptions = {
     },
   },
   chart: {
-    type: 'line',
+    type: 'column',
     backgroundColor: '#3c3e55',
   },
   plotOptions: {
     series: {
-      borderRadius: 10,
+      borderRadius: 4,
     },
   },
   xAxis: {

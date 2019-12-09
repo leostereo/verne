@@ -1,6 +1,6 @@
 <template>
   <v-row justify="center">
-    <v-dialog v-model="show" width="400">
+    <v-dialog persistent v-model="show" width="400">
       <v-card class="verneback verne_text">
         <v-card-title class="headline verne_text">Felicitaciones!!</v-card-title>
         <v-card-text class="headline white--text">
