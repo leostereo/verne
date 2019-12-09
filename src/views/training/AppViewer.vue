@@ -2,7 +2,7 @@
   <v-container fluid>
     <v-row align="center" justify="center">
       <v-col class="app-container">
-        <webview id="foo" src="https://www.youtube.com/" class="app"></webview>
+        <webview id="app-iframe" :src="url" class="app"></webview>
       </v-col>
     </v-row>
   </v-container>
