@@ -265,6 +265,16 @@ export default {
     inclinationSetPoint(value) {
       this.inclinationOutOfRange = (value > TRAININGDEF.MAX_INC);
     },
+    speed(value) {
+      if (!this.showSpeedKeyboard) {
+        this.speedSetPoint = value;
+      }
+    },
+    inclination(value) {
+      if (!this.showInclinationKeyboard) {
+        this.inclinationSetPoint = value;
+      }
+    },
     state(value) {
       this.setIcon(value);
       this.emitPlayerEvent(value);
