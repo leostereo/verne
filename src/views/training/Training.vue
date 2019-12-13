@@ -105,6 +105,7 @@ export default {
     training_mode: String,
     video_path: String,
     training_value: String,
+    url: String,
     user_age: {
       type: Number,
       default: TRAININGDEF.AGE,
@@ -165,6 +166,7 @@ export default {
       if (this.training_mode === 'virtual' || this.training_mode === 'app') {
         this.mini_status = true;
         if (this.training_mode === 'app') {
+          this.appUrl = this.url;
           this.showApps = true;
         }
       } else {

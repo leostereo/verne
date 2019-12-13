@@ -18,21 +18,27 @@ export default {
   },
   data: () => ({
     path: null,
+    url: null,
+    mode: null,
     showCounter: false,
   }),
   methods: {
-    setCounter({ path, showCounter, mode }) {
+    setCounter({
+      path, showCounter, mode, url,
+    }) {
       this.path = path;
+      this.url = url;
+      this.mode = mode;
       this.showCounter = showCounter;
       if (!showCounter) {
-        this.redirect(mode);
+        this.redirect(mode, url);
       }
     },
-    redirect(mode) {
+    redirect() {
       this.showCounter = false;
       this.$router.push({
         name: this.path,
-        params: { mode },
+        params: { training_mode: this.mode, url: this.url },
       });
     },
   },
