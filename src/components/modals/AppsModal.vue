@@ -49,7 +49,7 @@ export default {
   }),
   methods: {
     toggleModal() {
-      this.$emit('apps-modal-action', { action: 'close' });
+      this.$emit('apps-modal-action', { action: 'cancel' });
     },
     setUrlApp(url) {
       this.$emit('apps-modal-action', { action: 'set-url', url });

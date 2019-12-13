@@ -1,5 +1,10 @@
 <template>
   <v-container fluid>
+    <v-row>
+      <button class="round_button ml-10" @click="closeApps()">
+        <img src="../../assets/icons/go_back.svg" height="70" >
+      </button>
+    </v-row>
     <v-row align="center" justify="center">
       <v-col class="app-container">
         <webview id="app-iframe" :src="url" class="app"></webview>
@@ -9,7 +14,6 @@
 </template>
 
 <script>
-
 export default {
   components: {
   },
@@ -22,6 +26,9 @@ export default {
     },
   },
   methods: {
+    closeApps() {
+      this.$emit('apps-modal-action', { action: 'close' });
+    },
   },
 };
 </script>

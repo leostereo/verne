@@ -67,7 +67,7 @@
       </v-container>
     </div>
     <div v-if="showApps">
-      <app-viewer :url="this.appUrl"/>
+      <app-viewer :url="this.appUrl" @apps-modal-action="handleAppsModal"/>
     </div>
     <control-bar @playerEvent="controlPlayer"
     @apps-modal-action="handleAppsModal"
@@ -209,8 +209,13 @@ export default {
         case 'open':
           this.showAppsModal = true;
           break;
+        case 'cancel':
+          this.showAppsModal = false;
+          break;
         case 'close':
           this.showAppsModal = false;
+          this.showApps = false;
+          this.mini_status = false;
           break;
         case 'set-url':
           this.showAppsModal = false;
