@@ -31,14 +31,14 @@ export default {
       this.mode = mode;
       this.showCounter = showCounter;
       if (!showCounter) {
-        this.redirect(mode, url);
+        this.redirect();
       }
     },
     redirect() {
       this.showCounter = false;
       this.$router.push({
         name: this.path,
-        params: { training_mode: this.mode, url: this.url },
+        params: { mode: this.mode, url: this.url },
       });
     },
   },

@@ -1,21 +1,15 @@
 <template>
-<v-card height="180" flat class="verne-card">
-  <div class="img-container">
-    <img :src="src" alt=""
-    height="100"
-    @click="emitUrl(url)"
-    >
-  </div>
-  <v-card-title
-    class="justify-center  verne-text"
-  >
-    {{name}}
-  </v-card-title>
-</v-card>
+  <v-card flat class="verne-card">
+    <div class="img-container">
+      <img :src="src" alt="" height="100" @click="emitUrl(url)" />
+    </div>
+    <v-card-title class="justify-center verne-text">
+      {{name}}
+    </v-card-title>
+  </v-card>
 </template>
 
 <script>
-
 export default {
   components: {
   },
@@ -54,9 +48,12 @@ export default {
   background-color: $primary-color;
   color: $verne_text-color;
 }
-.img-container{
-  margin-top: 10%;
+.img-container {
   text-align: center;
 }
-
+.verne-text {
+  padding-top: 8px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
 </style>

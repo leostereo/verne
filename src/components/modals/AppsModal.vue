@@ -2,8 +2,8 @@
   <v-row justify="center" align="center">
     <v-dialog persistent v-model="show" width="80%">
       <v-card class="verne-card">
-        <swiper :options="swiperOption" class="slider">
-          <swiper-slide v-for="card in apps_cards" :key="card.training_id" class="inner">
+        <swiper class="slider">
+          <swiper-slide v-for="card in apps_cards" :key="card.training_id" class="">
             <app-item
               :app_id="card.id"
               :name="card.name"
@@ -16,11 +16,12 @@
           <div class="swiper-button-prev" slot="button-prev"></div>
           <div class="swiper-button-next" slot="button-next"></div>
         </swiper>
-
         <v-card-actions>
           <div class="flex-grow-1"></div>
-          <button class="verne_degrade verne_container_rounded"
-          @click="toggleModal()">Cancelar</button>
+          <button
+            class="verne_degrade verne_container_rounded cancel-button"
+            @click="toggleModal()"
+          >Cancelar</button>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -29,7 +30,6 @@
 
 <script>
 import APPS_CARDS from '../../constants/AppsCards';
-import SwiperOptions from '../../constants/SwiperOptions';
 import AppItem from './AppItem.vue';
 
 export default {
@@ -44,7 +44,6 @@ export default {
     },
   },
   data: () => ({
-    swiperOption: SwiperOptions,
     apps_cards: APPS_CARDS,
   }),
   methods: {
@@ -61,8 +60,16 @@ export default {
 .verne-card {
   background-color: $primary-color;
   color: $verne_text-color;
+  padding: 35px 10px 10px 10px;
 }
-.dialog-row {
-  height: calc(100vh - 500px);
+.cancel-button {
+  padding-top: 0;
+  margin-bottom: 0;
+}
+.slider {
+  height: 210px;
+}
+.swiper-pagination {
+  bottom: 0;
 }
 </style>

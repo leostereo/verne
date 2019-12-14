@@ -81,26 +81,19 @@ export default {
     speed: TRAININGDEF.INIT_SPEED,
     weight: TRAININGDEF.WEIGHT,
     showCounter: false,
-    title: '',
-    units: '',
     slider: 35,
     ex2: { label: '', val: 75, color: 'blue lighten-1' },
-    render: false,
   }),
   computed: {
     indicator() {
       return `${this.slider} ${this.units}`;
     },
-  },
-  mounted() {
-    if (this.mode === 'distance') {
-      this.title = 'ENTRENAMIENTO POR DISTANCIA';
-      this.units = 'KMs';
-    } else if (this.mode === 'time') {
-      this.title = 'ENTRENAMIENTO POR TIEMPO';
-      this.units = 'Mins';
-    }
-    this.render = true;
+    title() {
+      return this.mode === 'distance' ? 'ENTRENAMIENTO POR DISTANCIA' : 'ENTRENAMIENTO POR TIEMPO';
+    },
+    units() {
+      return this.mode === 'distance' ? 'KMs' : 'Mins';
+    },
   },
   methods: {
     handleAgeSet(isMore) {
