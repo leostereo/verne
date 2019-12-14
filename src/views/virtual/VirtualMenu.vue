@@ -6,7 +6,7 @@
     </v-row>
     <v-row justify="center" class="full-height" align="center">
       <v-col cols="10">
-        <swiper :options="swiperOption" class="slider">
+        <swiper class="slider">
           <swiper-slide v-for="card in training_cards" :key="card.training_id" class="inner">
             <virtual-item
               :creator="card.creator"
@@ -32,7 +32,6 @@ import ProgramService from '../../services/ProgramService';
 import BackHomeButton from '../../components/buttons/BackHomeButton.vue';
 import VirtualItem from './VirtualItem.vue';
 import Counter from '../../components/common/Counter.vue';
-import SwiperOptions from '../../constants/SwiperOptions';
 
 export default {
   beforeMount() {
@@ -49,7 +48,6 @@ export default {
     showCounter: false,
     training_cards: '',
     render: false,
-    swiperOption: SwiperOptions,
   }),
   computed: mapState({
     training_view: state => state.treadmill.training_view,

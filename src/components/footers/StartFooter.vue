@@ -23,7 +23,7 @@ export default {
 
 <style lang="scss" scoped>
 .start-bar {
-  background: transparent;
+  background: transparent !important;
 }
 .background-bar {
   border-top-left-radius: 25px !important;

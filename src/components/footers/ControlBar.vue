@@ -24,6 +24,7 @@
                     <input
                       type="text"
                       maxlength="4"
+                      readonly
                       v-model="speedSetPoint"
                       class="verne-indicator"
                       v-bind:class="{'blink': speedOutOfRange}"
@@ -87,6 +88,7 @@
                     <input
                       type="text"
                       maxlength="4"
+                      readonly
                       v-model="inclinationSetPoint"
                       class="verne-indicator"
                       v-bind:class="{'blink': inclinationOutOfRange}"
@@ -304,9 +306,9 @@ export default {
   border-top-left-radius: 25px !important;
   border-top-right-radius: 25px !important;
   background-color: $primary-color;
-  height: 78px;
+  height: 83px;
   width: 100%;
-  top: 65px;
+  top: 70px;
   position: absolute;
   z-index: -1;
 }

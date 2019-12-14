@@ -1,12 +1,7 @@
 <template>
   <div class="img-container">
-    <img :src="src" alt=""
-    height="60"
-    @click="emitUrl(url)"
-    >
+    <img :src="src" alt="" height="60">
   </div>
-
-
 </template>
 
 <script>
@@ -15,30 +10,10 @@ export default {
   components: {
   },
   props: {
-    app_id: {
-      type: String,
-      default: '0',
-      required: true,
-    },
-    name: {
-      type: String,
-      default: '0',
-      required: true,
-    },
     src: {
       type: String,
       default: '0',
       required: true,
-    },
-    url: {
-      type: String,
-      default: '0',
-      required: true,
-    },
-  },
-  methods: {
-    emitUrl(url) {
-      this.$emit('set-url', url);
     },
   },
 };
@@ -49,9 +24,7 @@ export default {
   background-color: $primary-color;
   color: $verne_text-color;
 }
-.img-container{
-  margin-top: 10%;
+.img-container {
   text-align: center;
 }
-
 </style>
