@@ -53,15 +53,12 @@
           <v-divider class="verne_divider"></v-divider>
           <v-row justify="center">
           <v-col cols="11">
-          <swiper :options="swiperOption" class="slider">
+          <swiper :options="swiperOption">
           <swiper-slide v-for="card in apps_cards" :key="card.training_id" class="inner">
-            <app-item
-              @click="redirect(routes.TRAINING, true, 'app')"
-              :app_id="card.id"
-              :name="card.name"
-              :src="card.src"
-              :url="card.url"
-            />
+            <input type="image" :src="card.src"
+            class="app_icon"
+            @click="redirect(routes.TRAINING, true,'app',card.url)"
+            >
           </swiper-slide>
           <div class="swiper-button-prev" slot="button-prev"></div>
           <div class="swiper-button-next" slot="button-next"></div>
@@ -70,31 +67,7 @@
           </v-row>
         </v-card>
       </v-col>
-      <v-col cols="3">
-        <v-card class="dashboard-card verne-card justify-center">
-          <div class="separator_app"></div>
-          <v-divider class="verne_divider"></v-divider>
-          <v-row justify="center">
-          <v-col cols="11">
-          <v-list-item-group>
-            <v-list-item
-              v-for="(card, i) in apps_cards"
-              :key="i"
-              @click="redirect(routes.TRAINING, true,'app',card.url)"
-            >
-              <v-list-item-icon>
-                <img width="30px" height="30px" :src="card.src" />
-              </v-list-item-icon>
-              <v-list-item-content>
-                <v-list-item-title class="verne-text" v-text="card.name"></v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-          </v-list-item-group>
-          </v-col>
-          </v-row>
-        </v-card>
-      </v-col>
-    </v-row>
+     </v-row>
   </v-container>
 </template>
 
@@ -104,11 +77,9 @@ import QUICK from '../../constants/QuickTrain';
 import { ROUTES } from '../../router';
 import APPS_CARDS from '../../constants/AppsCards';
 import SwiperOptions from '../../constants/SwiperOptions';
-import AppItem from './DashboardAppItem.vue';
 
 export default {
   components: {
-    AppItem,
   },
   data: () => ({
     trainMenu: TRAINING_MODES_MENU,
@@ -170,5 +141,9 @@ export default {
   outline: none;
   border: 0;
   border: none;
+}
+.app_icon{
+  outline: none;
+  border: 0;
 }
 </style>
