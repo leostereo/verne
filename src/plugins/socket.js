@@ -5,7 +5,7 @@ import { SOCKET } from '../constants/Websocket';
 
 const URL = `${SOCKET.URL}:${SOCKET.PORT}/${SOCKET.PATH}`;
 
-Vue.use(VueNativeSock, URL, {
+export default Vue.use(VueNativeSock, URL, {
   store,
   format: SOCKET.MESSAGE_FORMAT,
   reconnection: true,
