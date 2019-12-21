@@ -7,7 +7,7 @@
           <div class="icon">
             <img height="100px" src="../../assets/icons/entrenamiento.svg" />
           </div>
-          <v-card-title class="layout justify-center verne-text text-center subtitle-1">
+          <v-card-title class="justify-center verne-text text-center subtitle-1">
             MENU DE ENTRENAMIENTOS
           </v-card-title>
           <v-divider class="verne_divider"></v-divider>
@@ -28,8 +28,7 @@
         </v-card>
       </v-col>
       <v-col cols="3">
-        <v-card class="dashboard-card verneback layout justify-center">
-          <div class="separator_quick"></div>
+        <v-card class="dashboard-card quick-start-card verneback justify-center">
           <div class="align-self-center wrapper">
             <button
               class="simple_button font-weight-bold display-1"
@@ -47,7 +46,7 @@
           <div class="icon">
             <img style="height:100px" src="../../assets/icons/aplicaciones.png" />
           </div>
-          <v-card-title class="layout justify-center text-center verne-text subtitle-1">
+          <v-card-title class="justify-center text-center verne-text subtitle-1">
             APLICACIONES
           </v-card-title>
           <v-divider class="verne_divider"></v-divider>
@@ -92,6 +91,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.quick-start-card {
+  display: flex !important;
+}
 .full-height {
   height: calc(100vh - 48px);
 }
