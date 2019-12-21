@@ -20,6 +20,7 @@ export default {
 </script>
 
 <style scoped>
-.footer{
-background:transparent;
+.footer {
+  background:transparent;
 }
+</style>

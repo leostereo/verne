@@ -38,7 +38,7 @@ export default {
       this.showCounter = false;
       this.$router.push({
         name: this.path,
-        params: { mode: this.mode, url: this.url },
+        params: { training_mode: this.mode, url: this.url },
       });
     },
   },
