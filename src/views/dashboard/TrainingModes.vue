@@ -7,7 +7,7 @@
           <div class="icon">
             <img height="100px" src="../../assets/icons/entrenamiento.svg" />
           </div>
-          <v-card-title class="layout justify-center verne-text text-center subtitle-1">
+          <v-card-title class="justify-center verne-text text-center subtitle-1">
             MENU DE ENTRENAMIENTOS
           </v-card-title>
           <v-divider class="verne_divider"></v-divider>
@@ -15,8 +15,8 @@
             <v-list-item
               v-for="(trainMode, i) in trainMenu"
               :key="i"
-              @click="redirect(trainMode.route, trainMode.showCounter, trainMode.mode)"
-            >
+              @click="redirect(
+                trainMode.route, trainMode.showCounter, trainMode.mode, trainMode.url)">
               <v-list-item-icon>
                 <img width="30px" height="30px" :src="trainMode.src" />
               </v-list-item-icon>
@@ -28,8 +28,7 @@
         </v-card>
       </v-col>
       <v-col cols="3">
-        <v-card class="dashboard-card verneback layout justify-center">
-          <div class="separator_quick"></div>
+        <v-card class="dashboard-card quick-start-card verneback justify-center">
           <div class="align-self-center wrapper">
             <button
               class="simple_button font-weight-bold display-1"
@@ -47,23 +46,16 @@
           <div class="icon">
             <img style="height:100px" src="../../assets/icons/aplicaciones.png" />
           </div>
-          <v-card-title class="layout justify-center text-center verne-text subtitle-1">
+          <v-card-title class="justify-center text-center verne-text subtitle-1">
             APLICACIONES
           </v-card-title>
           <v-divider class="verne_divider"></v-divider>
-          <v-row justify="center">
-          <v-col cols="11">
-          <swiper :options="swiperOption">
-          <swiper-slide v-for="card in apps_cards" :key="card.training_id" class="inner">
-            <input type="image" :src="card.src"
-            class="app_icon"
-            @click="redirect(routes.TRAINING, true,'app',card.url)"
-            >
-          </swiper-slide>
-          <div class="swiper-button-prev" slot="button-prev"></div>
-          <div class="swiper-button-next" slot="button-next"></div>
-          </swiper>
-          </v-col>
+          <v-row no-gutters class="items-container">
+            <v-col class="item-col" v-for="card in apps_cards" :key="card.training_id" cols="6">
+              <button @click="redirect(routes.TRAINING, true, 'app', card.url)" class="item-btn">
+                <dashboard-app-item :src="card.src" class="app_icon"/>
+              </button>
+            </v-col>
           </v-row>
         </v-card>
       </v-col>
@@ -76,19 +68,18 @@ import TRAINING_MODES_MENU from '../../constants/TrainingModesMenu';
 import QUICK from '../../constants/QuickTrain';
 import { ROUTES } from '../../router';
 import APPS_CARDS from '../../constants/AppsCards';
-import SwiperOptions from '../../constants/SwiperOptions';
+import DashboardAppItem from './DashboardAppItem.vue';
 
 export default {
   components: {
+    DashboardAppItem,
   },
   data: () => ({
     trainMenu: TRAINING_MODES_MENU,
     quick: QUICK,
     routes: ROUTES,
-    swiperOption: SwiperOptions,
     apps_cards: APPS_CARDS,
   }),
-
   methods: {
     redirect(path, showCounter, mode, url) {
       this.$emit('show-counter', {
@@ -100,6 +91,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.quick-start-card {
+  display: flex !important;
+}
 .full-height {
   height: calc(100vh - 48px);
 }
@@ -121,7 +115,7 @@ export default {
   text-align: center;
 }
 .dashboard-card {
-  height: calc(100vh - 195px);
+  height: calc(100vh - 180px);
 }
 .simple_button {
   background-color: transparent;
@@ -145,5 +139,16 @@ export default {
 .app_icon{
   outline: none;
   border: 0;
+}
+.items-container {
+  padding: 10px;
+  height: calc(100vh - 370px);
+}
+.item-col {
+  display: flex;
+  justify-content: center;
+}
+.item-btn {
+  width: 100%;
 }
 </style>

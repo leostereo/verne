@@ -31,7 +31,7 @@ export default {
       this.mode = mode;
       this.showCounter = showCounter;
       if (!showCounter) {
-        this.redirect(mode, url);
+        this.redirect();
       }
     },
     redirect() {

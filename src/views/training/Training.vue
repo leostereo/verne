@@ -69,9 +69,7 @@
     <div v-if="showApps">
       <app-viewer :url="this.appUrl" @apps-modal-action="handleAppsModal"/>
     </div>
-    <control-bar @playerEvent="controlPlayer"
-    @apps-modal-action="handleAppsModal"
-    />
+    <control-bar @playerEvent="controlPlayer" @apps-modal-action="handleAppsModal"/>
   </div>
 </template>
 

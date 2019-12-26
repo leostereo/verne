@@ -6,7 +6,7 @@
       <back-home-button path="/training-programs"/>
     </v-row>
     <v-row v-if="render" justify="center" align="center" class="training-container">
-      <v-col cols="3">
+      <v-col cols="4">
         <train-program-detail
           :creator="card.creator"
           :name="card.name"
@@ -100,6 +100,8 @@ export default {
 
 <style lang="scss" scoped>
 .training-container {
+  padding-top: 0;
+  padding-bottom: 0;
   height: calc(100vh - 200px);
 }
 </style>

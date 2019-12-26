@@ -15,10 +15,6 @@
 
 <script>
 export default {
-  components: {
-  },
-  data: () => ({
-  }),
   props: {
     url: {
       type: String,
@@ -35,13 +31,14 @@ export default {
 
 <style lang="scss" scoped>
 .app-container {
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 .app {
   display: inline-flex;
   width: 100%;
-  height: calc(100vh - 225px);
+  height: calc(100vh - 320px);
   background: white;
+  border-radius: 3px;
 }
 </style>
