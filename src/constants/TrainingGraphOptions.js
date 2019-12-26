@@ -5,7 +5,7 @@ const TrainingGraphOptions = {
     type: 'column',
     backgroundColor: 'rgba(255, 255, 255, 0.0)',
     events: {},
-    height: '50%',
+    height: '35%',
   },
   title: {
     text: null,

@@ -27,6 +27,10 @@ export default {
 </script>
 
 <style>
+.main_frame{
+  background-color: red;
+  margin-left: 10px;
+}
 .circle {
   background: #3c3e55;
   border-radius: 45px;
@@ -47,14 +51,14 @@ export default {
   border-bottom-right-radius: 35px;
   border-top-right-radius: 35px;
   height: 60px;
-  width: calc(100% - 80px);
+  width: calc(100% - 130px);
   float: left;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .text {
-  font-size: 25px;
+  font-size: 20px;
   color: white;
 }
 .litle {

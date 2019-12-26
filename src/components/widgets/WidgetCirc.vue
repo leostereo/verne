@@ -13,7 +13,7 @@
         <div class="verne_text">
           <span class="display-2">{{real}}</span>
           <br>
-          <span>{{unit}}</span>
+          <span>[{{unit}}]</span>
         </div>
      </v-progress-circular>
     </div>

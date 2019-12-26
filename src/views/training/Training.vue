@@ -6,30 +6,30 @@
     <v-container class="training-container" fluid v-if="!mini_status">
       <v-row justify="center" align="center" no-gutters>
         <v-col cols="3">
-          <widget-circ :myvalue="speedPorc" :real="speed" unit="KM/Hs" />
+          <widget-circ :myvalue="speedPorc" :real="speed" unit="Km/h" />
         </v-col>
         <v-col cols="3">
-          <widget-circ :myvalue="inclinationPorc" :real="inclination" unit="inclination"/>
+          <widget-circ :myvalue="inclinationPorc" :real="inclination" unit="grados"/>
         </v-col>
         <v-col cols="3">
           <widget-circ
             :myvalue="distancePorc"
             :real="kms"
             v-bind:class="{ blink: distanceCloseToFinish }"
-            unit="KMs"
+            unit="Km"
           />
         </v-col>
         <v-col cols="2">
           <widget-circ
             :myvalue="timePorc"
             :real="training_time"
-            unit="tiempo"
+            unit="mm:ss"
             v-bind:class="{ blink: timeCloseToFinish }"
           />
         </v-col>
       </v-row>
-      <v-row justify="center" align="end" class="graph-row">
-        <v-col cols="7">
+      <v-row justify="center" align="end" class="widget-row">
+        <v-col cols="9">
           <v-row justify="start">
             <v-col cols="4">
               <widget-img :value="heartbeat" unit="PPS">
@@ -50,7 +50,9 @@
             </v-col>
           </v-row>
         </v-col>
-        <v-col cols="4">
+        </v-row>
+        <v-row justify="center" class="graph-row mb-5">
+        <v-col cols="8">
           <training-graphic />
         </v-col>
       </v-row>
@@ -277,8 +279,8 @@ video {
   width: 100% !important;
   height: calc(100vh - 220px) !important;
 }
-.graph-row {
-  height: calc(100vh - 500px);
+.graph-ro {
+  height: calc(100vh - 800px);
 }
 .training-container {
   padding: 3rem;
