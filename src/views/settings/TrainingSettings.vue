@@ -71,7 +71,7 @@ export default {
     StartFooter,
   },
   props: {
-    mode: {
+    training_mode: {
       type: String,
       required: true,
     },
@@ -89,10 +89,10 @@ export default {
       return `${this.slider} ${this.units}`;
     },
     title() {
-      return this.mode === 'distance' ? 'ENTRENAMIENTO POR DISTANCIA' : 'ENTRENAMIENTO POR TIEMPO';
+      return this.training_mode === 'distance' ? 'ENTRENAMIENTO POR DISTANCIA' : 'ENTRENAMIENTO POR TIEMPO';
     },
     units() {
-      return this.mode === 'distance' ? 'KMs' : 'Mins';
+      return this.training_mode === 'distance' ? 'KMs' : 'Mins';
     },
   },
   methods: {
@@ -137,7 +137,7 @@ export default {
       this.$router.push({
         name: '/training',
         params: {
-          training_mode: this.mode,
+          training_mode: this.training_mode,
           training_value: String(this.slider),
           user_age: this.age,
           user_weight: this.weight,
