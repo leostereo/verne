@@ -15,10 +15,10 @@
         />
       </v-col>
       <v-col cols="4">
-        <training-program-graphic :options="speedGraph" :source="0"/>
+        <training-program-graphic :options="speedGraph" :source="1"/>
       </v-col>
       <v-col cols="4">
-        <training-program-graphic :options="inclinationGraph" :source="1"/>
+        <training-program-graphic :options="inclinationGraph" :source="0"/>
       </v-col>
     </v-row>
     <start-footer @click="setCounter" v-if="render"></start-footer>

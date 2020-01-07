@@ -36,10 +36,10 @@
         </v-row>
         <v-row class="virtual-graphs" justify="center">
           <v-col cols="5">
-            <training-virtual-graphic :options="speedGraph" :source="0"/>
+            <training-virtual-graphic :options="speedGraph" :source="1"/>
           </v-col>
           <v-col cols="5">
-            <training-virtual-graphic :options="inclinationGraph" :source="1"/>
+            <training-virtual-graphic :options="inclinationGraph" :source="0"/>
           </v-col>
         </v-row>
       </v-col>
