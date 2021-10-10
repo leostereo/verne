@@ -1,0 +1,3 @@
+"parser": "babel-eslint"
+/*eslint linebreak-style: ["error", "windows"]*/
+
