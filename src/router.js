@@ -9,6 +9,8 @@ export const ROUTES = {
   TRAINING_PROGRAM_DETAIL: '/training-program-detail',
   TRAINING_VIRTUAL_DETAIL: '/training-virtual-detail',
   TRAINING_SETTINGS: '/training-settings',
+  GLOBAL_SETTINGS: '/global-settings',
+
   TRAINING_STATS: '/training/stats',
   APPS: '/apps',
 };
@@ -34,6 +36,12 @@ export default new Router({
       name: '/training-settings',
       component: () => import('./views/settings/TrainingSettings.vue'),
     },
+    {
+      path: ROUTES.GLOBAL_SETTINGS,
+      props: true,
+      name: '/global-settings',
+      component: () => import('./views/settings/GlobalSettings.vue'),
+    },    
     {
       path: ROUTES.TRAINING_PROGRAMS,
       props: true,

@@ -1,6 +1,7 @@
 const SOCKET = {
-  URL: 'ws://192.168.110.88',
-  PORT: 8081,
+  //URL: 'ws://192.168.110.88',
+  URL: 'ws://localhost',
+  PORT: 8088,
   PATH: 'control',
   PROTOCOL: 'websocket',
   // RECONNECTION_ATTEMPTS: 5,
@@ -49,6 +50,7 @@ const MESSAGE_ACTIONS = {
   GET_TRAINING_DETAIL_BY_ID: 'get_training_detail_by_id',
   GET_ALL_VIRTUAL_TRAININGS: 'get_all_virtual_trainings',
   GET_VIRTUAL_TRAINING_DETAIL_BY_ID: 'get_virtual_training_detail_by_id',
+  SET_WIFI: 'set_wifi'
 };
 
 export { SOCKET, MESSAGE_CODES, MESSAGE_ACTIONS };

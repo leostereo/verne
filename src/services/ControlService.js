@@ -6,6 +6,10 @@ class ControlService extends WebsocketService {
     super();
     this.code = MESSAGE_CODES.CONTROL;
   }
+  connectWifi(params){
+    const message = this.createMessage(this.code, MESSAGE_ACTIONS.SET_WIFI, params);
+    this.sendMessage(message);
+  }
 
   startPolling() {
     this.play();

@@ -47,4 +47,5 @@ export default {
   background-image: url("assets/images/fondo2.png");
   background-size: cover;
 }
+
 </style>
