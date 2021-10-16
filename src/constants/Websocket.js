@@ -1,7 +1,7 @@
 const SOCKET = {
   //URL: 'ws://192.168.110.88',
   URL: 'ws://localhost',
-  PORT: 8088,
+  PORT: 8081,
   PATH: 'control',
   PROTOCOL: 'websocket',
   // RECONNECTION_ATTEMPTS: 5,

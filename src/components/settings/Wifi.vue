@@ -24,7 +24,7 @@
         ></v-text-field>
 
         <v-row fluid justify="center">
-          <v-btn @click="connect()" class="my-10 verne-text" outlined color="indigo"
+          <v-btn v-on:click="connect()" class="my-10 verne-text" outlined color="indigo"
             ><div class="verne-text">
               CONECTAR
             </div>
