@@ -58,6 +58,9 @@ export default new Vuex.Store({
     },
   },
   actions: {
+    set_wifi_credentials_response() {
+      console.log("red inalambrica configurada")
+    },
     ack(_, message) {
       this.state.socket.response = message;
     },

@@ -1,5 +1,5 @@
 const SOCKET = {
-  //URL: 'ws://192.168.110.88',
+  //URL: 'ws://192.168.0.102',
   URL: 'ws://localhost',
   PORT: 8081,
   PATH: 'control',
@@ -24,6 +24,7 @@ const MESSAGE_CODES = {
   TRAINING_VIEW: 'training_view',
   STATUS: 'status',
   VIEW: 'view',
+  ADMIN: 'admin_view'
 };
 
 const MESSAGE_ACTIONS = {
@@ -50,7 +51,7 @@ const MESSAGE_ACTIONS = {
   GET_TRAINING_DETAIL_BY_ID: 'get_training_detail_by_id',
   GET_ALL_VIRTUAL_TRAININGS: 'get_all_virtual_trainings',
   GET_VIRTUAL_TRAINING_DETAIL_BY_ID: 'get_virtual_training_detail_by_id',
-  SET_WIFI: 'set_wifi'
+  SET_WIFI: 'set_wifi_credentials'
 };
 
 export { SOCKET, MESSAGE_CODES, MESSAGE_ACTIONS };

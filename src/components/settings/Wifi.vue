@@ -36,21 +36,20 @@
 </template>
 
 <script>
-import ControlService from "../../services/ControlService";
+import AdminService from "../../services/AdminService";
 
 export default {
   name: "wifi",
   data: () => ({
     params: {
       ssid: "",
-      pass: "",
-      valid: ""
+      pass: ""
     }
   }),
   methods: {
     connect() {
       console.log("connecting");
-      ControlService.connectWifi(this.params);
+      AdminService.connectWifi(this.params);
     }
   }
 };
