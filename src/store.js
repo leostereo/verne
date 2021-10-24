@@ -5,6 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    isAdmin: null,
     user: {
       age: null,
     },
@@ -27,6 +28,10 @@ export default new Vuex.Store({
     },
   },
   mutations: {
+    clear_admin(){
+      console.log("clearing admin pass");
+      this.state.isAdmin = 'empty';
+    },
     reset_data() {
       this.state.treadmill.status = {};
     },
@@ -58,6 +63,10 @@ export default new Vuex.Store({
     },
   },
   actions: {
+    get_admin_password_response(_, message){
+      console.log(JSON.stringify(message));
+      this.state.isAdmin = message.admin_pass_verification_result ? 'valid' : 'invalid'
+    },
     set_wifi_credentials_response() {
       console.log("red inalambrica configurada")
     },

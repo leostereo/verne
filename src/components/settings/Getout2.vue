@@ -5,7 +5,12 @@
     </v-card-title>
     <v-card-actions mx-10 class="justify-center align-center">
       <v-row fluid justify="center">
-        <v-btn class="my-10 verne-text" v-on:click="toggleFullscreen()" outlined color="indigo"
+        <v-btn
+          to="/global-settings"
+          class="my-10 verne-text"
+          @click="exit()"
+          outlined
+          color="indigo"
           ><div class="verne-text">
             {{ button_state }}
           </div>
@@ -16,33 +21,42 @@
 </template>
 
 <script>
-const { remote } = require("electron");
+
+const {remote} = require("electron")
 
 export default {
-  name: "Getout",
+  name: "getOut",
   data: () => ({
-    button_state: "SALIR"
+    button_state : "SALIR"
   }),
-  mounted() {},
+  mounted() {
+  },
   methods: {
-    toggleFullscreen() {
-      console.log("toggling");
+    exit() {
+      
+      //  if (document.fullscreenElement) {
+      //    this.button_state = "SALIR"
+      //    document.exitFullscreen();
+      //  } else {
+      //    document.documentElement.requestFullscreen();
+      //    this.button_state = "VOLVER"
+      //  }
 
-      // if (document.fullscreenElement) {
-      //   this.button_state = "SALIR"
-      //   document.exitFullscreen();
-      // } else {
-      //   document.documentElement.requestFullscreen();
-      //   this.button_state = "VOLVER"
-      // }
-
-      if (remote.getCurrentWindow().isFullScreen()) {
-        this.button_state = "VOLVER";
+        
+      if(remote.getCurrentWindow().isFullScreen())
+      {
+      
+        this.button_state = "VOLVER"
         remote.getCurrentWindow().setFullScreen(false);
-      } else {
-        this.button_state = "SALIR";
+        
+      
+      }else {
+        this.button_state = "SALIR"
         remote.getCurrentWindow().setFullScreen(true);
+        
+
       }
+
     }
   }
 };
@@ -51,7 +65,7 @@ export default {
 .dashboard-card {
   height: calc(100vh - 320px);
 }
-.height {
+.height{
   height: 320px;
 }
 .verne-text {

@@ -8,14 +8,31 @@
         Volumen
       </v-btn>
     </div>
-      <v-btn icon small class="mx-3">
+      <v-btn icon small class="mx-3" @click="setVolume('down')">
         <img style="height:30px" src="../../assets/icons/less_vol.svg" alt="">
       </v-btn>
-      <v-btn icon small class="mx-3">
+      <v-btn icon small class="mx-3" @click="setVolume('up')">
         <img style="height:30px" src="../../assets/icons/more_vol.svg" alt="">
       </v-btn>
-      <v-btn icon small class="mx-3">
+      <v-btn icon small class="mx-3" @click="setVolume('mute')">
         <img style="height:30px" src="../../assets/icons/silenciar.svg" alt="">
       </v-btn>
   </v-row>
 </template>
+
+<script>
+import AdminService from "../../services/AdminService";
+
+export default {
+  name: "volumen",
+   methods: {
+    setVolume (type){
+      AdminService.setVolume({type});
+    }
+  },
+}
+</script>
+
+<style>
+
+</style>

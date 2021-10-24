@@ -3,12 +3,9 @@
     <v-row>
       <back-home-button />
     </v-row>
-    <v-row align="center" class="" justify="center">
+    <v-row align="center" class="full-height" justify="center">
       <v-col cols="3">
-        <wifi />
-      </v-col>
-      <v-col cols="3">
-      <getout/>
+        <login-form />
       </v-col>
     </v-row>
   </v-container>
@@ -16,17 +13,13 @@
 
 <script>
 import BackHomeButton from "../../components/buttons/BackHomeButton.vue";
-import Wifi from "../../components/settings/Wifi.vue";
-import Getout from '../../components/settings/Getout.vue'
-
+import LoginForm from "../../components/settings/LoginForm.vue";
 
 export default {
-  name: 'AdminLogin',
+  name: "AdminLogin",
   components: {
     BackHomeButton,
-    Wifi,
-    Getout
-    
+    LoginForm
   },
   data: () => ({}),
   methods: {
@@ -41,7 +34,6 @@ export default {
 .full-height {
   height: calc(100vh - 24px);
 }
-
 .verne-text {
   font-family: $verne_text_font-family;
   color: $verne_text-color;

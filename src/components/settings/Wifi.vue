@@ -1,5 +1,5 @@
 <template>
-  <v-card class="dashboard-card verne-card justify-center">
+  <v-card class="height verne-card justify-center">
     <v-card-title class="justify-center verne-text text-center subtitle-1">
       RED INALAMBRICA
     </v-card-title>
@@ -8,7 +8,7 @@
       <v-form ref="form" v-model="params.valid" lazy-validation>
         <v-text-field
           v-model="params.ssid"
-          :counter="10"
+          :rules="[rules.notEmpty]"
           label="ssid"
           required
           color="blue"
@@ -39,8 +39,11 @@
 import AdminService from "../../services/AdminService";
 
 export default {
-  name: "wifi",
+  name: "Wifi",
   data: () => ({
+    rules: {
+      notEmpty: value => value.length > 0 || "No puede estar vacio"
+    },
     params: {
       ssid: "",
       pass: ""
@@ -57,6 +60,9 @@ export default {
 <style lang="scss" scoped>
 .dashboard-card {
   height: calc(100vh - 320px);
+}
+.height {
+  height: 320px;
 }
 .verne-text {
   font-family: $verne_text_font-family;
