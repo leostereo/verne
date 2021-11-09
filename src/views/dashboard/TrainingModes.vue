@@ -95,7 +95,7 @@ export default {
   display: flex !important;
 }
 .full-height {
-  height: calc(100vh - 80px);
+  height: calc(100vh - 90px);
 }
 .verne-card {
   background-color: $primary-color;
