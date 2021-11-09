@@ -2,7 +2,7 @@
   <v-container fluid>
     <counter :show="showCounter" @on-finish="redirect" />
     <v-row justify="end">
-      <v-btn to="/admin_login" class="mt-5 mr-10 verne-text" outlined color="indigo"
+      <v-btn to="/admin_login" class="mr-10 verne-text" outlined color="indigo"
         ><div class="verne-text">
           Configuraciones
           <v-icon dark right color="white">
