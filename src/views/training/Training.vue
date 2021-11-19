@@ -32,7 +32,7 @@
         <v-col cols="9">
           <v-row justify="start">
             <v-col cols="4">
-              <widget-img :value="heartbeat" unit="PPS">
+              <widget-img :value="heartbeat" unit="PPM">
                 <img height="85px" src="../../assets/icons/corazon_borde.svg" />
               </widget-img>
             </v-col>
